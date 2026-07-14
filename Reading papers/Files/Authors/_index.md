@@ -1,6 +1,6 @@
 # 作者索引
 
-本索引由 QWiki 当前论文卡片与既有作者导航扫描更新；当前收录 34 位人名，其中 33 位直接关联当前论文。
+本索引由 QWiki 当前论文卡片与既有作者导航扫描更新；当前收录 35 位人名，其中 34 位直接关联当前论文。
 
 每次新增、删除或调整论文卡片时，同步更新本文件、缺失作者档案和 QWiki 首页隐藏作者导航。缺失身份信息先标记“待核验”，不要直接猜测机构、导师或学术历史。
 
@@ -57,7 +57,7 @@
   - [Fiber Functors of Equivariantizations of Finite Tensor Categories](<../../ArxivDaily/Fiber Functors of Equivariantizations of Finite Tensor Categories - Galindo Gallego Morales - 2026-07-14/解读.md>)；arXiv:2607.10525
 - [Claudia Gallego](Claudia-Gallego.md)：1 篇当前论文
   - [Fiber Functors of Equivariantizations of Finite Tensor Categories](<../../ArxivDaily/Fiber Functors of Equivariantizations of Finite Tensor Categories - Galindo Gallego Morales - 2026-07-14/解读.md>)；arXiv:2607.10525
-- [Alexander Goncharov](Alexander-Goncharov.md)：7 篇当前论文
+- [Alexander Goncharov](Alexander-Goncharov.md)：9 篇当前论文
   - [Moduli Spaces of Local Systems and Higher Teichmuller Theory](<../../cluster/FG/0311149v4.md>)；arXiv:math/0311149v4
   - [Cluster Ensembles, Quantization and the Dilogarithm](<../../cluster/FG/0311245v7.md>)；arXiv:math/0311245v7
   - [Cluster X-varieties, Amalgamation and Poisson-Lie Groups](<../../cluster/FG/0508408v2.md>)；arXiv:math/0508408v2
@@ -65,6 +65,8 @@
   - [The Quantum Dilogarithm and Representations of Quantum Cluster Varieties](<../../cluster/FG/0702397v6.md>)；arXiv:math/0702397v6
   - [Cluster Ensembles, Quantization and the Dilogarithm II: The Intertwiner](<../../cluster/FG/0702398v1.md>)；arXiv:math/0702398v1
   - [Symplectic Double for Moduli Spaces of G-local Systems on Surfaces](<../../cluster/FG/1410.3526v2.md>)；arXiv:1410.3526v2
+  - [Non-commutative Cluster Lagrangians](<../../DimerRelated/Non-commutative Cluster Lagrangians - Goncharov Kontsevich - 2026-01-12/解读.md>)；arXiv:2601.07538
+  - [Spectral Description of Non-commutative Local Systems on Surfaces and Non-commutative Cluster Varieties](<../../DimerRelated/Spectral Description of Non-commutative Local Systems on Surfaces and Non-commutative Cluster Varieties - Goncharov Kontsevich - 2024-02-06/解读.md>)；arXiv:2108.04168v4
 - [Mikhail Gorsky](Mikhail-Gorsky.md)：1 篇当前论文
   - [Cluster Deep Loci and Mirror Symmetry](<../../cluster/2402.16970v2.md>)；arXiv:2402.16970v2
 
@@ -74,6 +76,9 @@
 
 ### K
 - [Alexandre Kirillov](Alexandre-Kirillov.md)：暂未直接关联当前论文
+- [Maxim Kontsevich](Maxim-Kontsevich.md)：2 篇当前论文
+  - [Non-commutative Cluster Lagrangians](<../../DimerRelated/Non-commutative Cluster Lagrangians - Goncharov Kontsevich - 2026-01-12/解读.md>)；arXiv:2601.07538
+  - [Spectral Description of Non-commutative Local Systems on Surfaces and Non-commutative Cluster Varieties](<../../DimerRelated/Spectral Description of Non-commutative Local Systems on Surfaces and Non-commutative Cluster Varieties - Goncharov Kontsevich - 2024-02-06/解读.md>)；arXiv:2108.04168v4
 
 ### L
 - [Emanuele Latini](Emanuele-Latini.md)：1 篇当前论文
@@ -287,3 +292,13 @@
 - 来源：1998-08-05 · arXiv:math/9807079v2
 - [Sergey Fomin](Sergey-Fomin.md)
 - [Andrei Zelevinsky](Andrei-Zelevinsky.md)
+
+### Non-commutative Cluster Lagrangians
+- 来源：2026-01-12 · arXiv:2601.07538
+- [Alexander Goncharov](Alexander-Goncharov.md)
+- [Maxim Kontsevich](Maxim-Kontsevich.md)
+
+### Spectral Description of Non-commutative Local Systems on Surfaces and Non-commutative Cluster Varieties
+- 来源：2024-02-06 · arXiv:2108.04168v4
+- [Alexander Goncharov](Alexander-Goncharov.md)
+- [Maxim Kontsevich](Maxim-Kontsevich.md)
