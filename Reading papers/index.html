@@ -287,11 +287,34 @@
     .author-workbench-header {
       margin-bottom: 6px;
     }
+    .author-alphabet {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 16px;
+    }
+    .author-initial-button {
+      min-width: 34px;
+      min-height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--accent);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 650;
+      padding: 5px 8px;
+    }
+    .author-initial-button.is-active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
     .author-picker {
       display: grid;
-      grid-template-columns: minmax(140px, 180px) minmax(240px, 1fr);
+      grid-template-columns: minmax(220px, 1fr) minmax(240px, 1fr);
       gap: 10px;
-      margin-top: 16px;
+      margin-top: 12px;
     }
     .author-detail {
       margin-top: 16px;
@@ -465,33 +488,31 @@
           <div class="meta">Léo Le-Nestour, David Pérez-García, Alberto Ruiz-de-Alarcón · 2026-07-10 · arXiv:2607.08568</div>
           <div class="tags"><span class="tag">C*-Hopf algebra</span><span class="tag">RG</span><span class="tag">quantum hypergroup</span></div>
         </article>
+        <div class="empty-state" id="emptyState">没有找到匹配的论文。</div>
       </div>
-      </section>
+    </section>
 
-      <section class="paper-section" data-category="Reshetikhin">
-        <div class="section-head">
-          <div>
-            <h2>Reshetikhin</h2>
-            <div class="folder-note">分类目录：`Reading papers/Reshetikhin`</div>
-          </div>
+    <section class="paper-section" data-category="Reshetikhin">
+      <div class="section-head">
+        <div>
+          <h2>Reshetikhin</h2>
+          <div class="folder-note">分类目录：`Reading papers/Reshetikhin`</div>
         </div>
-        <div class="paper-list">
-          <article class="article">
-            <div class="title"><a href="Reshetikhin/Rational Ruijsenaars-Schneider hierarchy and bispectral difference operators - Iliev - 2006-09-05/paper.pdf">Rational Ruijsenaars-Schneider hierarchy and bispectral difference operators</a></div>
-            <div class="meta">Iliev · 2006-09-05 · paper.pdf</div>
-            <div class="tags"><span class="tag">Ruijsenaars-Schneider</span><span class="tag">bispectral</span><span class="tag">integrable systems</span></div>
-          </article>
+      </div>
+      <div class="paper-list">
+        <article class="article">
+          <div class="title"><a href="Reshetikhin/Rational Ruijsenaars-Schneider hierarchy and bispectral difference operators - Iliev - 2006-09-05/解读.md">Rational Ruijsenaars-Schneider hierarchy and bispectral difference operators</a></div>
+          <div class="meta">Plamen Iliev · 2006-09-05 · arXiv:math-ph/0609011</div>
+          <div class="tags"><span class="tag">Ruijsenaars-Schneider</span><span class="tag">discrete KP</span><span class="tag">bispectral</span><span class="tag">tau function</span></div>
+        </article>
 
-          <article class="article">
-            <div class="title"><a href="Reshetikhin/Spherical singularities in compactified Ruijsenaars-Schneider systems - Feher Dullin - 2026-04-20/paper.pdf">Spherical singularities in compactified Ruijsenaars-Schneider systems</a></div>
-            <div class="meta">Feher, Dullin · 2026-04-20 · paper.pdf</div>
-            <div class="tags"><span class="tag">Ruijsenaars-Schneider</span><span class="tag">singularities</span><span class="tag">Hamiltonian systems</span></div>
-          </article>
-        </div>
-      </section>
-
-      <div class="empty-state" id="emptyState">没有找到匹配的论文。</div>
-    </div>
+        <article class="article">
+          <div class="title"><a href="Reshetikhin/Spherical singularities in compactified Ruijsenaars-Schneider systems - Feher Dullin - 2026-04-20/解读.md">Spherical singularities in compactified Ruijsenaars-Schneider systems</a></div>
+          <div class="meta">László Fehér, Holger R. Dullin · 2026-04-20 · arXiv:2604.18023</div>
+          <div class="tags"><span class="tag">Ruijsenaars-Schneider</span><span class="tag">symplectic reduction</span><span class="tag">momentum polytope</span><span class="tag">spherical singularity</span></div>
+        </article>
+      </div>
+    </section>
 
     <aside>
       <h2>人名导航</h2>
@@ -505,10 +526,13 @@
         <a href="Files/Authors/Emanuele-Latini.md">Emanuele Latini</a>
         <a href="Files/Authors/Eric-Ragoucy.md">Eric Ragoucy</a>
         <a href="Files/Authors/Haoran-Zhu.md">Haoran Zhu</a>
+        <a href="Files/Authors/Holger-R-Dullin.md">Holger R. Dullin</a>
         <a href="Files/Authors/Ibrahim-Ahmad.md">Ibrahim Ahmad</a>
         <a href="Files/Authors/Keyou-Zeng.md">Keyou Zeng</a>
+        <a href="Files/Authors/Laszlo-Feher.md">László Fehér</a>
         <a href="Files/Authors/Leo-Le-Nestour.md">Léo Le-Nestour</a>
         <a href="Files/Authors/Madeline-Nurcombe.md">Madeline Nurcombe</a>
+        <a href="Files/Authors/Plamen-Iliev.md">Plamen Iliev</a>
         <a href="Files/Authors/Pranav-Enugandla.md">Pranav Enugandla</a>
         <a href="Files/Authors/Rita-Fioresi.md">Rita Fioresi</a>
         <a href="Files/Authors/Thomas-Weber.md">Thomas Weber</a>

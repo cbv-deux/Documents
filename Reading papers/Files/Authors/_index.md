@@ -1,5 +1,14 @@
 # 作者索引
 
+## Rational Ruijsenaars-Schneider hierarchy and bispectral difference operators
+
+- [Plamen Iliev](Plamen-Iliev.md)
+
+## Spherical singularities in compactified Ruijsenaars-Schneider systems
+
+- [László Fehér](Laszlo-Feher.md)
+- [Holger R. Dullin](Holger-R-Dullin.md)
+
 ## Noncommutative vector field calculi
 
 - [Rita Fioresi](Rita-Fioresi.md)
