@@ -142,7 +142,31 @@
       padding: 7px 12px;
       white-space: nowrap;
     }
-    .paper-list.is-collapsed {
+    .module-stack {
+      display: grid;
+      gap: 14px;
+    }
+    .folder-module {
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+    .folder-module:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+    .module-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+    .module-head h3 {
+      margin: 0 0 4px;
+      color: var(--ink);
+    }
+    .paper-list.is-collapsed,
+    .module-stack.is-collapsed {
       display: none;
     }
     aside {
@@ -280,6 +304,14 @@
       border-radius: 6px;
       background: var(--accent-soft);
     }
+    .author-grid[hidden] {
+      display: none;
+    }
+    .starred-empty {
+      color: var(--muted);
+      font-size: 13px;
+      padding: 7px 0;
+    }
     .author-workbench {
       margin: 0 40px 44px;
       padding: 24px;
@@ -312,9 +344,36 @@
     }
     .author-picker {
       display: grid;
-      grid-template-columns: minmax(220px, 1fr) minmax(240px, 1fr);
+      grid-template-columns: minmax(240px, 420px);
       gap: 10px;
       margin-top: 12px;
+    }
+    .author-results {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+      min-height: 36px;
+    }
+    .author-result-button {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 650;
+      padding: 7px 10px;
+    }
+    .author-result-button.is-active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .author-results-empty {
+      color: var(--muted);
+      font-size: 13px;
+      padding: 7px 0;
     }
     .author-detail {
       margin-top: 16px;
@@ -332,6 +391,29 @@
       justify-content: space-between;
       font-weight: 650;
     }
+    .author-title-main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .author-star-button {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--muted);
+      cursor: pointer;
+      font: inherit;
+      font-size: 19px;
+      line-height: 1;
+    }
+    .author-star-button.is-starred {
+      background: #fff7d6;
+      border-color: #dfb928;
+      color: #9a6b00;
+    }
     .author-path {
       color: var(--muted);
       font-size: 12px;
@@ -348,6 +430,15 @@
       display: grid;
       gap: 6px;
       align-content: end;
+    }
+    .author-action a {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--accent);
+      font-weight: 650;
+      padding: 7px 12px;
+      text-align: center;
     }
     .author-action button {
       border: 0;
@@ -383,12 +474,14 @@
         grid-template-columns: 1fr;
       }
       .section-head,
+      .module-head,
       .author-detail-title,
       .author-tools,
       .author-picker {
         grid-template-columns: 1fr;
       }
-      .section-head {
+      .section-head,
+      .module-head {
         display: grid;
       }
       .author-workbench {
@@ -488,7 +581,6 @@
           <div class="meta">Léo Le-Nestour, David Pérez-García, Alberto Ruiz-de-Alarcón · 2026-07-10 · arXiv:2607.08568</div>
           <div class="tags"><span class="tag">C*-Hopf algebra</span><span class="tag">RG</span><span class="tag">quantum hypergroup</span></div>
         </article>
-        <div class="empty-state" id="emptyState">没有找到匹配的论文。</div>
       </div>
     </section>
 
@@ -514,31 +606,195 @@
       </div>
     </section>
 
+    <section class="paper-section" data-folder="cluster" data-collapse-key="folder:cluster">
+      <div class="section-head">
+        <div>
+          <h2>cluster</h2>
+          <div class="folder-note">分类目录：`Reading papers/cluster`</div>
+        </div>
+      </div>
+      <div class="module-stack">
+        <div class="folder-module" data-category="cluster" data-collapse-key="module:cluster/root">
+          <div class="module-head">
+            <div>
+              <h3>Root</h3>
+              <div class="folder-note">母文件夹直下论文</div>
+            </div>
+          </div>
+          <div class="paper-list">
+            <article class="article">
+              <div class="title"><a href="cluster/2402.16970v2.md">Cluster Deep Loci and Mirror Symmetry</a></div>
+              <div class="meta">Marco Castronovo, Mikhail Gorsky, José Simental, David E Speyer · 2024-02-26 · arXiv:2402.16970v2</div>
+              <div class="tags"><span class="tag">cluster variety</span><span class="tag">deep locus</span><span class="tag">mirror symmetry</span><span class="tag">weaves</span></div>
+            </article>
+
+            <article class="article">
+              <div class="title"><a href="cluster/buan2006.md">Acyclic Quivers of Finite Mutation Type</a></div>
+              <div class="meta">Aslak Bakke Buan, Idun Reiten · 2006 · local PDF retained</div>
+              <div class="tags"><span class="tag">quiver mutation</span><span class="tag">finite mutation type</span><span class="tag">Dynkin</span><span class="tag">representation theory</span></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="folder-module" data-category="cluster/FG" data-collapse-key="module:cluster/FG">
+          <div class="module-head">
+            <div>
+              <h3>FG</h3>
+              <div class="folder-note">子文件夹：`Reading papers/cluster/FG`</div>
+            </div>
+          </div>
+          <div class="paper-list">
+            <article class="article">
+              <div class="title"><a href="cluster/FG/0311149v4.md">Moduli Spaces of Local Systems and Higher Teichmuller Theory</a></div>
+              <div class="meta">Vladimir Fock, Alexander Goncharov · 2006-04-29 · arXiv:math/0311149v4</div>
+              <div class="tags"><span class="tag">higher Teichmuller theory</span><span class="tag">local systems</span><span class="tag">cluster ensemble</span></div>
+            </article>
+
+            <article class="article">
+              <div class="title"><a href="cluster/FG/0311245v7.md">Cluster Ensembles, Quantization and the Dilogarithm</a></div>
+              <div class="meta">Vladimir Fock, Alexander Goncharov · 2009-08-04 · arXiv:math/0311245v7</div>
+              <div class="tags"><span class="tag">cluster ensemble</span><span class="tag">quantization</span><span class="tag">dilogarithm</span></div>
+            </article>
+
+            <article class="article">
+              <div class="title"><a href="cluster/FG/0508408v2.md">Cluster X-varieties, Amalgamation and Poisson-Lie Groups</a></div>
+              <div class="meta">Vladimir Fock, Alexander Goncharov · 2006-01-06 · arXiv:math/0508408v2</div>
+              <div class="tags"><span class="tag">cluster X-variety</span><span class="tag">Poisson-Lie group</span><span class="tag">amalgamation</span></div>
+            </article>
+
+            <article class="article">
+              <div class="title"><a href="cluster/FG/0510312v1.md">Dual Teichmuller and Lamination Spaces</a></div>
+              <div class="meta">Vladimir Fock, Alexander Goncharov · 2005-10-14 · arXiv:math/0510312v1</div>
+              <div class="tags"><span class="tag">Teichmuller space</span><span class="tag">lamination</span><span class="tag">tropicalization</span></div>
+            </article>
+
+            <article class="article">
+              <div class="title"><a href="cluster/FG/0702397v6.md">The Quantum Dilogarithm and Representations of Quantum Cluster Varieties</a></div>
+              <div class="meta">Vladimir Fock, Alexander Goncharov · 2008-07-21 · arXiv:math/0702397v6</div>
+              <div class="tags"><span class="tag">quantum cluster variety</span><span class="tag">symplectic double</span><span class="tag">dilogarithm</span></div>
+            </article>
+
+            <article class="article">
+              <div class="title"><a href="cluster/FG/0702398v1.md">Cluster Ensembles, Quantization and the Dilogarithm II: The Intertwiner</a></div>
+              <div class="meta">Vladimir Fock, Alexander Goncharov · 2007-02-13 · arXiv:math/0702398v1</div>
+              <div class="tags"><span class="tag">intertwiner</span><span class="tag">quantization</span><span class="tag">quantum dilogarithm</span></div>
+            </article>
+
+            <article class="article">
+              <div class="title"><a href="cluster/FG/1410.3526v2.md">Symplectic Double for Moduli Spaces of G-local Systems on Surfaces</a></div>
+              <div class="meta">Vladimir Fock, Alexander Goncharov · 2015-05-20 · arXiv:1410.3526v2</div>
+              <div class="tags"><span class="tag">symplectic double</span><span class="tag">local systems</span><span class="tag">surfaces</span></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="folder-module" data-category="cluster/Intro-FZ" data-collapse-key="module:cluster/Intro-FZ">
+          <div class="module-head">
+            <div>
+              <h3>Intro-FZ</h3>
+              <div class="folder-note">子文件夹：`Reading papers/cluster/Intro-FZ`</div>
+            </div>
+          </div>
+          <div class="paper-list">
+            <article class="article">
+              <div class="title"><a href="cluster/Intro-FZ/0104151v1.md">Cluster Algebras I: Foundations</a></div>
+              <div class="meta">Sergey Fomin, Andrei Zelevinsky · 2001-04-13 · arXiv:math/0104151v1</div>
+              <div class="tags"><span class="tag">cluster algebra</span><span class="tag">Laurent phenomenon</span><span class="tag">foundations</span></div>
+            </article>
+
+            <article class="article">
+              <div class="title"><a href="cluster/Intro-FZ/0208229v2.md">Cluster Algebras II: Finite Type Classification</a></div>
+              <div class="meta">Sergey Fomin, Andrei Zelevinsky · 2003-03-12 · arXiv:math/0208229v2</div>
+              <div class="tags"><span class="tag">finite type</span><span class="tag">Dynkin</span><span class="tag">generalized associahedron</span></div>
+            </article>
+
+            <article class="article">
+              <div class="title"><a href="cluster/Intro-FZ/0305434v3.md">Cluster Algebras III: Upper Bounds and Double Bruhat Cells</a></div>
+              <div class="meta">Arkady Berenstein, Sergey Fomin, Andrei Zelevinsky · 2004-01-21 · arXiv:math/0305434v3</div>
+              <div class="tags"><span class="tag">upper cluster algebra</span><span class="tag">double Bruhat cell</span><span class="tag">acyclicity</span></div>
+            </article>
+
+            <article class="article">
+              <div class="title"><a href="cluster/Intro-FZ/1608.05735v5.md">Introduction to Cluster Algebras Chapters 1-3</a></div>
+              <div class="meta">Sergey Fomin, Lauren Williams, Andrei Zelevinsky · 2024-12-10 · arXiv:1608.05735v5</div>
+              <div class="tags"><span class="tag">textbook</span><span class="tag">cluster basics</span><span class="tag">chapters 1-3</span></div>
+            </article>
+
+            <article class="article">
+              <div class="title"><a href="cluster/Intro-FZ/1707.07190v3.md">Introduction to Cluster Algebras Chapters 4-5</a></div>
+              <div class="meta">Sergey Fomin, Lauren Williams, Andrei Zelevinsky · 2021-08-30 · arXiv:1707.07190v3</div>
+              <div class="tags"><span class="tag">textbook</span><span class="tag">coefficients</span><span class="tag">finite type</span></div>
+            </article>
+
+            <article class="article">
+              <div class="title"><a href="cluster/Intro-FZ/2008.09189v2.md">Introduction to Cluster Algebras Chapter 6</a></div>
+              <div class="meta">Sergey Fomin, Lauren Williams, Andrei Zelevinsky · 2021-08-30 · arXiv:2008.09189v2</div>
+              <div class="tags"><span class="tag">textbook</span><span class="tag">upper cluster algebra</span><span class="tag">chapter 6</span></div>
+            </article>
+
+            <article class="article">
+              <div class="title"><a href="cluster/Intro-FZ/2106.02160v2.md">Introduction to Cluster Algebras Chapter 7</a></div>
+              <div class="meta">Sergey Fomin, Lauren Williams, Andrei Zelevinsky · 2021-08-30 · arXiv:2106.02160v2</div>
+              <div class="tags"><span class="tag">textbook</span><span class="tag">advanced basics</span><span class="tag">chapter 7</span></div>
+            </article>
+
+            <article class="article">
+              <div class="title"><a href="cluster/Intro-FZ/9802056v1.md">Double Bruhat Cells and Total Positivity</a></div>
+              <div class="meta">Sergey Fomin, Andrei Zelevinsky · 1998-02-11 · arXiv:math/9802056v1</div>
+              <div class="tags"><span class="tag">total positivity</span><span class="tag">double Bruhat cell</span><span class="tag">generalized minors</span></div>
+            </article>
+
+            <article class="article">
+              <div class="title"><a href="cluster/Intro-FZ/9807079v2.md">Recognizing Schubert Cells</a></div>
+              <div class="meta">Sergey Fomin, Andrei Zelevinsky · 1998-08-05 · arXiv:math/9807079v2</div>
+              <div class="tags"><span class="tag">Schubert cell</span><span class="tag">Plucker coordinates</span><span class="tag">flag variety</span></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="empty-state" id="emptyState">没有找到匹配的论文。</div>
+    </div>
+
     <aside>
-      <h2>人名导航</h2>
-      <div class="author-grid author-nav">
-        <a href="Files/Authors/Alberto-Ruiz-de-Alarcon.md">Alberto Ruiz-de-Alarcón</a>
-        <a href="Files/Authors/Alexander-Molev.md">Alexander Molev</a>
-        <a href="Files/Authors/Alexandre-Kirillov.md">Alexandre Kirillov</a>
+      <h2>星标作者</h2>
+      <div class="author-grid starred-author-nav" id="starredAuthorNav"></div>
+      <div class="author-grid author-nav" hidden>
+        <a href="Files/Authors/Ibrahim-Ahmad.md">Ibrahim Ahmad</a>
+        <a href="Files/Authors/Arkady-Berenstein.md">Arkady Berenstein</a>
+        <a href="Files/Authors/Aslak-Bakke-Buan.md">Aslak Bakke Buan</a>
+        <a href="Files/Authors/Marco-Castronovo.md">Marco Castronovo</a>
+        <a href="Files/Authors/Holger-R-Dullin.md">Holger R. Dullin</a>
+        <a href="Files/Authors/Pranav-Enugandla.md">Pranav Enugandla</a>
+        <a href="Files/Authors/Laszlo-Feher.md">László Fehér</a>
+        <a href="Files/Authors/Rita-Fioresi.md">Rita Fioresi</a>
+        <a href="Files/Authors/Vladimir-Fock.md">Vladimir Fock</a>
+        <a href="Files/Authors/Sergey-Fomin.md">Sergey Fomin</a>
         <a href="Files/Authors/Cesar-Galindo.md">César Galindo</a>
         <a href="Files/Authors/Claudia-Gallego.md">Claudia Gallego</a>
-        <a href="Files/Authors/David-Perez-Garcia.md">David Pérez-García</a>
-        <a href="Files/Authors/Emanuele-Latini.md">Emanuele Latini</a>
-        <a href="Files/Authors/Eric-Ragoucy.md">Eric Ragoucy</a>
-        <a href="Files/Authors/Haoran-Zhu.md">Haoran Zhu</a>
-        <a href="Files/Authors/Holger-R-Dullin.md">Holger R. Dullin</a>
-        <a href="Files/Authors/Ibrahim-Ahmad.md">Ibrahim Ahmad</a>
-        <a href="Files/Authors/Keyou-Zeng.md">Keyou Zeng</a>
-        <a href="Files/Authors/Laszlo-Feher.md">László Fehér</a>
-        <a href="Files/Authors/Leo-Le-Nestour.md">Léo Le-Nestour</a>
-        <a href="Files/Authors/Madeline-Nurcombe.md">Madeline Nurcombe</a>
+        <a href="Files/Authors/Alexander-Goncharov.md">Alexander Goncharov</a>
+        <a href="Files/Authors/Mikhail-Gorsky.md">Mikhail Gorsky</a>
         <a href="Files/Authors/Plamen-Iliev.md">Plamen Iliev</a>
-        <a href="Files/Authors/Pranav-Enugandla.md">Pranav Enugandla</a>
-        <a href="Files/Authors/Rita-Fioresi.md">Rita Fioresi</a>
-        <a href="Files/Authors/Thomas-Weber.md">Thomas Weber</a>
-        <a href="Files/Authors/Yiby-Morales.md">Yiby Morales</a>
-        <a href="Files/Authors/Yuze-Ruan.md">Yuze Ruan</a>
+        <a href="Files/Authors/Alexandre-Kirillov.md">Alexandre Kirillov</a>
+        <a href="Files/Authors/Emanuele-Latini.md">Emanuele Latini</a>
+        <a href="Files/Authors/Leo-Le-Nestour.md">Léo Le-Nestour</a>
         <a href="Files/Authors/Zhengwei-Liu.md">Zhengwei Liu</a>
+        <a href="Files/Authors/Alexander-Molev.md">Alexander Molev</a>
+        <a href="Files/Authors/Yiby-Morales.md">Yiby Morales</a>
+        <a href="Files/Authors/Madeline-Nurcombe.md">Madeline Nurcombe</a>
+        <a href="Files/Authors/David-Perez-Garcia.md">David Pérez-García</a>
+        <a href="Files/Authors/Eric-Ragoucy.md">Eric Ragoucy</a>
+        <a href="Files/Authors/Idun-Reiten.md">Idun Reiten</a>
+        <a href="Files/Authors/Yuze-Ruan.md">Yuze Ruan</a>
+        <a href="Files/Authors/Alberto-Ruiz-de-Alarcon.md">Alberto Ruiz-de-Alarcón</a>
+        <a href="Files/Authors/Jose-Simental.md">José Simental</a>
+        <a href="Files/Authors/David-E-Speyer.md">David E Speyer</a>
+        <a href="Files/Authors/Thomas-Weber.md">Thomas Weber</a>
+        <a href="Files/Authors/Lauren-Williams.md">Lauren Williams</a>
+        <a href="Files/Authors/Andrei-Zelevinsky.md">Andrei Zelevinsky</a>
+        <a href="Files/Authors/Keyou-Zeng.md">Keyou Zeng</a>
+        <a href="Files/Authors/Haoran-Zhu.md">Haoran Zhu</a>
       </div>
       <h3>维护入口</h3>
       <div class="author-grid maintenance-nav">
@@ -551,22 +807,16 @@
   <section class="author-workbench" id="authorWorkbench">
     <div class="author-workbench-header">
       <h2>作者讨论</h2>
-      <div class="folder-note">按姓氏首字母选择作者；默认不显示作者详情。选中作者后再记录评价、打开主页或复制提示词讨论。</div>
+      <div class="folder-note">按姓氏首字母或搜索选择作者；默认不显示作者详情。选中作者后再记录评价、打开主页或复制提示词讨论。</div>
     </div>
+    <div class="author-alphabet" id="authorAlphabet" aria-label="姓氏首字母"></div>
     <div class="author-picker" aria-label="作者筛选">
       <label class="control-field">
-        <span>姓氏首字母</span>
-        <select id="authorInitial">
-          <option value="">选择首字母</option>
-        </select>
-      </label>
-      <label class="control-field">
-        <span>作者</span>
-        <select id="authorSelect" disabled>
-          <option value="">先选择首字母</option>
-        </select>
+        <span>搜索作者</span>
+        <input id="authorSearch" type="search" placeholder="输入作者姓名或姓氏">
       </label>
     </div>
+    <div class="author-results" id="authorResults" aria-live="polite"></div>
     <div class="author-detail" id="authorDetail" hidden></div>
   </section>
   <script>
@@ -579,23 +829,12 @@
       { value: 'read', label: '已读' }
     ];
     const STATUS_LABELS = Object.fromEntries(STATUS_OPTIONS.map((item) => [item.value, item.label]));
-    const sections = Array.from(document.querySelectorAll('.paper-section'));
+    const AUTHOR_INITIALS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').concat('other');
+    const AUTHOR_INITIAL_LABELS = Object.fromEntries(AUTHOR_INITIALS.map((initial) => [initial, initial === 'other' ? '其它' : initial]));
+    const sections = Array.from(document.querySelectorAll('.paper-section, .folder-module'));
     const articles = Array.from(document.querySelectorAll('.article'));
     const authorLinks = Array.from(document.querySelectorAll('.author-nav a'));
-    const authorCatalog = authorLinks.map((link, index) => {
-      const name = link.textContent.trim();
-      const href = link.getAttribute('href') || '';
-      const key = decodeURIComponent(href || name);
-      const surname = getAuthorSurname(name);
-      return {
-        index,
-        name,
-        href,
-        key,
-        surname,
-        initial: surname.charAt(0).toUpperCase()
-      };
-    }).sort((a, b) => a.surname.localeCompare(b.surname) || a.name.localeCompare(b.name));
+    const authorCatalog = buildAuthorCatalog();
     const controls = {
       search: document.getElementById('searchInput'),
       category: document.getElementById('categoryFilter'),
@@ -652,13 +891,73 @@
     }
 
     function normalize(text) {
-      return String(text || '').toLocaleLowerCase('zh-CN').trim();
+      return String(text || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('zh-CN').trim();
+    }
+
+    function getArticleAuthors(article) {
+      const meta = article.querySelector('.meta')?.textContent || '';
+      const authorText = meta.split('·')[0] || '';
+      return authorText.split(',').map((name) => name.replace(/\s+/g, ' ').trim()).filter(Boolean);
+    }
+
+    function getAuthorSlug(name) {
+      return String(name || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/\./g, '')
+        .replace(/[^A-Za-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    }
+
+    function makeAuthorCatalogEntry(name, href, index) {
+      const cleanName = String(name || '').replace(/\s+/g, ' ').trim();
+      const profileHref = href || `Files/Authors/${getAuthorSlug(cleanName)}.md`;
+      const surname = getAuthorSurname(cleanName);
+      return {
+        index,
+        name: cleanName,
+        href: profileHref,
+        key: decodeURIComponent(profileHref || cleanName),
+        surname,
+        initial: getAuthorInitial(surname)
+      };
+    }
+
+    function buildAuthorCatalog() {
+      const authorsBySlug = new Map();
+      const addAuthor = (name, href, index) => {
+        const cleanName = String(name || '').replace(/\s+/g, ' ').trim();
+        if (!cleanName) return;
+        const slug = getAuthorSlug(cleanName);
+        if (!slug) return;
+        const existing = authorsBySlug.get(slug.toLocaleLowerCase('en-US'));
+        if (existing) {
+          if (href) existing.href = href;
+          return;
+        }
+        authorsBySlug.set(slug.toLocaleLowerCase('en-US'), makeAuthorCatalogEntry(cleanName, href, index));
+      };
+
+      authorLinks.forEach((link, index) => {
+        addAuthor(link.textContent, link.getAttribute('href') || '', index);
+      });
+      articles.forEach((article, index) => {
+        getArticleAuthors(article).forEach((name) => addAuthor(name, '', authorLinks.length + index));
+      });
+
+      return Array.from(authorsBySlug.values())
+        .sort((a, b) => a.surname.localeCompare(b.surname) || a.name.localeCompare(b.name));
     }
 
     function getAuthorSurname(name) {
       const asciiName = String(name || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
       const parts = asciiName.split(/\s+/).filter(Boolean);
       return parts[parts.length - 1] || asciiName || 'Unknown';
+    }
+
+    function getAuthorInitial(surname) {
+      const initial = String(surname || '').charAt(0).toUpperCase();
+      return /^[A-Z]$/.test(initial) ? initial : 'other';
     }
 
     function getArticleKey(article) {
@@ -694,6 +993,7 @@
       if (typeof authorState[key].note !== 'string') {
         authorState[key].note = '';
       }
+      authorState[key].starred = Boolean(authorState[key].starred);
       return authorState[key];
     }
 
@@ -775,10 +1075,19 @@
     }
 
     function setupCategorySection(section) {
-      const category = section.dataset.category || section.querySelector('h2')?.textContent.trim() || 'Uncategorized';
-      const head = section.querySelector('.section-head');
-      const list = section.querySelector('.paper-list');
+      const category = section.dataset.collapseKey
+        || section.dataset.category
+        || section.dataset.folder
+        || section.querySelector('h2, h3')?.textContent.trim()
+        || 'Uncategorized';
+      const head = Array.from(section.children).find((child) => (
+        child.classList.contains('section-head') || child.classList.contains('module-head')
+      ));
+      const list = Array.from(section.children).find((child) => (
+        child.classList.contains('paper-list') || child.classList.contains('module-stack')
+      ));
       if (!head || !list) return;
+      if (head.querySelector('.category-toggle')) return;
 
       const button = document.createElement('button');
       button.type = 'button';
@@ -815,45 +1124,111 @@
       ].join('\n');
     }
 
-    function setupAuthorWorkbench() {
-      const initialSelect = document.getElementById('authorInitial');
-      const authorSelect = document.getElementById('authorSelect');
-      const detail = document.getElementById('authorDetail');
-      if (!initialSelect || !authorSelect || !detail) return;
+    function renderStarredAuthors() {
+      const container = document.getElementById('starredAuthorNav');
+      if (!container) return;
+      container.textContent = '';
+      const starred = authorCatalog.filter((author) => ensureAuthorEntry(author.key).starred);
 
-      const initials = [...new Set(authorCatalog.map((author) => author.initial))].sort();
-      initials.forEach((initial) => {
-        const option = document.createElement('option');
-        option.value = initial;
-        option.textContent = initial;
-        initialSelect.append(option);
+      if (!starred.length) {
+        const empty = document.createElement('div');
+        empty.className = 'starred-empty';
+        empty.textContent = '还没有星标作者。';
+        container.append(empty);
+        return;
+      }
+
+      starred.forEach((author) => {
+        const link = document.createElement('a');
+        link.href = author.href;
+        link.textContent = author.name;
+        container.append(link);
       });
+    }
 
-      const resetAuthorSelect = (message) => {
-        authorSelect.textContent = '';
-        const option = document.createElement('option');
-        option.value = '';
-        option.textContent = message;
-        authorSelect.append(option);
-        authorSelect.value = '';
+    function setupAuthorWorkbench() {
+      const alphabet = document.getElementById('authorAlphabet');
+      const search = document.getElementById('authorSearch');
+      const results = document.getElementById('authorResults');
+      const detail = document.getElementById('authorDetail');
+      if (!alphabet || !search || !results || !detail) return;
+      let activeInitial = '';
+      let activeAuthorKey = '';
+
+      const clearAuthorDetail = () => {
         detail.hidden = true;
         detail.textContent = '';
       };
 
+      const resetAuthorResults = (message) => {
+        activeAuthorKey = '';
+        results.textContent = '';
+        const empty = document.createElement('div');
+        empty.className = 'author-results-empty';
+        empty.textContent = message;
+        results.append(empty);
+        clearAuthorDetail();
+      };
+
+      const setActiveInitial = (initial) => {
+        activeInitial = initial;
+        alphabet.querySelectorAll('.author-initial-button').forEach((button) => {
+          button.classList.toggle('is-active', button.dataset.initial === activeInitial);
+        });
+      };
+
+      const findAuthorsBySearch = (query) => {
+        const normalizedQuery = normalize(query);
+        if (!normalizedQuery) return [];
+        return authorCatalog.filter((author) => normalize([
+          author.name,
+          author.surname,
+          author.href
+        ].join(' ')).includes(normalizedQuery));
+      };
+
+      const markActiveAuthor = () => {
+        results.querySelectorAll('.author-result-button').forEach((button) => {
+          button.classList.toggle('is-active', button.dataset.authorKey === activeAuthorKey);
+        });
+      };
+
       const renderAuthorDetail = (author) => {
         const entry = ensureAuthorEntry(author.key);
+        activeAuthorKey = author.key;
+        markActiveAuthor();
         detail.textContent = '';
         detail.hidden = false;
 
         const title = document.createElement('div');
         title.className = 'author-detail-title';
+        const titleMain = document.createElement('div');
+        titleMain.className = 'author-title-main';
+        const starButton = document.createElement('button');
+        starButton.type = 'button';
+        starButton.className = 'author-star-button';
+        const syncStar = () => {
+          starButton.classList.toggle('is-starred', entry.starred);
+          starButton.textContent = entry.starred ? '★' : '☆';
+          starButton.title = entry.starred ? '取消星标' : '星标作者';
+          starButton.setAttribute('aria-label', starButton.title);
+          starButton.setAttribute('aria-pressed', String(entry.starred));
+        };
+        starButton.addEventListener('click', () => {
+          entry.starred = !entry.starred;
+          saveAuthorState();
+          syncStar();
+          renderStarredAuthors();
+        });
         const nameLink = document.createElement('a');
         nameLink.href = author.href;
         nameLink.textContent = author.name;
+        titleMain.append(starButton, nameLink);
         const path = document.createElement('span');
         path.className = 'author-path';
         path.textContent = decodeURIComponent(author.href);
-        title.append(nameLink, path);
+        title.append(titleMain, path);
+        syncStar();
 
         const tools = document.createElement('div');
         tools.className = 'author-tools';
@@ -896,43 +1271,55 @@
         detail.append(title, tools);
       };
 
-      resetAuthorSelect('先选择首字母');
-
-      initialSelect.addEventListener('change', () => {
-        const initial = initialSelect.value;
-        if (!initial) {
-          authorSelect.disabled = true;
-          resetAuthorSelect('先选择首字母');
+      const renderAuthorResults = (authors, emptyMessage) => {
+        activeAuthorKey = '';
+        results.textContent = '';
+        clearAuthorDetail();
+        if (!authors.length) {
+          const empty = document.createElement('div');
+          empty.className = 'author-results-empty';
+          empty.textContent = emptyMessage;
+          results.append(empty);
           return;
         }
 
-        const authors = authorCatalog.filter((author) => author.initial === initial);
-        authorSelect.disabled = false;
-        authorSelect.textContent = '';
-        const placeholder = document.createElement('option');
-        placeholder.value = '';
-        placeholder.textContent = '选择作者';
-        authorSelect.append(placeholder);
         authors.forEach((author) => {
-          const option = document.createElement('option');
-          option.value = author.key;
-          option.textContent = author.name;
-          authorSelect.append(option);
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'author-result-button';
+          button.dataset.authorKey = author.key;
+          button.textContent = author.name;
+          button.addEventListener('click', () => renderAuthorDetail(author));
+          results.append(button);
         });
-        authorSelect.value = '';
-        detail.hidden = true;
-        detail.textContent = '';
+      };
+
+      AUTHOR_INITIALS.forEach((initial) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'author-initial-button';
+        button.dataset.initial = initial;
+        button.textContent = AUTHOR_INITIAL_LABELS[initial];
+        button.addEventListener('click', () => {
+          search.value = '';
+          setActiveInitial(initial);
+          const authors = authorCatalog.filter((author) => author.initial === initial);
+          renderAuthorResults(authors, `${AUTHOR_INITIAL_LABELS[initial]} 下暂无作者`);
+        });
+        alphabet.append(button);
       });
 
-      authorSelect.addEventListener('change', () => {
-        const author = authorCatalog.find((item) => item.key === authorSelect.value);
-        if (!author) {
-          detail.hidden = true;
-          detail.textContent = '';
+      search.addEventListener('input', () => {
+        setActiveInitial('');
+        const query = search.value.trim();
+        if (!query) {
+          resetAuthorResults('点击字母或搜索');
           return;
         }
-        renderAuthorDetail(author);
+        renderAuthorResults(findAuthorsBySearch(query), '没有匹配作者');
       });
+
+      resetAuthorResults('点击字母或搜索');
     }
 
     function buildDiscussionPrompt(article) {
@@ -941,7 +1328,7 @@
       const meta = article.querySelector('.meta')?.textContent.trim() || '';
       const entry = ensurePaperEntry(article.dataset.key || getArticleKey(article));
       const resourcePath = 'D:/WSLlib/Documents/Reading papers/' + decodeURIComponent(href);
-      const resourceLabel = href.endsWith('/解读.md') ? '解读文件' : '论文文件';
+      const resourceLabel = href.endsWith('.md') ? '解读文件' : '论文文件';
       const impression = entry.note.trim() || '暂无';
       return [
         '请在 D:/WSLlib/Documents 项目的新聊天中，先读取 D:/WSLlib/Documents/Memory.md，然后围绕这篇论文资料和我讨论可以创作哪些交互式内容。',
@@ -1025,7 +1412,10 @@
         const entry = ensurePaperEntry(article.dataset.key || getArticleKey(article));
         const tags = getArticleTags(article);
         const matchesQuery = !query || getArticleCorpus(article).includes(query);
-        const matchesCategory = category === 'all' || article.dataset.category === category;
+        const articleCategory = article.dataset.category || '';
+        const matchesCategory = category === 'all'
+          || articleCategory === category
+          || articleCategory.startsWith(category + '/');
         const matchesStatus = status === 'all' || entry.status === status;
         const matchesTag = tag === 'all' || tags.includes(tag);
         const visible = matchesQuery && matchesCategory && matchesStatus && matchesTag;
@@ -1033,12 +1423,21 @@
         if (visible) visibleCount += 1;
       });
 
+      sections.forEach((section) => {
+        const hasVisibleArticles = Array.from(section.querySelectorAll('.article')).some((article) => !article.hidden);
+        section.hidden = !hasVisibleArticles;
+      });
+
       controls.empty.classList.toggle('is-visible', visibleCount === 0);
       updateSummary(visibleCount);
     }
 
     function setupFilters() {
-      const categories = [...new Set(articles.map(getArticleCategory))].sort((a, b) => a.localeCompare(b));
+      const sectionCategories = sections
+        .map((section) => section.dataset.category || section.dataset.folder || '')
+        .filter(Boolean);
+      const categories = [...new Set([...articles.map(getArticleCategory), ...sectionCategories])]
+        .sort((a, b) => a.localeCompare(b));
       const tags = [...new Set(articles.flatMap(getArticleTags))].sort((a, b) => a.localeCompare(b));
       addOptions(controls.category, categories);
       addOptions(controls.tag, tags);
@@ -1059,6 +1458,7 @@
     sections.forEach(setupCategorySection);
     articles.forEach(setupArticle);
     setupAuthorWorkbench();
+    renderStarredAuthors();
     setupFilters();
     savePaperState();
     saveAuthorState();

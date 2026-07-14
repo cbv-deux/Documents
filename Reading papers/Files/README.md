@@ -15,6 +15,7 @@ Files/
 
 ## 作者身份核验规则
 
+- 每次新增、删除或调整 QWiki 论文条目时，同步扫描全部论文卡片作者，更新 `Authors/_index.md`、缺失作者档案和首页作者导航。
 - 优先使用论文源文件中的作者单位、作者官方主页、大学主页、ORCID、个人主页进行交叉核验。
 - 若只找到 arXiv 论文记录或二级资料，档案中必须标注“待复核”。
 - 不把同名作者合并，除非姓名、机构、研究方向、论文链条至少两项能互相支持。
@@ -26,16 +27,9 @@ Files/
 - 中：论文源文件或连续论文记录可以确认研究身份，但缺少独立官方主页。
 - 低：只用于临时占位，后续需要补证。
 
-## 当前覆盖的感兴趣论文
+## 当前覆盖范围
 
-- [Noncommutative vector field calculi](<../ArxivDaily/Noncommutative vector field calculi - Fioresi Latini Weber - 2026-07-09/解读.md>)
-- [Renormalization flows for 1D mixed states and a quantum Goursat lemma](<../ArxivDaily/Renormalization flows for 1D mixed states and a quantum Goursat lemma - Le-Nestour Perez-Garcia Ruiz-de-Alarcon - 2026-07-10/解读.md>)
-- [Harish-Chandra images of orthosymplectic Sugawara operators and Casimir elements](<../ArxivDaily/Harish-Chandra images of orthosymplectic Sugawara operators and Casimir elements - Molev Nurcombe Ragoucy - 2026-07-09/解读.md>)
-- [Factorization Algebras and Quantum Groups from Generalized Poisson Sigma Models](<../ArxivDaily/Factorization Algebras and Quantum Groups from Generalized Poisson Sigma Models - Zeng - 2026-07-13/解读.md>)
-- [PBW bases and centralisers for the q-Onsager algebra](<../ArxivDaily/PBW bases and centralisers for the q-Onsager algebra - Zhu - 2026-07-14/解读.md>)
-- [Fiber Functors of Equivariantizations of Finite Tensor Categories](<../ArxivDaily/Fiber Functors of Equivariantizations of Finite Tensor Categories - Galindo Gallego Morales - 2026-07-14/解读.md>)
-- [FFLV bases for covariant representations of gl(m|n)](<../ArxivDaily/FFLV bases for covariant representations of glmn - Ahmad Enugandla - 2026-07-14/解读.md>)
-- [Braiding structures on categorical multi-Interval Jones-Wassermann subfactor](<../ArxivDaily/Braiding structures on categorical multi-Interval Jones-Wassermann subfactor - Liu Ruan - 2026-07-10/解读.md>)
+- 当前覆盖范围以 `Authors/_index.md` 为准；该索引由 QWiki 首页论文卡片扫描更新，并列出每位作者关联的论文。
 
 ## Sources
 
