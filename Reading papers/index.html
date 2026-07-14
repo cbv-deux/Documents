@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QWiki</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f7f4;
+      --panel: #ffffff;
+      --ink: #1d2329;
+      --muted: #65717c;
+      --line: #d9dedb;
+      --accent: #1f6f64;
+      --accent-soft: #e4f1ed;
+      --tag: #edf0f2;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    header {
+      padding: 34px 40px 22px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfbf8;
+    }
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      letter-spacing: 0;
+    }
+    .subtitle {
+      margin-top: 8px;
+      color: var(--muted);
+      max-width: 900px;
+    }
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 24px;
+      padding: 28px 40px 44px;
+    }
+    section, aside {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    section {
+      padding: 24px;
+    }
+    aside {
+      padding: 20px;
+      align-self: start;
+      position: sticky;
+      top: 18px;
+    }
+    h2 {
+      margin: 0 0 16px;
+      font-size: 20px;
+    }
+    h3 {
+      margin: 24px 0 12px;
+      font-size: 16px;
+      color: var(--accent);
+    }
+    .article {
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+    }
+    .article:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+    .title {
+      font-weight: 650;
+      font-size: 16px;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .meta {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .tag {
+      background: var(--tag);
+      color: #39434c;
+      border-radius: 999px;
+      padding: 2px 9px;
+      font-size: 12px;
+    }
+    .discussion-action {
+      margin-top: 10px;
+    }
+    .discussion-action button {
+      border: 0;
+      border-radius: 6px;
+      background: var(--accent);
+      color: white;
+      padding: 7px 11px;
+      cursor: pointer;
+      font-weight: 650;
+      font-size: 13px;
+    }
+    .discussion-action span {
+      margin-left: 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .author-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .author-grid a {
+      display: block;
+      padding: 7px 9px;
+      border-radius: 6px;
+      background: var(--accent-soft);
+    }
+    .folder-note {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+    @media (max-width: 900px) {
+      header { padding: 26px 20px 18px; }
+      main {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+      aside { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>QWiki</h1>
+    <div class="subtitle">论文阅读与作者档案索引。文章按文件夹分类列出，作者导航指向 `Files/Authors` 中的身份核验与学术风格档案。每篇文章的“优化讨论”按钮会复制提示词，并尝试打开 Codex 的 Documents 项目新聊天。</div>
+  </header>
+  <main>
+    <section>
+      <h2>ArxivDaily</h2>
+      <div class="folder-note">分类目录：`Reading papers/ArxivDaily`</div>
+
+      <article class="article">
+        <div class="title"><a href="ArxivDaily/Braiding structures on categorical multi-Interval Jones-Wassermann subfactor - Liu Ruan - 2026-07-10/解读.md">Braiding structures on categorical multi-Interval Jones-Wassermann subfactor</a></div>
+        <div class="meta">Zhengwei Liu, Yuze Ruan · 2026-07-10 · arXiv:2607.08296</div>
+        <div class="tags"><span class="tag">UMFC</span><span class="tag">subfactor</span><span class="tag">planar algebra</span><span class="tag">Verlinde</span></div>
+      </article>
+
+      <article class="article">
+        <div class="title"><a href="ArxivDaily/Factorization Algebras and Quantum Groups from Generalized Poisson Sigma Models - Zeng - 2026-07-13/解读.md">Factorization Algebras and Quantum Groups from Generalized Poisson Sigma Models</a></div>
+        <div class="meta">Keyou Zeng · 2026-07-13 · arXiv:2607.09486</div>
+        <div class="tags"><span class="tag">factorization algebra</span><span class="tag">Poisson sigma model</span><span class="tag">quantum groups</span></div>
+      </article>
+
+      <article class="article">
+        <div class="title"><a href="ArxivDaily/FFLV bases for covariant representations of glmn - Ahmad Enugandla - 2026-07-14/解读.md">FFLV bases for covariant representations of gl(m|n)</a></div>
+        <div class="meta">Ibrahim Ahmad, Pranav Enugandla · 2026-07-14 · arXiv:2607.11133</div>
+        <div class="tags"><span class="tag">Lie superalgebra</span><span class="tag">PBW</span><span class="tag">FFLV</span><span class="tag">toric supervariety</span></div>
+      </article>
+
+      <article class="article">
+        <div class="title"><a href="ArxivDaily/Fiber Functors of Equivariantizations of Finite Tensor Categories - Galindo Gallego Morales - 2026-07-14/解读.md">Fiber Functors of Equivariantizations of Finite Tensor Categories</a></div>
+        <div class="meta">César Galindo, Claudia Gallego, Yiby Morales · 2026-07-14 · arXiv:2607.10525</div>
+        <div class="tags"><span class="tag">finite tensor category</span><span class="tag">fiber functor</span><span class="tag">Tannaka-Krein</span></div>
+      </article>
+
+      <article class="article">
+        <div class="title"><a href="ArxivDaily/Harish-Chandra images of orthosymplectic Sugawara operators and Casimir elements - Molev Nurcombe Ragoucy - 2026-07-09/解读.md">Harish-Chandra images of orthosymplectic Sugawara operators and Casimir elements</a></div>
+        <div class="meta">Alexander Molev, Madeline Nurcombe, Eric Ragoucy · 2026-07-09 · arXiv:2607.06926</div>
+        <div class="tags"><span class="tag">Lie superalgebra</span><span class="tag">Sugawara</span><span class="tag">Gaudin</span></div>
+      </article>
+
+      <article class="article">
+        <div class="title"><a href="ArxivDaily/Noncommutative vector field calculi - Fioresi Latini Weber - 2026-07-09/解读.md">Noncommutative vector field calculi</a></div>
+        <div class="meta">Rita Fioresi, Emanuele Latini, Thomas Weber · 2026-07-09 · arXiv:2607.07243</div>
+        <div class="tags"><span class="tag">noncommutative geometry</span><span class="tag">Hopf-Galois</span><span class="tag">quantum tangent space</span></div>
+      </article>
+
+      <article class="article">
+        <div class="title"><a href="ArxivDaily/PBW bases and centralisers for the q-Onsager algebra - Zhu - 2026-07-14/解读.md">PBW bases and centralisers for the q-Onsager algebra</a></div>
+        <div class="meta">Haoran Zhu · 2026-07-14 · arXiv:2607.10097</div>
+        <div class="tags"><span class="tag">q-Onsager</span><span class="tag">PBW</span><span class="tag">centralisers</span></div>
+      </article>
+
+      <article class="article">
+        <div class="title"><a href="ArxivDaily/Renormalization flows for 1D mixed states and a quantum Goursat lemma - Le-Nestour Perez-Garcia Ruiz-de-Alarcon - 2026-07-10/解读.md">Renormalization flows for 1D mixed states and a quantum Goursat lemma</a></div>
+        <div class="meta">Léo Le-Nestour, David Pérez-García, Alberto Ruiz-de-Alarcón · 2026-07-10 · arXiv:2607.08568</div>
+        <div class="tags"><span class="tag">C*-Hopf algebra</span><span class="tag">RG</span><span class="tag">quantum hypergroup</span></div>
+      </article>
+    </section>
+
+    <aside>
+      <h2>人名导航</h2>
+      <div class="author-grid">
+        <a href="Files/Authors/Alberto-Ruiz-de-Alarcon.md">Alberto Ruiz-de-Alarcón</a>
+        <a href="Files/Authors/Alexander-Molev.md">Alexander Molev</a>
+        <a href="Files/Authors/Alexandre-Kirillov.md">Alexandre Kirillov</a>
+        <a href="Files/Authors/Cesar-Galindo.md">César Galindo</a>
+        <a href="Files/Authors/Claudia-Gallego.md">Claudia Gallego</a>
+        <a href="Files/Authors/David-Perez-Garcia.md">David Pérez-García</a>
+        <a href="Files/Authors/Emanuele-Latini.md">Emanuele Latini</a>
+        <a href="Files/Authors/Eric-Ragoucy.md">Eric Ragoucy</a>
+        <a href="Files/Authors/Haoran-Zhu.md">Haoran Zhu</a>
+        <a href="Files/Authors/Ibrahim-Ahmad.md">Ibrahim Ahmad</a>
+        <a href="Files/Authors/Keyou-Zeng.md">Keyou Zeng</a>
+        <a href="Files/Authors/Leo-Le-Nestour.md">Léo Le-Nestour</a>
+        <a href="Files/Authors/Madeline-Nurcombe.md">Madeline Nurcombe</a>
+        <a href="Files/Authors/Pranav-Enugandla.md">Pranav Enugandla</a>
+        <a href="Files/Authors/Rita-Fioresi.md">Rita Fioresi</a>
+        <a href="Files/Authors/Thomas-Weber.md">Thomas Weber</a>
+        <a href="Files/Authors/Yiby-Morales.md">Yiby Morales</a>
+        <a href="Files/Authors/Yuze-Ruan.md">Yuze Ruan</a>
+        <a href="Files/Authors/Zhengwei-Liu.md">Zhengwei Liu</a>
+      </div>
+      <h3>维护入口</h3>
+      <div class="author-grid">
+        <a href="README.md">Reading papers README</a>
+        <a href="Files/README.md">Files README</a>
+        <a href="Files/Authors/_index.md">Author Index</a>
+      </div>
+    </aside>
+  </main>
+  <script>
+    function buildDiscussionPrompt(article) {
+      const title = article.querySelector('.title a')?.textContent.trim() || 'Untitled paper';
+      const href = article.querySelector('.title a')?.getAttribute('href') || '';
+      const meta = article.querySelector('.meta')?.textContent.trim() || '';
+      const notePath = 'D:/WSLlib/Documents/Reading papers/' + decodeURIComponent(href);
+      return [
+        '请在 D:/WSLlib/Documents 项目的新聊天中，先读取 D:/WSLlib/Documents/Memory.md，然后围绕这篇论文解读和我讨论可以创作哪些交互式内容。',
+        '',
+        '论文标题：' + title,
+        '论文信息：' + meta,
+        '解读文件：' + notePath,
+        '',
+        '请先阅读该解读文件，再提出 3-5 个可做的互动方向，例如：概念图、证明路线交互图、对象关系网络、术语卡片、可调参数的 toy model、时间线、学习路线、可视化模拟或 QWiki 页面增强。每个方向请说明目标、交互方式、最小可行版本、需要补充的数学背景，以及最适合落地成 HTML/JS、Markdown、Mermaid、Canvas 或其他形式。然后和我讨论优先做哪一个。'
+      ].join('\n');
+    }
+
+    async function copyPromptAndOpenCodex(article, button, status) {
+      const prompt = buildDiscussionPrompt(article);
+      try {
+        await navigator.clipboard.writeText(prompt);
+        status.textContent = '已复制，正在尝试打开 Codex';
+      } catch {
+        status.textContent = '已生成提示词；若复制失败，请从对应解读.md末尾手动复制';
+      }
+      const project = encodeURIComponent('D:/WSLlib/Documents');
+      window.location.href = 'codex://new?project=' + project;
+      setTimeout(() => { window.location.href = 'openai-codex://new?project=' + project; }, 600);
+    }
+
+    document.querySelectorAll('.article').forEach((article) => {
+      const action = document.createElement('div');
+      action.className = 'discussion-action';
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = '优化讨论';
+      const status = document.createElement('span');
+      status.textContent = '复制提示词并尝试打开 Codex';
+      button.addEventListener('click', () => copyPromptAndOpenCodex(article, button, status));
+      action.append(button, status);
+      article.append(action);
+    });
+  </script>
+</body>
+</html>

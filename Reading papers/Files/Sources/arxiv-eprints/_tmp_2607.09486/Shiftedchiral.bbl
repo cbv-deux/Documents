@@ -1,0 +1,383 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{CCRFM95}
+
+\bibitem[Aam21]{Aamand:2019evs}
+Nanna~Havn Aamand, \emph{{Chern{\textendash}Simons theory and the R-matrix}}, Lett. Math. Phys. \textbf{111} (2021), no.~6, 146.
+
+\bibitem[AF21]{Ayala_Francis_2021}
+David Ayala and John Francis, \emph{Zero-pointed manifolds}, Journal of the Institute of Mathematics of Jussieu \textbf{20} (2021), no.~3, 785–858.
+
+\bibitem[AFT17]{ayala2017factorization}
+David Ayala, John Francis, and Hiro~Lee Tanaka, \emph{Factorization homology of stratified spaces}, Selecta Mathematica \textbf{23} (2017), no.~1, 293--362.
+
+\bibitem[AK25]{Alfonsi:2025kmj}
+Luigi Alfonsi and Hyungrok Kim, \emph{{On coefficients of operator product expansions for quantum field theories with ordinary, holomorphic, and topological spacetime dimensions}}, arXiv preprint arXiv:2502.05077 (2025).
+
+\bibitem[ASZK97]{Alexandrov:1995kv}
+M.~Alexandrov, A.~Schwarz, O.~Zaboronsky, and M.~Kontsevich, \emph{{The Geometry of the master equation and topological quantum field theory}}, Int. J. Mod. Phys. A \textbf{12} (1997), 1405--1429.
+
+\bibitem[Bae96]{Baez:1995ph}
+John~C. Baez, \emph{{Four-Dimensional BF theory with cosmological term as a topological quantum field theory}}, Lett. Math. Phys. \textbf{38} (1996), 129--143.
+
+\bibitem[BBZB{\etalchar{+}}20]{beem2020secondary}
+Christopher Beem, David Ben-Zvi, Mathew Bullimore, Tudor Dimofte, and Andrew Neitzke, \emph{Secondary products in supersymmetric field theory}, Annales Henri Poincare, vol.~21, Springer, 2020, pp.~1235--1310.
+
+\bibitem[BCSX20]{bandiera2020shifted}
+Ruggero Bandiera, Zhuo Chen, Mathieu Sti{\'e}non, and Ping Xu, \emph{Shifted derived poisson manifolds associated with lie pairs}, Communications in Mathematical Physics \textbf{375} (2020), no.~3, 1717--1760.
+
+\bibitem[BD95]{Baez:1995xq}
+J.~C. Baez and J.~Dolan, \emph{{Higher dimensional algebra and topological quantum field theory}}, J. Math. Phys. \textbf{36} (1995), 6073--6105.
+
+\bibitem[BD25]{beilinson2025chiral}
+A.~Beilinson and V.~Drinfeld, \emph{Chiral algebras}, Colloquium Publications, American Mathematical Society, 2025.
+
+\bibitem[BDSHK19]{bakalov2019operadic}
+Bojko Bakalov, Alberto De~Sole, Reimundo Heluani, and Victor~G Kac, \emph{An operadic approach to vertex algebra and poisson vertex algebra cohomology}, Japanese Journal of Mathematics \textbf{14} (2019), no.~2, 249--342.
+
+\bibitem[BG25]{balduf2025combinatorial}
+Paul-Hermann Balduf and Davide Gaiotto, \emph{Combinatorial proof of a non-renormalization theorem}, Journal of High Energy Physics \textbf{2025} (2025), no.~5, 1--39.
+
+\bibitem[BGK{\etalchar{+}}23]{budzik2023feynman}
+Kasia Budzik, Davide Gaiotto, Justin Kulp, Jingxiang Wu, and Matthew Yu, \emph{Feynman diagrams in four-dimensional holomorphic theories and the operatope}, Journal of High Energy Physics \textbf{2023} (2023), no.~7, 1--40.
+
+\bibitem[BGK{\etalchar{+}}24a]{Budzik:2023xbr}
+Kasia Budzik, Davide Gaiotto, Justin Kulp, Brian~R. Williams, Jingxiang Wu, and Matthew Yu, \emph{{Semi-chiral operators in 4d $ \mathcal{N} $ = 1 gauge theories}}, JHEP \textbf{05} (2024), 245.
+
+\bibitem[BGK{\etalchar{+}}24b]{budzik2024semi}
+Kasia Budzik, Davide Gaiotto, Justin Kulp, Brian~R Williams, Jingxiang Wu, and Matthew Yu, \emph{Semi-chiral operators in 4d n = 1 gauge theories}, Journal of High Energy Physics \textbf{2024} (2024), no.~5, 1--70.
+
+\bibitem[BGV92]{berline1992heat}
+Nicole Berline, Ezra Getzler, and Mich{\`e}le Vergne, \emph{Heat kernels and dirac operators}, Grundlehren der mathematischen Wissenschaften, vol. 298, Springer-Verlag, Berlin, 1992.
+
+\bibitem[BN97]{BarNatan1997Non}
+Dror Bar-Natan, \emph{Non-associative tangles}, Geometric Topology: Proceedings of the 1993 Georgia International Topology Conference (William~H. Kazez, ed.), AMS/IP Studies in Advanced Mathematics, vol. 2.1, American Mathematical Society and International Press, Providence, RI, 1997, pp.~139--183.
+
+\bibitem[BN26]{Butson:2026vmn}
+Dylan Butson and Sujay Nair, \emph{{On the deformation theory of chiral quantizations}}.
+
+\bibitem[BW24]{Bomans:2023mkd}
+Pieter Bomans and Jingxiang Wu, \emph{{Unravelling the Holomorphic Twist: Central Charges}}, Commun. Math. Phys. \textbf{405} (2024), no.~12, 290.
+
+\bibitem[BY16]{butson2016degenerate}
+Dylan Butson and Philsang Yoo, \emph{Degenerate classical field theories and boundary theories}, arXiv preprint arXiv:1611.00311 (2016).
+
+\bibitem[CC22]{cabrera2022dimensional}
+Alejandro Cabrera and Miquel Cueca, \emph{Dimensional reduction of courant sigma models and lie theory of poisson groupoids}, Letters in Mathematical Physics \textbf{112} (2022), no.~5, 104.
+
+\bibitem[CCG19]{costello2019higgs}
+Kevin Costello, Thomas Creutzig, and Davide Gaiotto, \emph{Higgs and coulomb branches from vertex operator algebras}, Journal of High Energy Physics \textbf{2019} (2019), no.~3, 1--50.
+
+\bibitem[CCRFM95]{Cattaneo:1995tw}
+Alberto~S. Cattaneo, Paolo Cotta-Ramusino, Jurg Frohlich, and Maurizio Martellini, \emph{{Topological BF theories in three-dimensions and four-dimensions}}, J. Math. Phys. \textbf{36} (1995), 6137--6160.
+
+\bibitem[CDG23]{costello2023boundary}
+Kevin Costello, Tudor Dimofte, and Davide Gaiotto, \emph{Boundary chiral algebras and holomorphic twists}, Communications in Mathematical Physics \textbf{399} (2023), no.~2, 1203--1290.
+
+\bibitem[CDM12]{Chmutov2012Vas}
+Sergei Chmutov, Sergei Duzhin, and Jacob Mostovoy, \emph{Introduction to vassiliev knot invariants}, Cambridge University Press, Cambridge, 2012, eBook ISBN: 9781139107846.
+
+\bibitem[CF00]{Cattaneo:1999fm}
+Alberto~S. Cattaneo and Giovanni Felder, \emph{{A Path integral approach to the Kontsevich quantization formula}}, Commun. Math. Phys. \textbf{212} (2000), 591--611.
+
+\bibitem[CF01]{Cattaneo:2001bp}
+\bysame, \emph{{Poisson sigma models and deformation quantization}}, Mod. Phys. Lett. A \textbf{16} (2001), 179--190.
+
+\bibitem[CF04]{cattaneo2004coisotropic}
+Alberto~S Cattaneo and Giovanni Felder, \emph{Coisotropic submanifolds in poisson geometry and branes in the poisson sigma model}, Letters in Mathematical Physics \textbf{69} (2004), no.~1, 157--175.
+
+\bibitem[CFG26]{costello2026chern}
+Kevin Costello, John Francis, and Owen Gwilliam, \emph{Chern-simons factorization algebras and knot polynomials}, arXiv preprint arXiv:2602.12412 (2026).
+
+\bibitem[CG17]{costello2017factorization}
+K.~Costello and O.~Gwilliam, \emph{Factorization algebras in quantum field theory}, Factorization Algebras in Quantum Field Theory, no. v. 1, Cambridge University Press, 2017.
+
+\bibitem[CG19]{costello2019vertex}
+Kevin Costello and Davide Gaiotto, \emph{Vertex operator algebras and 3d n = 4 gauge theories}, Journal of High Energy Physics \textbf{2019} (2019), no.~5, 1--39.
+
+\bibitem[CG21]{costello2021factorization}
+K.~Costello and O.~Gwilliam, \emph{Factorization algebras in quantum field theory}, New Mathematical Monographs, no. v. 2, Cambridge University Press, 2021.
+
+\bibitem[CG22]{Chen:2022opt}
+Hank Chen and Florian Girelli, \emph{{Categorified Drinfel{\textquoteright}d double and $BF$ theory: 2-groups in 4D}}, Phys. Rev. D \textbf{106} (2022), no.~10, 105017.
+
+\bibitem[CG25]{Costello:2018zrm}
+Kevin Costello and Davide Gaiotto, \emph{{Twisted holography}}, JHEP \textbf{01} (2025), 087.
+
+\bibitem[Che25]{Chen:2025qpt}
+Hank Chen, \emph{{Combinatorial quantization of 4d 2-Chern-Simons theory I: the Hopf category of higher-graph states}}, arXiv preprint arXiv:2501.06486 (2025).
+
+\bibitem[CKY94]{Crane:1994ji}
+Louis Crane, Louis~H. Kauffman, and David~N. Yetter, \emph{{State sum invariants of four manifolds. 1.}}, arXiv preprint arXiv:hep-th/9409167 (1994).
+
+\bibitem[CL16]{Costello:2016mgj}
+Kevin Costello and Si~Li, \emph{{Twisted supergravity and its quantization}}.
+
+\bibitem[CL24]{Chen:2024axr}
+Hank Chen and Joaquin Liniado, \emph{{Higher gauge theory and integrability}}, Phys. Rev. D \textbf{110} (2024), no.~8, 086017.
+
+\bibitem[Cos11]{costello2011re}
+Kevin Costello, \emph{Renormalization and effective field theory}, Mathematical Surveys and Monographs, vol. 170, American Mathematical Society, Providence, RI, 2011.
+
+\bibitem[Cos13a]{costello2013notes}
+\bysame, \emph{Notes on supersymmetric and holomorphic field theories in dimensions 2 and 4}, Pure and applied mathematics quarterly \textbf{9} (2013), no.~1, 73--165.
+
+\bibitem[Cos13b]{Costello:2013zra}
+\bysame, \emph{{Supersymmetric gauge theory and the Yangian}}.
+
+\bibitem[Cos17]{Costello:2017fbo}
+\bysame, \emph{{Holography and Koszul duality: the example of the $M2$ brane}}.
+
+\bibitem[CP21]{Costello:2020jbh}
+Kevin Costello and Natalie~M. Paquette, \emph{{Twisted Supergravity and Koszul Duality: A case study in AdS$_3$}}, Commun. Math. Phys. \textbf{384} (2021), no.~1, 279--339.
+
+\bibitem[CPT{\etalchar{+}}17]{calaque2017shifted}
+Damien Calaque, Tony Pantev, Bertrand To{\"e}n, Michel Vaqui{\'e}, and Gabriele Vezzosi, \emph{Shifted poisson structures and deformation quantization}, Journal of topology \textbf{10} (2017), no.~2, 483--584.
+
+\bibitem[CW15]{calaque2015triviality}
+Damien Calaque and Thomas Willwacher, \emph{Triviality of the higher formality theorem}, Proceedings of the American Mathematical Society \textbf{143} (2015), no.~12, 5181--5193.
+
+\bibitem[CWY18]{Costello:2017dso}
+Kevin Costello, Edward Witten, and Masahito Yamazaki, \emph{{Gauge Theory and Integrability, I}}, ICCM Not. \textbf{06} (2018), no.~1, 46--119.
+
+\bibitem[DFG{\etalchar{+}}25]{Dupuis:2020ndx}
+Ma{\"\i}t{\'e} Dupuis, Laurent Freidel, Florian Girelli, Abdulmajid Osumanu, and Julian Rennert, \emph{{Origin of the quantum group symmetry in 3D quantum gravity}}, Phys. Rev. D \textbf{112} (2025), no.~8, 084071.
+
+\bibitem[DGP18]{dimofte2018dual}
+Tudor Dimofte, Davide Gaiotto, and Natalie~M Paquette, \emph{Dual boundary conditions in 3d scft's}, Journal of High Energy Physics \textbf{2018} (2018), no.~5, 1--101.
+
+\bibitem[DN24]{Dimofte:2024bwe}
+Tudor Dimofte and Wenjun Niu, \emph{{Tannakian QFT: from spark algebras to quantum groups}}, arXiv preprint arXiv:2411.04194 (2024).
+
+\bibitem[DNP25]{dimofte2025line}
+Tudor Dimofte, Wenjun Niu, and Victor Py, \emph{Line operators in 3d holomorphic qft: Meromorphic tensor categories and dg-shifted yangians}, arXiv preprint arXiv:2508.11749 (2025).
+
+\bibitem[Dri87]{Drinfeld1987QG}
+V.~G. Drinfeld, \emph{Quantum groups}, Proceedings of the International Congress of Mathematicians, Berkeley, California, USA, 1986 (Providence, RI) (Andrew~M. Gleason, ed.), vol.~1, American Mathematical Society, 1987, pp.~798--820.
+
+\bibitem[Dri90a]{Drinfeld1990Quasitriangular}
+\bysame, \emph{On quasitriangular quasi-hopf algebras and on a group that is closely connected with {Gal}($\overline{\mathbb q}/\mathbb q$)}, Algebra i Analiz \textbf{2} (1990), no.~4, 149--181, English translation: Leningrad Mathematical Journal 2, no. 4 (1991), 829--860.
+
+\bibitem[Dri90b]{Drinfeld1990QuasiHopf}
+\bysame, \emph{Quasi-{H}opf algebras}, Leningrad Mathematical Journal \textbf{1} (1990), no.~6, 1419--1457, Translation of Algebra i Analiz 1 (1989), no. 6, 114--148. \MR{1047964}
+
+\bibitem[DSK13]{de2013variational}
+Alberto De~Sole and Victor~G Kac, \emph{The variational poisson cohomology}, Japanese Journal of Mathematics \textbf{8} (2013), no.~1, 1--145.
+
+\bibitem[EH10]{EnriquezHalbout2010QLB}
+Benjamin Enriquez and Gilles Halbout, \emph{Quantization of quasi-{L}ie bialgebras}, Journal of the American Mathematical Society \textbf{23} (2010), no.~3, 611--653.
+
+\bibitem[EK96]{EK1996QLBI}
+Pavel Etingof and David Kazhdan, \emph{Quantization of {L}ie bialgebras, {I}}, Selecta Mathematica, New Series \textbf{2} (1996), no.~1, 1--41.
+
+\bibitem[EK98]{EK1998QLBII}
+\bysame, \emph{Quantization of {L}ie bialgebras, {II}}, Selecta Mathematica, New Series \textbf{4} (1998), no.~2, 213--231.
+
+\bibitem[ESW22]{Elliott:2020ecf}
+Chris Elliott, Pavel Safronov, and Brian~R. Williams, \emph{{A taxonomy of twists of supersymmetric Yang{\textendash}Mills theory}}, Selecta Math. \textbf{28} (2022), no.~4, 73.
+
+\bibitem[EY18]{elliott2018geometric}
+Chris Elliott and Philsang Yoo, \emph{Geometric langlands twists of $ n= 4$ gauge theory from derived algebraic geometry}, Adv. Theor. Math. Phys. \textbf{22} (2018), 615--708.
+
+\bibitem[FGT08]{fishel2008strong}
+Susanna Fishel, Ian Grojnowski, and Constantin Teleman, \emph{The strong macdonald conjecture and hodge theory on the loop grassmannian}, Annals of mathematics (2008), 175--220.
+
+\bibitem[FGY25]{Felder:2025bsz}
+Laura~O. Felder, Zhengping Gui, and Charles A.~S. Young, \emph{{Higher Chiral Algebras in a Polysimplicial Model}}, arXiv preprint arXiv:2506.09728 (2025).
+
+\bibitem[FHK19]{faonte2019higher}
+Giovanni Faonte, Benjamin Hennion, and Mikhail Kapranov, \emph{Higher kac--moody algebras and moduli spaces of g-bundles}, Advances in Mathematics \textbf{346} (2019), 389--466.
+
+\bibitem[FMT22]{Freed:2022qnc}
+Daniel~S. Freed, Gregory~W. Moore, and Constantin Teleman, \emph{{Topological symmetry in quantum field theory}}.
+
+\bibitem[Gav02]{Gavarini2002QD}
+Fabio Gavarini, \emph{The quantum duality principle}, Annales de l'Institut Fourier \textbf{52} (2002), no.~3, 809--834. \MR{1907388}
+
+\bibitem[Gin17]{ginot2017}
+Grégory Ginot, \emph{Hodge filtration and operations in higher hochschild (co)homology and applications to higher string topology}, Lecture Notes in Mathematics (2017), 1--104.
+
+\bibitem[GKSW15]{Gaiotto:2014kfa}
+Davide Gaiotto, Anton Kapustin, Nathan Seiberg, and Brian Willett, \emph{{Generalized Global Symmetries}}, JHEP \textbf{02} (2015), 172.
+
+\bibitem[GKW25]{Gaiotto:2024gii}
+Davide Gaiotto, Justin Kulp, and Jingxiang Wu, \emph{{Higher operations in perturbation theory}}, JHEP \textbf{05} (2025), 230.
+
+\bibitem[GLL17]{grady2017batalin}
+Ryan~E Grady, Qin Li, and Si~Li, \emph{Batalin--vilkovisky quantization and the algebraic index}, Advances in Mathematics \textbf{317} (2017), 575--639.
+
+\bibitem[GLZ24]{Gui:2022pnx}
+Zhengping Gui, Si~Li, and Keyou Zeng, \emph{{Quadratic duality for chiral algebras}}, Adv. Math. \textbf{451} (2024), 109791.
+
+\bibitem[GR19]{Gaiotto:2017euk}
+Davide Gaiotto and Miroslav Rap{\v{c}}{\'a}k, \emph{{Vertex Algebras at the Corner}}, JHEP \textbf{01} (2019), 160.
+
+\bibitem[GR22]{Gaiotto:2020dsq}
+Davide Gaiotto and Miroslav Rapcak, \emph{{Miura operators, degenerate fields and the M2-M5 intersection}}, JHEP \textbf{01} (2022), 086.
+
+\bibitem[GTZ12]{ginot2012higher}
+Gregory Ginot, Thomas Tradler, and Mahmoud Zeinalian, \emph{Higher hochschild cohomology, brane topology and centralizers of $ e\_n $-algebra maps}, arXiv preprint arXiv:1205.7056 (2012).
+
+\bibitem[GW09a]{gaiotto2009s}
+Davide Gaiotto and Edward Witten, \emph{S-duality of boundary conditions in n= 4 super yang-mills theory}, Advances in Theoretical and Mathematical Physics \textbf{13} (2009), 721--896.
+
+\bibitem[GW09b]{Gaiotto:2008sa}
+\bysame, \emph{{Supersymmetric Boundary Conditions in N=4 Super Yang-Mills Theory}}, J. Statist. Phys. \textbf{135} (2009), 789--855.
+
+\bibitem[GW18]{gwilliam2018higher}
+Owen Gwilliam and Brian~R Williams, \emph{Higher kac-moody algebras and symmetries of holomorphic field theories}, arXiv preprint arXiv:1810.06534 (2018).
+
+\bibitem[GW19]{gwilliam2019one}
+\bysame, \emph{A one-loop exact quantization of chern-simons theory}, arXiv preprint arXiv:1910.05230 (2019).
+
+\bibitem[GW25]{garner2025raviolo}
+Niklas Garner and Brian~R Williams, \emph{Raviolo vertex algebras: N. garner, br williams}, Selecta Mathematica \textbf{31} (2025), no.~3, 46.
+
+\bibitem[Gwi12]{gwilliam2012fac}
+Owen Gwilliam, \emph{Factorization algebras and free field theories}, Ph.d. thesis, Northwestern University, Evanston, IL, 2012.
+
+\bibitem[Gwi25]{Gwilliam:2025vdu}
+\bysame, \emph{{Remarks on the locality of generalized global symmetries}}.
+
+\bibitem[GWW25]{Gui:2025dqp}
+Zhengping Gui, Minghao Wang, and Brian~R. Williams, \emph{{Higher-dimensional Chiral Algebras in the Jouanolou Model}}, arXiv preprint arXiv:2510.26608 (2025).
+
+\bibitem[GZ26]{Gaiotto:2026qai}
+Davide Gaiotto and Keyou Zeng, \emph{{Interface Minimal Model Holography and Topological String Theory}}.
+
+\bibitem[Idr22]{idrissi2022formality}
+Najib Idrissi, \emph{Formality of a higher-codimensional swiss-cheese operad}, Algebraic \& Geometric Topology \textbf{22} (2022), no.~1, 55--111.
+
+\bibitem[IJZ25]{Ishtiaque:2024orn}
+Nafiz Ishtiaque, Saebyeok Jeong, and Yehao Zhou, \emph{{R-matrices and Miura operators in 5d Chern-Simons theory}}, SciPost Phys. Core \textbf{8} (2025), 003.
+
+\bibitem[Ike17]{Ikeda:2012pv}
+Noriaki Ikeda, \emph{{Lectures on AKSZ Sigma Models for Physicists}}, {Workshop on Strings, Membranes and Topological Field Theory}, WSPC, 2017, pp.~79--169.
+
+\bibitem[Joh95]{Johansen:1994aw}
+A.~Johansen, \emph{{Twisting of $N=1$ SUSY gauge theories and heterotic topological theories}}, Int. J. Mod. Phys. A \textbf{10} (1995), 4325--4358.
+
+\bibitem[Kap06]{kapustin2006holomorphic}
+Anton Kapustin, \emph{Holomorphic reduction of n= 2 gauge theories, wilson-'t hooft operators, and s-duality}, arXiv preprint hep-th/0612119 (2006).
+
+\bibitem[Kon99]{kontsevich1999operads}
+Maxim Kontsevich, \emph{Operads and motives in deformation quantization}, Letters in Mathematical Physics \textbf{48} (1999), no.~1, 35--72.
+
+\bibitem[Kon03]{Kontsevich:1997vb}
+\bysame, \emph{{Deformation quantization of Poisson manifolds. 1.}}, Lett. Math. Phys. \textbf{66} (2003), 157--216.
+
+\bibitem[KW07]{Kapustin:2006pk}
+Anton Kapustin and Edward Witten, \emph{{Electric-Magnetic Duality And The Geometric Langlands Program}}, Commun. Num. Theor. Phys. \textbf{1} (2007), 1--236.
+
+\bibitem[KZ25]{khan2025poisson}
+Ahsan Khan and Keyou Zeng, \emph{Poisson vertex algebras and three-dimensional gauge theory}, arXiv preprint arXiv:2502.13227 (2025).
+
+\bibitem[Li17]{Li:2017exk}
+Si~Li, \emph{Effective batalin-vilkovisky quantization and geometric applications.}, 2017.
+
+\bibitem[Lur]{lurie2017higher}
+Jacob Lurie, \emph{Higher algebra}.
+
+\bibitem[Lur08]{lurie2008classification}
+\bysame, \emph{On the classification of topological field theories}, Current developments in mathematics \textbf{2008} (2008), no.~1, 129--280.
+
+\bibitem[Mar17]{markarian2017weyl}
+Nikita Markarian, \emph{Weyl n-algebras}, Communications in Mathematical Physics \textbf{350} (2017), no.~2, 421--442.
+
+\bibitem[May06]{may2006geometry}
+J.P. May, \emph{The geometry of iterated loop spaces}, Lecture Notes in Mathematics, Springer Berlin Heidelberg, 2006.
+
+\bibitem[Mel16]{melani2016poisson}
+Valerio Melani, \emph{Poisson bivectors and poisson brackets on affine derived stacks}, Advances in Mathematics \textbf{288} (2016), 1097--1120.
+
+\bibitem[NP25]{Niu:2025kgk}
+Wenjun Niu and Victor Py, \emph{{1-shifted Lie bialgebras and their quantizations}}, arXiv preprint arXiv:2503.08770 (2025).
+
+\bibitem[OY20]{Oh:2019mcg}
+Jihwan Oh and Junya Yagi, \emph{{Poisson vertex algebras in supersymmetric field theories}}, Lett. Math. Phys. \textbf{110} (2020), no.~8, 2245--2275.
+
+\bibitem[OZ21]{Oh:2021wes}
+Jihwan Oh and Yehao Zhou, \emph{{Twisted holography of defect fusions}}, SciPost Phys. \textbf{10} (2021), no.~5, 105.
+
+\bibitem[Pim15]{pimenov2015shifted}
+Slava Pimenov, \emph{Shifted poisson and batalin-vilkovisky structures on the derived variety of complexes}, arXiv preprint arXiv:1511.00946 (2015).
+
+\bibitem[Rab22]{rabinovich2022classical}
+Eugene Rabinovich, \emph{A classical bulk-boundary correspondence}, arXiv preprint arXiv:2202.12332 (2022).
+
+\bibitem[Roy02]{roytenberg2002structure}
+Dmitry Roytenberg, \emph{On the structure of graded symplectic supermanifolds and courant algebroids}, arXiv preprint math/0203110 (2002).
+
+\bibitem[Roy07]{roytenberg2007aksz}
+\bysame, \emph{Aksz--bv formalism and courant algebroid-induced topological field theories}, Letters in Mathematical Physics \textbf{79} (2007), no.~2, 143--159.
+
+\bibitem[RSW23]{raghavendran2023twisted}
+Surya Raghavendran, Ingmar Saberi, and Brian~R Williams, \emph{Twisted eleven-dimensional supergravity}, Communications in Mathematical Physics \textbf{402} (2023), no.~2, 1103--1166.
+
+\bibitem[RT91]{reshetikhin1991invariants}
+Nicolai Reshetikhin and Vladimir~G Turaev, \emph{Invariants of 3-manifolds via link polynomials and quantum groups}, Inventiones mathematicae \textbf{103} (1991), no.~1, 547--597.
+
+\bibitem[RY25]{Raghavendran:2019zdq}
+Surya Raghavendran and Philsang Yoo, \emph{{Twisted S-duality}}, SciPost Phys. \textbf{19} (2025), no.~2, 049.
+
+\bibitem[Saf17]{Safronov2017pr}
+Pavel Safronov, \emph{Poisson reduction as a coisotropic intersection}, Higher Structures \textbf{1} (2017), no.~1, 87--121.
+
+\bibitem[Saf18]{safronov2018braces}
+\bysame, \emph{Braces and poisson additivity}, Compositio Mathematica \textbf{154} (2018), no.~8, 1698--1745.
+
+\bibitem[Saf23]{safronov2023shifted}
+\bysame, \emph{Shifted geometric quantization}, Journal of Geometry and Physics \textbf{194} (2023), 104992.
+
+\bibitem[SZ14]{Soncini:2014ara}
+Emanuele Soncini and Roberto Zucchini, \emph{{4-D semistrict higher Chern-Simons theory I}}, JHEP \textbf{10} (2014), 079.
+
+\bibitem[Tur16]{turaev2016quantum}
+Vladimir~G Turaev, \emph{Quantum invariants of knots and 3-manifolds}, vol.~18, Walter de Gruyter GmbH \& Co KG, 2016.
+
+\bibitem[Vai97]{Vaintrob_1997}
+A~Yu Vaintrob, \emph{Lie algebroids and homological vector fields}, Russian Mathematical Surveys \textbf{52} (1997), no.~2, 428.
+
+\bibitem[Wan25]{Wang:2024sqm}
+Minghao Wang, \emph{{Feynman Graph Integrals on $\mathbb {C}^d$}}, Commun. Math. Phys. \textbf{406} (2025), no.~5, 116.
+
+\bibitem[Wil17]{willwacher2017non}
+Thomas Willwacher, \emph{(non-) formality of the extended swiss cheese operads}, arXiv preprint arXiv:1706.02945 (2017).
+
+\bibitem[Wit88a]{Witten:1988ze}
+Edward Witten, \emph{{Topological Quantum Field Theory}}, Commun. Math. Phys. \textbf{117} (1988), 353.
+
+\bibitem[Wit88b]{Witten:1988xj}
+\bysame, \emph{{Topological Sigma Models}}, Commun. Math. Phys. \textbf{118} (1988), 411.
+
+\bibitem[Wit89]{witten1989quantum}
+\bysame, \emph{Quantum field theory and the jones polynomial}, Communications in mathematical physics \textbf{121} (1989), no.~3, 351--399.
+
+\bibitem[Wit10]{witten2010new}
+\bysame, \emph{A new look at the path integral of quantum mechanics}, arXiv preprint arXiv:1009.6032 (2010).
+
+\bibitem[Wit11a]{Witten:2010cx}
+\bysame, \emph{{Analytic Continuation Of Chern-Simons Theory}}, AMS/IP Stud. Adv. Math. \textbf{50} (2011), 347--446.
+
+\bibitem[Wit11b]{witten2011fivebranes}
+\bysame, \emph{Fivebranes and knots}, Quantum Topology \textbf{3} (2011), no.~1, 1--137.
+
+\bibitem[WW24]{wang2024factorization}
+Minghao Wang and Brian~R Williams, \emph{Factorization algebras from topological-holomorphic field theories}, arXiv preprint arXiv:2407.08667 (2024).
+
+\bibitem[WY25]{wang2025perturbative}
+Minghao Wang and Gongwang Yan, \emph{Perturbative bv-bfv formalism with homotopic renormalization: a case study}, Letters in Mathematical Physics \textbf{115} (2025), no.~2, 1--43.
+
+\bibitem[Zen23]{zeng2023monopole}
+Keyou Zeng, \emph{Monopole operators and bulk-boundary relation in holomorphic topological theories}, SciPost Physics \textbf{14} (2023), no.~6, 153.
+
+\bibitem[Zuc16]{Zucchini:2015ohw}
+Roberto Zucchini, \emph{{A Lie based 4{\textendash}dimensional higher Chern{\textendash}Simons theory}}, J. Math. Phys. \textbf{57} (2016), no.~5, 052301.
+
+\end{thebibliography}

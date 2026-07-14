@@ -1,0 +1,3127 @@
+\documentclass[11pt]{extarticle}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+
+%------------------------------------------------
+% Notation
+%------------------------------------------------
+\newcommand{\F}{\mathbb F}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Oq}{O_q}
+\newcommand{\Aq}{\mathcal A_q}
+\newcommand{\Aqfib}[1]{\mathcal A_{q,#1}}
+\newcommand{\BBqquot}[2]{\widetilde{\mathcal A}_{q,#1}^{\{#2\}}}
+\newcommand{\Uplus}{U_q^+(\widehat{\mathfrak{sl}}_2)}
+\newcommand{\Vsh}{\mathbb V}
+\newcommand{\gr}{\operatorname{gr}}
+\newcommand{\init}{\operatorname{in}}
+\newcommand{\sh}{\mathrm{sh}}
+\newcommand{\cW}{\mathcal W}
+\newcommand{\cG}{\mathcal G}
+\newcommand{\ctG}{\widetilde{\mathcal G}}
+\newcommand{\XiC}{\Xi}
+\newcommand{\Gt}{\widetilde{\cG}}
+\newcommand{\Zvee}{\mathcal Z^{\vee}}
+\newcommand{\Zconv}{\mathcal Z}
+\newcommand{\qcomm}[2]{[ #1,#2 ]_q}
+\newcommand{\comm}[2]{[ #1,#2 ]}
+\DeclareMathOperator{\Cent}{Cent}
+
+\begin{document}
+
+\title{PBW bases and centralisers for the $q$-Onsager algebra}
+
+\author{Haoran Zhu\thanks{Division of Mathematical Sciences,
+Nanyang Technological University, 21 Nanyang Link, Singapore 637371.
+Email: \texttt{zhuh0031@e.ntu.edu.sg}}}
+
+\date{}
+
+\maketitle
+
+\begin{abstract}
+We settle five conjectures concerning PBW bases and centralisers for the
+$q$-Onsager algebra.  We first prove that the Baseilhac--Kolb root vectors
+give a PBW basis in every linear order whenever $q$ is not a root of unity,
+removing the previous transcendence hypothesis.  We next establish twelve
+PBW bases in the alternating generators and show that they persist under
+arbitrary scalar central specialisation of the alternating central
+extension.  This proves conjectures of Terwilliger and of Baseilhac and Belliard.  Finally, we
+determine the centralisers of the negative and imaginary alternating
+subalgebras and show that all four single-family alternating polynomial
+subalgebras are maximal commutative.  The proofs combine explicit
+straightening for Damiani root vectors, the degeneration
+$\gr\Oq\simeq\Uplus$, and large-index triangular crossing arguments.
+\end{abstract}
+
+{\noindent\itshape Keywords:} $q$-Onsager algebra, PBW basis, alternating
+generators, root vectors, central specialisation, centraliser.
+
+\medskip
+
+{\noindent\itshape Mathematics Subject Classification:}
+17B37, 17B67, 81R50.
+
+\section{Introduction}
+\label{sec:introduction}
+
+The Onsager algebra is one of the classical algebraic structures behind
+exactly solvable lattice models.  It entered mathematical physics through
+Onsager's solution of the two-dimensional Ising model
+\cite{Onsager1944}, while the Dolan--Grady relations
+\cite{DolanGrady1982} gave a concise algebraic mechanism for producing the
+commuting quantities that underlie Onsager-type integrability.  The
+$q$-Onsager algebra $\Oq$ is a $q$-deformation of this structure.  It appears
+naturally in boundary quantum integrable systems
+\cite{Sklyanin1988,Baseilhac2005,BaseilhacKoizumi2005,
+BaseilhacBelliard2010,BaseilhacBelliard2013}, in the theory of tridiagonal
+pairs and tridiagonal algebras \cite{Terwilliger2001}, and as a fundamental
+example of a quantum symmetric-pair coideal subalgebra
+\cite{Letzter2002,Kolb2014,LuWang2021,LuRuanWang2023}.
+
+Two families of PBW constructions have played a central role in the study of
+$\Oq$.  Baseilhac and Kolb used Lusztig-type automorphisms to construct real
+and imaginary root vectors and obtained a root-vector PBW theorem
+\cite{BaseilhacKolb2020}.  A second construction starts from the current
+algebra introduced in the reflection-equation setting by Baseilhac and
+Koizumi and by Baseilhac and Shigechi
+\cite{BaseilhacKoizumi2005,BaseilhacShigechi2010}.  Terwilliger proved that
+this current algebra is the alternating central extension $\Aq$ of $\Oq$
+and established a standard tensor factorisation
+\[
+        \Aq\simeq\Oq\otimes\F[z_1,z_2,\ldots].
+\]
+The four generating families of $\Aq$ descend under central reduction to the
+alternating generators
+\[
+ \{W_{-n}\}_{n\geq0},\qquad
+ \{W_{n+1}\}_{n\geq0},\qquad
+ \{G_{n+1}\}_{n\geq0},\qquad
+ \{\widetilde G_{n+1}\}_{n\geq0}
+\]
+of $\Oq$ \cite{Terwilliger2021ACE,Terwilliger2022OqACE}.
+
+The present paper addresses five conjectures arising from these two PBW
+pictures.  Four of them appear in the list of future directions in
+\cite[Section~16]{Terwilliger2022OqACE}.
+
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=11mm]
+\item Conjecture~16.1 asks whether the Baseilhac--Kolb root-vector PBW theorem
+remains valid when the hypothesis that $q$ is transcendental is replaced by
+the assumption that $q$ is not a root of unity.
+
+\item Conjecture~16.2 predicts six PBW bases for the three alternating
+families $W^-$, $\widetilde G$, and $W^+$.
+
+\item Conjecture~16.7 predicts that the commutative algebra generated by
+$W_0,W_{-1},W_{-2},\ldots$ is self-centralising in $\Oq$.
+
+\item Conjecture~16.8 makes the analogous prediction for the algebra
+generated by $\widetilde G_1,\widetilde G_2,\ldots$.
+
+\item Baseilhac and Belliard conjectured that every central quotient of the
+current algebra determined by their central values $\Delta_n=2\delta_n$
+has a PBW basis in the block order $W^-<G<W^+$
+\cite[Conjecture~1]{BaseilhacBelliard2017}.
+\end{enumerate}
+
+These questions are related but are not formal consequences of one another.
+The root-vector problem concerns specialisation of a generic PBW theorem;
+the alternating problem concerns the highest filtered components of a very
+different system of generators; and the centraliser problems require a
+no-cancellation argument beyond a dimension count.  Their common feature is
+triangularity.  The main theme of this paper is that global degeneration and
+local crossings are two manifestations of the same triangular principle.
+
+The order of a PBW basis is relevant in applications.  Factorised formulae
+for universal $R$-matrices are built from specific convex orders
+\cite{Beck1994,KhoroshkinTolstoy1991,Damiani1998}; after evaluation, this dependence
+is visible in LDU decompositions of $L$-operators
+\cite[eqs.~(4.8) and~(4.9)]{DingFrenkel1993}.  In the coideal setting,
+universal $K$-matrices and fused $K$-operators provide the corresponding
+structures \cite{AppelVlaar2022,LemartheBaseilhacGainutdinov2026}.  The
+alternating order conjectured by Baseilhac and Belliard has already been
+used in universal TT- and TQ-relations
+\cite{BaseilhacGainutdinovLemarthe2026}.  Rigorous PBW results for the
+specific alternating orders are therefore needed both for the internal
+structure of $\Oq$ and for order-sensitive constructions in boundary
+integrability.
+
+Our first main result removes the genericity assumption from the
+Baseilhac--Kolb theorem.
+
+\begin{theorem}
+\label{thm:intro-root}
+Let $\F$ be a field and let $0\neq q\in\F$ be not a root of unity.  For every
+total order on the positive roots of $\widehat{\mathfrak{sl}}_2$, the
+corresponding ordered monomials in the Baseilhac--Kolb root vectors form a
+basis of $\Oq$.  Consequently, Terwilliger's Conjecture~16.1 holds.
+\end{theorem}
+
+The proof uses Damiani's explicit straightening relations.  For each fixed
+weight, the correction terms strictly decrease a real-root multiplicity
+signature, while the leading interchange term has coefficient
+$1$, $q^2$, or $q^{-2}$.  A two-level induction on this signature and on the
+number of inversions gives the Damiani PBW basis in an arbitrary total order.
+The resulting basis is lifted to $\Oq$ through the initial forms of the
+Baseilhac--Kolb root vectors.
+
+Our second result concerns the alternating generators.  Put
+\[
+\begin{array}{lll}
+W^-<H<W^+,&W^+<H<W^-,&W^+<W^-<H,\\[1mm]
+W^-<W^+<H,&H<W^+<W^-,&H<W^-<W^+.
+\end{array}
+\tag{1.1}
+\label{eq:intro-orders}
+\]
+
+\begin{theorem}
+\label{thm:intro-alternating}
+For $H=G$ and for $H=\widetilde G$, the three corresponding alternating
+families give PBW bases of $\Oq$ in each of the six block orders in
+\eqref{eq:intro-orders}.  The same twelve bases persist in every $\F$-valued
+central fibre of $\Aq$.  In particular, Terwilliger's Conjecture~16.2 holds.
+\end{theorem}
+
+The key calculation identifies the initial forms of all alternating
+generators with non-zero scalar multiples of the alternating words in the
+$q$-shuffle realisation of $\Uplus$.  Terwilliger had previously proved the
+corresponding twelve PBW bases in $\Uplus$
+\cite{Terwilliger2019Alternating}; filtered lifting then gives
+Theorem~\ref{thm:intro-alternating}.  The triangular convolution formula
+for the standard tensor factorisation of $\Aq$ shows that arbitrary central
+specialisation does not change these initial forms.
+
+For the quotients of Baseilhac and Belliard we obtain the following
+consequence.
+
+\begin{corollary}
+\label{cor:intro-BB}
+Assume that $\operatorname{char}\F\neq2$.  For every non-zero parameter
+$\rho$ and every sequence of central values $\{\delta_n\}_{n\geq1}$, the
+Baseilhac--Belliard quotient has the conjectured PBW basis in the block order
+$W^-<G<W^+$.  Thus their Conjecture~1 holds.
+\end{corollary}
+
+Our third result determines two centralisers, in forms stronger than the
+original conjectures.
+
+\begin{theorem}
+\label{thm:intro-centralisers}
+One has
+\[
+ \Cent_{\Oq}\bigl(\F[W_0,W_{-1},W_{-2},\ldots]\bigr)
+ =\F[W_0,W_{-1},W_{-2},\ldots]
+\]
+and
+\[
+ \Cent_{\Oq}(\widetilde G_1)
+ =\F[\widetilde G_1,\widetilde G_2,\widetilde G_3,\ldots].
+\]
+Consequently, Terwilliger's Conjectures~16.7 and~16.8 hold.  By symmetry,
+the four polynomial subalgebras generated by the four alternating families
+are all maximal commutative.
+\end{theorem}
+
+The two centraliser arguments are local.  For the negative family we choose
+an alternating PBW order in the $q$-shuffle algebra and commute with a
+sufficiently high $W_{-N}$.  A positive or imaginary factor creates a unique
+maximal profile whose coefficient is a non-zero $q$-geometric sum.  For the
+imaginary family we use the Baseilhac--Kolb PBW basis and the action of the
+first imaginary root vector on real root vectors.  Again a unique maximal
+profile survives with a non-zero geometric coefficient.
+
+The paper is organised as follows.  In Section~2, we define the
+$q$-Onsager algebra and its alternating central extension, recall the
+word-length filtration, and establish the two filtered lifting lemmas used
+throughout.  In Section~3, we introduce the $q$-shuffle algebra, the
+alternating words, the Catalan elements, and the Damiani root vectors.  In
+Section~4, we prove the arbitrary-order Damiani PBW theorem from explicit
+straightening relations.  In Section~5, we compute the initial forms of the
+Baseilhac--Kolb root vectors and settle Conjecture~16.1.  In Section~6, we
+compute the initial forms of all alternating generators, including the
+complete scalar factors and low-degree checks.  In Section~7, we lift the
+twelve alternating PBW bases to $\Oq$.  In Section~8, we treat arbitrary
+central specialisations and distinguish the three systems of central
+coordinates used in the literature.  In Section~9, we prove the conjecture
+of Baseilhac and Belliard, first in the normalised case and then for an
+arbitrary nonzero parameter.  In Section~10, we establish a large-index
+crossing theorem and the negative-tail centraliser.  In Section~11, we
+determine the remaining centralisers and deduce maximal commutativity.
+
+\section{The \texorpdfstring{$q$}{q}-Onsager algebra and filtered lifting}
+\label{sec:prelim}
+
+Throughout the paper we use the convention
+\(\N=\{0,1,2,\ldots\}\).  The symbol \(\F\) denotes a field, and
+\(0\neq q\in\F\) is assumed not to be a root of unity.  All algebras are
+associative and unital, all algebra homomorphisms preserve the identity,
+and all tensor products are taken over \(\F\).  For elements \(X,Y\) of an
+\(\F\)-algebra we write
+\[
+ [n]_q=\frac{q^n-q^{-n}}{q-q^{-1}},\qquad
+ \comm{X}{Y}=XY-YX,\qquad
+ \qcomm{X}{Y}=qXY-q^{-1}YX .
+\]
+The assumption on \(q\) will be used repeatedly through the following
+elementary observation.
+
+\begin{lemma}\label{lem:nonvanishing-scalars}
+For every positive integer \(m\), the scalars
+\[
+ q-q^{-1},\qquad q+q^{-1},\qquad [m]_q,\qquad
+ q^m+q^{-m},\qquad 1-q^{2m},\qquad 1-q^{-2m}
+\]
+are non-zero.  In particular, the denominators occurring in this section,
+and the later geometric factors of the forms \(1-q^{\pm 2m}\) and
+\(q^m+q^{-m}\), are non-zero.
+\end{lemma}
+
+\begin{proof}
+If \(q-q^{-1}=0\), then \(q^2=1\).  If \(q+q^{-1}=0\), then
+\(q^2=-1\), and hence \(q^4=1\).  Since \(q-q^{-1}\neq0\), the equality
+\([m]_q=0\) implies \(q^m=q^{-m}\), and hence \(q^{2m}=1\).  If
+\(q^m+q^{-m}=0\), then \(q^{2m}=-1\), and hence \(q^{4m}=1\).  Finally,
+\(1-q^{2m}=0\) or \(1-q^{-2m}=0\) again gives \(q^{2m}=1\).  Each case
+contradicts the assumption that \(q\) is not a root of unity.
+\end{proof}
+
+\subsection{The \texorpdfstring{\(q\)}{q}-Onsager algebras and the word-length filtration}
+
+\begin{definition}
+\label{def:Oq}
+The \(q\)-Onsager algebra \(\Oq\) is the \(\F\)-algebra generated by
+\(W_0,W_1\), subject to the \(q\)-Dolan--Grady relations
+\begin{align}
+W_0^3W_1-[3]_qW_0^2W_1W_0+[3]_qW_0W_1W_0^2-W_1W_0^3
+   &=(q^2-q^{-2})^2(W_1W_0-W_0W_1),
+\label{eq:qDG0}\\
+W_1^3W_0-[3]_qW_1^2W_0W_1+[3]_qW_1W_0W_1^2-W_0W_1^3
+   &=(q^2-q^{-2})^2(W_0W_1-W_1W_0).
+\label{eq:qDG1}
+\end{align}
+\end{definition}
+
+%Our normalisation agrees with \cite{Terwilliger2022OqACE}.  
+Equivalently,
+the right-hand sides of \eqref{eq:qDG0} and \eqref{eq:qDG1} are
+\(\rho_0\comm{W_0}{W_1}\) and \(\rho_0\comm{W_1}{W_0}\), respectively, where
+\begin{equation}
+\label{eq:rho0}
+        \rho_0=-(q^2-q^{-2})^2 .
+\end{equation}
+
+We shall also use Terwilliger's alternating central extension of
+\(\Oq\).  The current algebra introduced by Baseilhac and Koizumi and
+presented by Baseilhac and Shigechi is isomorphic to this algebra
+\cite{BaseilhacKoizumi2005,BaseilhacShigechi2010,Terwilliger2021ACE}.  We
+use the following presentation as its definition.
+
+\begin{definition}\label{def:Aq}
+The alternating central extension $\Aq$ of the $q$-Onsager algebra is the
+$\F$-algebra generated by the four families
+\[
+        \cW_{-k},\qquad \cW_{k+1},\qquad
+        \cG_{k+1},\qquad \Gt_{k+1}
+        \qquad (k\in\N).
+\]
+These generators are called the \textbf{alternating generators} of $\Aq$.
+The defining relations are, for all $k,\ell\in\N$:
+\begin{align}
+&[\cW_0,\cW_{k+1}]
+        =[\cW_{-k},\cW_1]
+          =\frac{\Gt_{k+1}-\cG_{k+1}}{q+q^{-1}},
+          \label{eq:Aq1}\\
+&[\cW_0,\cG_{k+1}]_q
+        =[\Gt_{k+1},\cW_0]_q
+          =\rho \cW_{-k-1}-\rho \cW_{k+1},
+          \label{eq:Aq2}\\
+&[\cG_{k+1},\cW_1]_q
+        =[\cW_1,\Gt_{k+1}]_q
+          =\rho \cW_{k+2}-\rho \cW_{-k},
+          \label{eq:Aq3}\\
+&[\cW_{-k},\cW_{-\ell}]=0,
+        \qquad
+        [\cW_{k+1},\cW_{\ell+1}]=0,
+        \label{eq:Aq4}\\
+&[\cW_{-k},\cW_{\ell+1}]
+        +[\cW_{k+1},\cW_{-\ell}]=0,
+        \label{eq:Aq5}\\
+&[\cW_{-k},\cG_{\ell+1}]
+        +[\cG_{k+1},\cW_{-\ell}]=0,
+        \label{eq:Aq6}\\
+&[\cW_{-k},\Gt_{\ell+1}]
+        +[\Gt_{k+1},\cW_{-\ell}]=0,
+        \label{eq:Aq7}\\
+&[\cW_{k+1},\cG_{\ell+1}]
+        +[\cG_{k+1},\cW_{\ell+1}]=0,
+        \label{eq:Aq8}\\
+&[\cW_{k+1},\Gt_{\ell+1}]
+        +[\Gt_{k+1},\cW_{\ell+1}]=0,
+        \label{eq:Aq9}\\
+&[\cG_{k+1},\cG_{\ell+1}]=0,
+        \qquad
+        [\Gt_{k+1},\Gt_{\ell+1}]=0,
+        \label{eq:Aq10}\\
+&[\Gt_{k+1},\cG_{\ell+1}]
+        +[\cG_{k+1},\Gt_{\ell+1}]=0,
+        \label{eq:Aq11}
+\end{align}
+where $\rho=-(q^2-q^{-2})^2$.
+\end{definition}
+
+We use the scalar convention
+\begin{equation}
+\label{eq:Aq-G0}
+        \cG_0=\ctG_0=-(q-q^{-1})[2]_q^2 .
+\end{equation}
+These two elements are scalars, not additional generators.
+
+Terwilliger~\cite{Terwilliger2021ACE,Terwilliger2022OqACE} proved that the centre \(Z(\Aq)\) is a polynomial algebra in
+countably many variables and that the standard multiplication map gives a
+tensor product factorisation
+\begin{equation}
+\label{eq:standard-factorisation-intro}
+        \Aq\simeq \Oq\otimes\F[z_1,z_2,\ldots].
+\end{equation}
+Under this factorisation, evaluation of the polynomial variables at
+\(z_1=z_2=\cdots=0\) gives the canonical central reduction
+\[
+        \gamma:\Aq\longrightarrow\Oq .
+\]
+The alternating generators of \(\Oq\) are, by definition, the images
+\[
+ W_{-n}=\gamma(\cW_{-n}),\qquad
+ W_{n+1}=\gamma(\cW_{n+1}),\qquad
+ G_{n+1}=\gamma(\cG_{n+1}),\qquad
+ \widetilde G_{n+1}=\gamma(\ctG_{n+1})
+ \qquad(n\in\N).
+\]
+Thus calligraphic alternating generators belong to \(\Aq\), while the
+corresponding plain symbols denote their canonical images in \(\Oq\).
+
+We next recall the filtration that connects \(\Oq\) with the positive part
+of \(U_q(\widehat{\mathfrak{sl}}_2)\).  For \(d\in\N\), let \(F_d\Oq\) be
+the \(\F\)-subspace spanned by the images of all words in \(W_0,W_1\) of
+length at most \(d\), and put \(F_{-1}\Oq=0\).  Then
+\(F_r\Oq\,F_s\Oq\subseteq F_{r+s}\Oq\), and
+\(\Oq=\bigcup_{d\geq0}F_d\Oq\).  We call this the \textbf{word-length filtration}.
+The associated graded algebra is
+\[
+        \gr\Oq=\bigoplus_{d\geq0}F_d\Oq/F_{d-1}\Oq .
+\]
+If \(u\in F_d\Oq\), we write \(\overline u\) for its \textbf{image} in
+\(F_d\Oq/F_{d-1}\Oq\).  If \(u\in F_d\Oq\setminus F_{d-1}\Oq\), then
+\(\overline u\) is called the \textbf{initial form} of \(u\), and is denoted by
+\(\init(u)\).
+
+Let \(\Uplus\) be the \(\F\)-algebra generated by \(A,B\), subject to the
+cubic \(q\)-Serre relations
+\begin{align*}
+A^3B-[3]_qA^2BA+[3]_qABA^2-BA^3&=0,\\
+B^3A-[3]_qB^2AB+[3]_qBAB^2-AB^3&=0.
+\end{align*}
+The degree-four parts of the \(q\)-Dolan--Grady relations are precisely
+these two relations.  The following theorem makes this degeneration exact.
+
+\begin{theorem}[{{\cite[Theorem~4.4]{Terwilliger2017PositivePart}}}]
+\label{thm:gr-isomorphism}
+There is an algebra isomorphism
+\[
+        \psi:\Uplus\longrightarrow\gr\Oq
+\]
+such that \(\psi(A)=\overline{W_0}\) and
+\(\psi(B)=\overline{W_1}\).
+\end{theorem}
+
+From now on, we identify \(\gr\Oq\) with \(\Uplus\) through \(\psi\).
+
+\subsection{Filtered lifting, centralisers, and notation}
+
+We use the following convention for PBW bases.
+
+\begin{definition}
+Let \(R\) be an \(\F\)-algebra, let \(\Omega\subseteq R\), and let \(<\) be
+a linear order on \(\Omega\).  We say that \(\Omega\), with the order \(<\),
+gives a PBW basis of \(R\) if the ordered monomials
+\[
+        a_1a_2\cdots a_m,
+        \qquad
+        m\in\N,\qquad
+        a_1\leq a_2\leq\cdots\leq a_m,
+\]
+form an \(\F\)-basis of \(R\).  For \(m=0\), the monomial is interpreted as
+the identity element.
+\end{definition}
+
+The next lemma is the filtered lifting principle used throughout the paper.
+It is stated in the positive-degree form needed below.
+
+\begin{lemma}
+\label{lem:filtered-lifting}
+Let \(R\) be an \(\F\)-algebra with an exhaustive filtration
+\[
+        0=F_{-1}R\subseteq F_0R\subseteq F_1R\subseteq\cdots .
+\]
+Let \(\{u_\lambda\}_{\lambda\in\Lambda}\) be elements of positive filtration
+degree, say
+\[
+        u_\lambda\in F_{d_\lambda}R\setminus F_{d_\lambda-1}R,
+        \qquad d_\lambda>0.
+\]
+Assume that
+\[
+        \init(u_\lambda)=c_\lambda v_\lambda,
+        \qquad c_\lambda\in\F^\times,
+\]
+where \(v_\lambda\in\gr R\) is homogeneous of degree \(d_\lambda\).  Fix a
+linear order on \(\Lambda\).  If the ordered monomials in the
+\(v_\lambda\) form a basis of \(\gr R\), then the corresponding ordered
+monomials in the \(u_\lambda\) form a basis of \(R\).
+\end{lemma}
+
+\begin{proof}
+For an ordered monomial \(M\), write \(M(u)\) and \(M(v)\) for the
+corresponding products in the \(u_\lambda\) and in the \(v_\lambda\),
+respectively.  If \(M\) contains \(u_\lambda\) with multiplicity
+\(e_\lambda(M)\), then the initial form of \(M(u)\) is
+\[
+        \left(\prod_\lambda c_\lambda^{e_\lambda(M)}\right)M(v).
+\]
+In particular, \(M(u)\) has the expected filtration degree, because
+\(M(v)\) is a non-zero basis element of \(\gr R\).
+
+We first prove linear independence.  Suppose that there is a non-trivial
+finite relation
+\[
+        \sum_M a_M M(u)=0
+\]
+among distinct ordered monomials.  Let \(D\) be the largest filtration
+degree of a monomial occurring with non-zero coefficient.  Passing to
+\(F_DR/F_{D-1}R\) gives
+\[
+ \sum_{\deg M=D}
+ a_M\left(\prod_\lambda c_\lambda^{e_\lambda(M)}\right)M(v)=0 .
+\]
+The monomials \(M(v)\) are distinct basis elements of \(\gr R\), and all
+displayed scalar factors are non-zero.  Hence \(a_M=0\) for every monomial
+of degree \(D\).  Repeating this argument in descending filtration degree
+gives \(a_M=0\) for all \(M\), a contradiction.
+
+We next prove spanning by induction on the filtration degree.  Let
+\(r\in F_DR\).  The image of \(r\) in \(F_DR/F_{D-1}R\) is a finite linear
+combination of ordered monomials \(M(v)\) of degree \(D\).  Replacing each
+\(M(v)\) by
+\[
+        \left(\prod_\lambda c_\lambda^{e_\lambda(M)}\right)^{-1}M(u)
+\]
+gives an element \(r'\in F_DR\) with the same image as \(r\) in
+\(F_DR/F_{D-1}R\).  Thus \(r-r'\in F_{D-1}R\), and the induction hypothesis
+completes the proof.
+\end{proof}
+
+\begin{remark}
+Lemma~\ref{lem:filtered-lifting} is an initial-form version of
+\cite[Proposition~4.6]{Terwilliger2017PositivePart}.  The formulation above
+does not require the lifting elements to be represented in advance by
+homogeneous words in a free algebra.
+\end{remark}
+
+We shall also use the corresponding lifting statement for centralisers.  If
+\(S\) is a subset of an algebra \(R\), we write \(\Cent_R(S)\) for its
+centraliser.
+
+\begin{lemma}\label{lem:filtered-centraliser}
+Let \(R=\bigcup_{d\geq0}F_dR\) be an exhaustively filtered algebra, with
+\(F_{-1}R=0\), and let \(H\subseteq R\) be a commutative subalgebra filtered
+by \(H\cap F_dR\).  View \(\gr H\) as the corresponding graded subalgebra of
+\(\gr R\).  If
+\[
+        \Cent_{\gr R}(\gr H)=\gr H,
+\]
+then
+\[
+        \Cent_R(H)=H .
+\]
+\end{lemma}
+
+\begin{proof}
+Since \(H\) is commutative, \(H\subseteq\Cent_R(H)\).  Conversely, let
+\(0\neq x\in\Cent_R(H)\), and let \(D\) be the filtration degree of \(x\).
+For every homogeneous element of \(\gr H\), choose a representative
+\(h\in H\).  The equality \([x,h]=0\) implies that the highest-degree
+component of \([x,h]\) is zero; hence \(\init(x)\) centralises every
+homogeneous element of \(\gr H\).  Therefore
+\[
+        \init(x)\in \Cent_{\gr R}(\gr H)=\gr H .
+\]
+By the definition of \(\gr H\), there exists \(y\in H\cap F_DR\) with
+\(\init(y)=\init(x)\).  Then \(x-y\in F_{D-1}R\), and \(x-y\) still
+centralises \(H\).  Induction on \(D\) gives \(x-y\in H\), and hence
+\(x\in H\).
+\end{proof}
+
+We shall use three standard symmetries of \(\Oq\).  There is an involutive
+automorphism \(\sigma\), an involutive antiautomorphism \(\dagger\), and an
+involutive antiautomorphism \(\tau\), satisfying, for \(n\in\N\),
+\begin{align*}
+\sigma:&\quad
+ W_{-n}\leftrightarrow W_{n+1},
+ \qquad
+ G_{n+1}\leftrightarrow\widetilde G_{n+1},\\
+\dagger:&\quad
+ W_{-n}\mapsto W_{-n},
+ \qquad
+ W_{n+1}\mapsto W_{n+1},
+ \qquad
+ G_{n+1}\leftrightarrow\widetilde G_{n+1},\\
+\tau:&\quad
+ W_{-n}\leftrightarrow W_{n+1},
+ \qquad
+ G_{n+1}\mapsto G_{n+1},
+ \qquad
+ \widetilde G_{n+1}\mapsto\widetilde G_{n+1}.
+\end{align*}
+See \cite[Definitions~3.4--3.6 and Theorem~11.6]{Terwilliger2022OqACE}.
+These maps send \(W_0,W_1\) to elements of filtration degree one, and
+therefore preserve the word-length filtration.
+
+\paragraph{Typographical conventions.}
+Calligraphic symbols such as
+\(\cW_{-n},\cW_{n+1},\cG_n,\ctG_n\) always denote elements of \(\Aq\).
+The corresponding plain symbols
+\(W_{-n},W_{n+1},G_n,\widetilde G_n\) denote their canonical images in
+\(\Oq\).  From Section~\ref{sec:qshuffle} onwards, the superscript
+\(\sh\) is reserved for elements of the \(q\)-shuffle algebra.  Thus the
+notation distinguishes, for example, \(\cW_{-n}\in\Aq\),
+\(W_{-n}\in\Oq\), and \(W_{-n}^{\sh}\) in the \(q\)-shuffle algebra.
+
+
+
+
+\section{The \texorpdfstring{$q$}{q}-shuffle algebra, alternating words, and root vectors}
+\label{sec:qshuffle}
+
+In this section we recall the \(q\)-shuffle realisation of \(\Uplus\), the
+alternating words, the Catalan elements, and Damiani's root vectors.  These
+objects will provide the associated-graded structure for the PBW lifting
+arguments in later sections.
+
+\subsection{The \texorpdfstring{\(q\)}{q}-shuffle realisation and the alternating words}
+
+Let \(\Vsh\) be the \(\F\)-vector space with basis the set of all words in
+the two letters \(x,y\), including the empty word \(1\).  Juxtaposition of
+letters and words always denotes concatenation.  The \(q\)-shuffle product
+will be denoted by \(\star\).
+
+Define a symmetric bilinear form on the letters by
+\[
+ \langle x,x\rangle=\langle y,y\rangle=2,\qquad
+ \langle x,y\rangle=\langle y,x\rangle=-2 .
+\]
+The \textbf{\(q\)-shuffle product} is the unique bilinear product on \(\Vsh\)
+determined by \(1\star v=v\star1=v\) and by the recursion
+\begin{equation}
+\label{eq:qshuffle-recursion}
+\begin{split}
+ u\star v
+={}&
+ u_1\bigl((u_2\cdots u_r)\star v\bigr)+
+ v_1\bigl(u\star(v_2\cdots v_s)\bigr)
+ q^{\langle u_1,v_1\rangle+\cdots+\langle u_r,v_1\rangle},
+\end{split}
+\end{equation}
+for non-empty words \(u=u_1\cdots u_r\) and \(v=v_1\cdots v_s\).  This
+product is associative; see \cite[Section~4, equations~(8)--(12)]
+{Terwilliger2019Alternating}.  For instance,
+\[
+        x\star y=xy+q^{-2}yx,\qquad
+        y\star x=yx+q^{-2}xy .
+\]
+
+Rosso's \(q\)-shuffle embedding \cite{Rosso1998} gives an injective algebra homomorphism
+\[
+        \iota:\Uplus\longrightarrow(\Vsh,\star),
+        \qquad
+        A\longmapsto x,\qquad B\longmapsto y .
+\]
+By \cite[Definition~4.2 and the paragraph following equations~(14)--(15)]{Terwilliger2019Alternating}, the image is the
+subalgebra of \((\Vsh,\star)\) generated by \(x,y\).  
+We identify
+\(\Uplus\) with this image.  Combined with
+Theorem~\ref{thm:gr-isomorphism}, this identification lets us regard
+initial forms in \(\gr\Oq\) as elements of the \(q\)-shuffle algebra.
+
+For \(n\in\N\), define the alternating words
+\begin{equation}
+\label{eq:alternating-words}
+ W_{-n}^{\sh}=x(yx)^n,\qquad
+ W_{n+1}^{\sh}=y(xy)^n,\qquad
+ G_n^{\sh}=(yx)^n,\qquad
+ \widetilde G_n^{\sh}=(xy)^n .
+\end{equation}
+Here the powers are concatenation powers of words.  Thus
+\[
+ W_0^{\sh}=x,\qquad W_1^{\sh}=y,\qquad
+ G_0^{\sh}=\widetilde G_0^{\sh}=1,\qquad
+ G_1^{\sh}=yx,\qquad \widetilde G_1^{\sh}=xy .
+\]
+These are precisely the alternating words with a superscript
+added to distinguish them from alternating generators in \(\Oq\); see~\cite[Definitions~5.1--5.2]{Terwilliger2019Alternating}.
+
+The word-reversal map fixes each of \(x\) and \(y\).  As a map on
+\((\Vsh,\star)\), it is an antiautomorphism; see
+\cite[Lemma~4.1]{Terwilliger2019Alternating}.  It fixes
+\(W_{-n}^{\sh}\) and \(W_{n+1}^{\sh}\), and interchanges
+\(G_n^{\sh}\) with \(\widetilde G_n^{\sh}\).
+
+Whenever a commutator or \(q\)-commutator is written inside \(\Vsh\), the
+products are computed using \(\star\).  We shall use the following two
+relations.  For \(n\geq1\),
+\begin{align}
+\qcomm{\widetilde G_n^{\sh}}{x}
+ &=(q-q^{-1})W_{-n}^{\sh},
+\label{eq:qshuffle-Wminus}\\
+\qcomm{y}{\widetilde G_n^{\sh}}
+ &=(q-q^{-1})W_{n+1}^{\sh}.
+\label{eq:qshuffle-Wplus}
+\end{align}
+They are the cases \(k=n-1\) of
+\cite[Proposition~5.7, equations~(38)--(39)]
+{Terwilliger2019Alternating}.
+
+The following theorem is the graded PBW structure used throughout the paper.
+
+\begin{theorem}[{{\cite[Theorems~10.1 and~10.2]{Terwilliger2019Alternating}}}]
+\label{thm:qshuffle-twelve}
+The three families
+\[
+ \{W_{-i}^{\sh}\}_{i\in\N},\qquad
+ \{\widetilde G_{j+1}^{\sh}\}_{j\in\N},\qquad
+ \{W_{k+1}^{\sh}\}_{k\in\N}
+\]
+give a PBW basis of \(\Uplus\) in every linear order satisfying one of the
+six block conditions
+\begin{equation}
+\label{eq:six-shuffle-orders}
+\begin{array}{lll}
+W^-<\widetilde G<W^+,&
+W^+<\widetilde G<W^-,&
+W^+<W^-<\widetilde G,\\[1mm]
+W^-<W^+<\widetilde G,&
+\widetilde G<W^+<W^-,&
+\widetilde G<W^-<W^+.
+\end{array}
+\end{equation}
+No condition is imposed on the order inside a single block.  The same
+assertion holds with the family
+\(\{\widetilde G_{j+1}^{\sh}\}_{j\in\N}\) replaced by
+\(\{G_{j+1}^{\sh}\}_{j\in\N}\).
+\end{theorem}
+
+
+\subsection{Catalan elements and Damiani root vectors}
+
+We next recall the Catalan elements that describe Damiani's root vectors in
+the \(q\)-shuffle realisation.  Let
+\[
+        \epsilon(x)=1,\qquad \epsilon(y)=-1 .
+\]
+A word \(v=v_1\cdots v_r\) in the letters \(x,y\) is called Catalan if
+\[
+ \sum_{h=1}^{i}\epsilon(v_h)\geq0\quad(1\leq i<r),
+ \qquad
+ \sum_{h=1}^{r}\epsilon(v_h)=0 .
+\]
+Such a word has even length.  For \(n\in\N\), define
+\begin{equation}
+\label{eq:Catalan-definition}
+ C_n=
+ \sum_{v=v_1\cdots v_{2n}}
+ v\prod_{j=0}^{2n}
+ \left[1+\sum_{h=1}^{j}\epsilon(v_h)\right]_q ,
+\end{equation}
+where the sum is over all Catalan words of length \(2n\), and the inner sum
+is interpreted as \(0\) when \(j=0\).  Thus
+\[
+        C_0=1,\qquad C_1=[2]_qxy .
+\]
+This is the Catalan element normalisation used in
+\cite[Section~4, equations following Definition~4.2]
+{Terwilliger2019Alternating}; equivalently, it is the normalisation from
+\cite[Theorem~1.7]{Terwilliger2019Catalan}.
+
+Let
+\[
+ \{E_{n\delta+\alpha_0}\}_{n\geq0},\qquad
+ \{E_{n\delta+\alpha_1}\}_{n\geq0},\qquad
+ \{E_{n\delta}\}_{n\geq1}
+\]
+be Damiani's root vectors in \(\Uplus\), in the normalisation
+\cite[Section~2, equations~(4)--(6)]{Terwilliger2019Alternating}.  They are
+defined recursively by
+\begin{align}
+&E_{\alpha_0}=A,
+\qquad E_{\alpha_1}=B,
+\qquad E_\delta=q^{-2}BA-AB,
+\label{eq:Damiani-initial}\\
+&E_{n\delta+\alpha_0}
+ =\frac{\comm{E_\delta}{E_{(n-1)\delta+\alpha_0}}}{[2]_q},
+\qquad E_{n\delta+\alpha_1}
+ =\frac{\comm{E_{(n-1)\delta+\alpha_1}}{E_\delta}}{[2]_q},
+\label{eq:Damiani-real}\\
+&E_{n\delta}
+ =q^{-2}E_{(n-1)\delta+\alpha_1}A
+   -AE_{(n-1)\delta+\alpha_1}
+\qquad(n\geq1).
+\label{eq:Damiani-imaginary}
+\end{align}
+
+Under the \(q\)-shuffle embedding \(\iota\), these root vectors have the
+closed forms
+\begin{align}
+E_{n\delta+\alpha_0}
+ &\longmapsto q^{-2n}(q-q^{-1})^{2n}xC_n
+ \qquad(n\geq0),
+\label{eq:Damiani-shuffle-0}\\
+E_{n\delta+\alpha_1}
+ &\longmapsto q^{-2n}(q-q^{-1})^{2n}C_ny
+ \qquad(n\geq0),
+\label{eq:Damiani-shuffle-1}\\
+E_{n\delta}
+ &\longmapsto -q^{-2n}(q-q^{-1})^{2n-1}C_n
+ \qquad(n\geq1).
+\label{eq:Damiani-shuffle-delta}
+\end{align}
+Here \(xC_n\) and \(C_ny\) denote concatenation of words, not
+\(q\)-shuffle multiplication.  The formulae are
+\cite[Theorem~1.7]{Terwilliger2019Catalan}; in the present notation they
+are also recorded in
+\cite[Section~4, after Definition~4.2]{Terwilliger2019Alternating}.
+
+Finally, we record the Catalan--alternating relation that will be used to
+compute the highest filtered component of the alternating generators of
+\(\Oq\).
+
+\begin{theorem}[{{\cite[Theorem~11.14]{Terwilliger2019Alternating}}}]
+\label{thm:Catalan-alternating}
+For every \(n\in\N\),
+\begin{equation}
+\label{eq:Catalan-alternating}
+        \sum_{i=0}^{n}(-1)^i[2n-i]_q\,
+        C_i\star\widetilde G_{n-i}^{\sh}=0 .
+\end{equation}
+\end{theorem}
+
+
+
+\section{Root-vector PBW bases away from roots of unity}
+\label{sec:specialisation}
+
+In this section we prove that Damiani's root vectors give a PBW basis in an
+arbitrary total order whenever $q$ is not a root of unity.  The point is
+that the explicit straightening relations have leading coefficients among
+$1,q^2,q^{-2}$, while every correction term decreases a fixed finite
+triangular parameter.  Thus no generic-parameter or localisation argument
+is needed.
+
+For $i\in\N$ and $m\geq1$, abbreviate
+\[
+ A_i=E_{i\delta+\alpha_0},\qquad
+ B_i=E_{i\delta+\alpha_1},\qquad
+ I_m=E_{m\delta}.
+\]
+We use the following standard monomial convention:
+\begin{equation}
+\label{eq:Damiani-standard-order}
+ A_i<A_{i+1},\qquad I_m<I_{m+1},\qquad B_{j+1}<B_j,
+ \qquad A_i<I_m<B_j
+\end{equation}
+for all $i,j\in\N$ and $m\geq1$.  Thus the imaginary root vectors occur in
+increasing index order.  The standard ordered monomials in these root
+vectors form a basis of $\Uplus$; see
+\cite[Proposition~2.4]{Terwilliger2019Alternating} and
+\cite[Section~5, Theorem~2]{Damiani1993}.  Baseilhac--Kolb use the opposite
+internal order on the imaginary string.  Since the elements $I_m$ commute
+pairwise, the two conventions give the same set of standard monomials.
+
+For a word $w$ in the root vectors, let $a_i(w)$ and $b_i(w)$ denote the
+multiplicities of $A_i$ and $B_i$, respectively, and define its
+\emph{real signature} by
+\begin{equation}
+\label{eq:real-signature}
+ \operatorname{rsig}(w)
+ =\bigl(a_0(w),a_1(w),a_2(w),\ldots;
+        b_0(w),b_1(w),b_2(w),\ldots\bigr).
+\end{equation}
+Only finitely many entries are non-zero.  We order these signatures
+lexicographically, reading the $A$-coordinates first and then the
+$B$-coordinates, and declaring the signature with the larger entry at the
+first place of disagreement to be larger.  In a fixed weight there are only
+finitely many signatures.  Moreover, strict comparison is preserved by
+adding the same multiplicity vector:
+\begin{equation}
+\label{eq:signature-additivity}
+ \boldsymbol a<\boldsymbol b
+ \quad\Longrightarrow\quad
+ \boldsymbol a+\boldsymbol c<\boldsymbol b+\boldsymbol c.
+\end{equation}
+
+\begin{lemma}[Triangular Damiani crossings]
+\label{lem:Damiani-triangular-crossings}
+Let $X,Y$ be two distinct Damiani root vectors.  There exist
+$\varepsilon_{X,Y}\in\{1,q^2,q^{-2}\}$ and finitely many scalars
+$c_s\in\F$ and words $w_s$ in Damiani root vectors such that
+\begin{equation}
+\label{eq:Damiani-triangular-crossing}
+ XY=\varepsilon_{X,Y}YX+\sum_s c_sw_s,
+\end{equation}
+where every $w_s$ has the same weight as $XY$ and satisfies
+\[
+ \operatorname{rsig}(w_s)<\operatorname{rsig}(XY).
+\]
+The same assertion holds when either orientation of a crossing relation is
+solved for the other product.
+\end{lemma}
+
+\begin{proof}
+We use the explicit relations in
+\cite[Lemmas~3.1--3.3]{Terwilliger2019Catalan}.  In the notation above they
+are as follows.  For $i,j\in\N$ and $m\geq1$,
+\begin{align}
+ B_iA_j&=q^2A_jB_i+q^2I_{i+j+1},
+ \label{eq:Damiani-cross-BA}\\
+ I_mA_j&=A_jI_m+q^{2-2m}[2]_qA_{m+j}
+ -q^2(q^2-q^{-2})\sum_{\ell=1}^{m-1}
+ q^{-2\ell}A_{j+\ell}I_{m-\ell},
+ \label{eq:Damiani-cross-IA}\\
+ B_jI_m&=I_mB_j+q^{2-2m}[2]_qB_{m+j}
+ -q^2(q^2-q^{-2})\sum_{\ell=1}^{m-1}
+ q^{-2\ell}I_{m-\ell}B_{j+\ell}.
+ \label{eq:Damiani-cross-BI}
+\end{align}
+For $i>j\geq0$, if $i-j=2r+1$ is odd, then
+\begin{align}
+ A_iA_j&=q^{-2}A_jA_i
+ -(q^2-q^{-2})\sum_{\ell=1}^{r}q^{-2\ell}
+ A_{j+\ell}A_{i-\ell},
+ \label{eq:Damiani-cross-AA-odd}\\
+ B_jB_i&=q^{-2}B_iB_j
+ -(q^2-q^{-2})\sum_{\ell=1}^{r}q^{-2\ell}
+ B_{i-\ell}B_{j+\ell}.
+ \label{eq:Damiani-cross-BB-odd}
+\end{align}
+If $i-j=2r$ is even, then
+\begin{align}
+ A_iA_j={}&q^{-2}A_jA_i
+ -q^{j-i+1}(q-q^{-1})A_{j+r}^{2}
+ \notag\\
+ &-(q^2-q^{-2})\sum_{\ell=1}^{r-1}q^{-2\ell}
+ A_{j+\ell}A_{i-\ell},
+ \label{eq:Damiani-cross-AA-even}\\
+ B_jB_i={}&q^{-2}B_iB_j
+ -q^{j-i+1}(q-q^{-1})B_{j+r}^{2}
+ \notag\\
+ &-(q^2-q^{-2})\sum_{\ell=1}^{r-1}q^{-2\ell}
+ B_{i-\ell}B_{j+\ell}.
+ \label{eq:Damiani-cross-BB-even}
+\end{align}
+Empty sums are zero, and $I_mI_n=I_nI_m$ for all $m,n\geq1$.
+
+We check triangularity.  In \eqref{eq:Damiani-cross-BA}, the correction
+removes one $A$-factor and one $B$-factor.  In
+\eqref{eq:Damiani-cross-IA} and \eqref{eq:Damiani-cross-BI}, each
+correction replaces a real root of index $j$ by one of strictly larger
+index.  Thus the first real multiplicity that changes decreases.  In
+\eqref{eq:Damiani-cross-AA-odd}--\eqref{eq:Damiani-cross-BB-even}, each
+correction replaces the pair of numerical indices $j<i$ by indices
+strictly larger than $j$; in the even case the midpoint occurs twice.
+Again the multiplicity at the first changed coordinate, namely index $j$,
+decreases.  Therefore every correction word has strictly smaller real
+signature.
+
+The leading coefficients are $1$, $q^2$, or $q^{-2}$, and are non-zero.
+Consequently each relation may be solved in the reverse direction.  This
+only rescales the same correction words, so their strict signature decrease
+is preserved.
+\end{proof}
+
+\begin{theorem}
+\label{thm:any-Damiani}
+Let $\prec$ be any total order on the set $\Phi_+$ of positive roots of
+$\widehat{\mathfrak{sl}}_2$.  The $\prec$-ordered monomials in Damiani's
+root vectors form an $\F$-basis of $U_q^+$.
+\end{theorem}
+
+\begin{proof}
+Fix a weight $\nu$.  Only finitely many positive roots and finitely many
+root partitions occur in weight $\nu$.  For a word $w=X_1\cdots X_d$ of
+this weight, let $\operatorname{inv}_\prec(w)$ be the number of pairs
+$r<s$ for which $X_s\prec X_r$.
+
+We prove, by induction on the real signature and then on
+$\operatorname{inv}_\prec$, that every word of weight $\nu$ is a linear
+combination of $\prec$-ordered monomials.  If a word is not ordered, choose
+an adjacent $\prec$-inversion $XY$.  Apply
+Lemma~\ref{lem:Damiani-triangular-crossings}, using the displayed relation
+or its reverse according to the Damiani order.  The leading term interchanges
+$X$ and $Y$; it has the same real signature and one fewer
+$\prec$-inversion.  Each correction term has smaller real signature, even
+after the unchanged factors on the left and right are restored, by
+\eqref{eq:signature-additivity}.  The two induction hypotheses therefore
+handle every term.  Since the set of signatures in weight $\nu$ is finite,
+the induction terminates.  Thus the $\prec$-ordered monomials span the
+$\nu$-weight space.
+
+For every root partition of $\nu$ there is exactly one $\prec$-ordered
+monomial, so this spanning set has the same cardinality as the standard
+Damiani PBW basis in weight $\nu$.  The latter is a basis by Damiani's PBW
+theorem, and hence the weight space has that dimension.  The
+$\prec$-ordered spanning set is therefore a basis.  Taking the direct sum
+over all weights proves the theorem.
+\end{proof}
+
+
+\section{Initial forms of the Baseilhac--Kolb root vectors}
+\label{sec:root-initial}
+
+In this section we compute the initial forms of the Baseilhac--Kolb root
+vectors in \(\Oq\).  These computations are the bridge between the
+Baseilhac--Kolb root-vector construction and Damiani's root vectors in
+\(\Uplus\simeq\gr\Oq\).  They will also be used in
+Section~\ref{sec:alternating-initial} to connect the recursion for the
+alternating generators with the Catalan relation
+Theorem~\ref{thm:Catalan-alternating}.
+
+For a non-zero element \(u\in\Oq\), write
+\[
+        \deg_F u=\min\{d\mid u\in F_d\Oq\}
+\]
+for its word-length filtration degree.  We continue to identify
+\(\gr\Oq\) with \(\Uplus\) through Theorem~\ref{thm:gr-isomorphism}.
+
+The Baseilhac--Kolb root vectors in \(\Oq\) are denoted
+\[
+ \{B_{n\delta+\alpha_0}\}_{n\geq0},\qquad
+ \{B_{n\delta+\alpha_1}\}_{n\geq0},\qquad
+ \{B_{n\delta}\}_{n\geq1}.
+\]
+In the normalisation used here, they are recursively defined as follows.
+First,
+\begin{equation}
+\label{eq:Bdelta}
+        B_\delta=q^{-2}W_1W_0-W_0W_1 .
+\end{equation}
+The real root vectors are given by
+\begin{align}
+B_{\alpha_0}&=W_0,
+&
+B_{\delta+\alpha_0}
+ &=W_1+
+   \frac{q\,\comm{B_\delta}{W_0}}
+        {(q-q^{-1})(q^2-q^{-2})},
+\label{eq:BK-real0-first}\\
+B_{n\delta+\alpha_0}
+ &=B_{(n-2)\delta+\alpha_0}
+   +\frac{q\,\comm{B_\delta}{B_{(n-1)\delta+\alpha_0}}}
+        {(q-q^{-1})(q^2-q^{-2})}
+        \qquad(n\geq2),
+\label{eq:BK-real0}\\
+B_{\alpha_1}&=W_1,
+&
+B_{\delta+\alpha_1}
+ &=W_0-
+   \frac{q\,\comm{B_\delta}{W_1}}
+        {(q-q^{-1})(q^2-q^{-2})},
+\label{eq:BK-real1-first}\\
+B_{n\delta+\alpha_1}
+ &=B_{(n-2)\delta+\alpha_1}
+   -\frac{q\,\comm{B_\delta}{B_{(n-1)\delta+\alpha_1}}}
+        {(q-q^{-1})(q^2-q^{-2})}
+        \qquad(n\geq2).
+\label{eq:BK-real1}
+\end{align}
+For \(n\geq1\), the imaginary root vectors are given by
+\begin{align}
+B_{n\delta}
+={}&q^{-2}B_{(n-1)\delta+\alpha_1}W_0
+    -W_0B_{(n-1)\delta+\alpha_1}+(q^{-2}-1)
+  \sum_{\ell=0}^{n-2}
+  B_{\ell\delta+\alpha_1}
+  B_{(n-\ell-2)\delta+\alpha_1}.
+\label{eq:BK-imaginary}
+\end{align}
+An empty sum is interpreted as zero.  These formulae are recalled in
+\cite[Section~4, equations~(7)--(12)]{Terwilliger2022OqACE}; they come
+from the Baseilhac--Kolb construction of root vectors in
+\cite[Section~3]{BaseilhacKolb2020}.
+
+We shall repeatedly use the identity
+\begin{equation}
+\label{eq:denominator-expanded}
+ (q-q^{-1})(q^2-q^{-2})=(q-q^{-1})^2[2]_q .
+\end{equation}
+By Lemma~\ref{lem:nonvanishing-scalars}, all denominators in
+\eqref{eq:BK-real0-first}--\eqref{eq:BK-real1} are non-zero.
+
+\begin{proposition}
+\label{prop:root-leading-U}
+For \(n\in\N\), the real root vectors have initial forms
+\begin{align}
+\init(B_{n\delta+\alpha_0})
+ &=q^n(q-q^{-1})^{-2n}E_{n\delta+\alpha_0},
+\label{eq:root-leading-real0}\\
+\init(B_{n\delta+\alpha_1})
+ &=q^n(q-q^{-1})^{-2n}E_{n\delta+\alpha_1}.
+\label{eq:root-leading-real1}
+\end{align}
+For \(n\geq1\), the imaginary root vectors have initial forms
+\begin{equation}
+\label{eq:root-leading-imaginary}
+        \init(B_{n\delta})
+        =q^{\,n-1}(q-q^{-1})^{2-2n}E_{n\delta}.
+\end{equation}
+In particular,
+\[
+        \deg_F B_{n\delta+\alpha_0}
+        =\deg_F B_{n\delta+\alpha_1}=2n+1,
+        \qquad
+        \deg_F B_{n\delta}=2n .
+\]
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:Bdelta} and Theorem~\ref{thm:gr-isomorphism},
+\[
+        \init(B_\delta)=q^{-2}BA-AB=E_\delta .
+\]
+
+We first prove \eqref{eq:root-leading-real0}.  For \(n=0\), this is just
+\(\init(B_{\alpha_0})=\init(W_0)=A=E_{\alpha_0}\).
+
+Consider \(n=1\).  By \eqref{eq:denominator-expanded}, the coefficient of
+\(\comm{B_\delta}{W_0}\) in \eqref{eq:BK-real0-first} is
+\[
+        \frac{q}{(q-q^{-1})^2[2]_q}.
+\]
+The summand \(W_1\) has filtration degree one.  The commutator
+\(\comm{B_\delta}{W_0}\) has filtration degree at most three, and its
+degree-three component is \(\comm{E_\delta}{A}\).  Hence the degree-three
+component of \(B_{\delta+\alpha_0}\) is
+\[
+        \frac{q}{(q-q^{-1})^2[2]_q}\,
+        \comm{E_\delta}{A}
+        =
+        q(q-q^{-1})^{-2}E_{\delta+\alpha_0},
+\]
+where the last equality uses \eqref{eq:Damiani-real}.  This is non-zero, so
+\eqref{eq:root-leading-real0} holds for \(n=1\).
+
+Now let \(n\geq2\), and assume that
+\[
+        \init(B_{(n-1)\delta+\alpha_0})
+        =
+        q^{n-1}(q-q^{-1})^{-2n+2}
+        E_{(n-1)\delta+\alpha_0}.
+\]
+The first term on the right-hand side of \eqref{eq:BK-real0} has filtration
+degree \(2n-3\).  The commutator term has filtration degree at most
+\(2n+1\), and its degree-\((2n+1)\) component is
+\[
+ \frac{q}{(q-q^{-1})^2[2]_q}\,
+ \comm{E_\delta}{
+      q^{n-1}(q-q^{-1})^{-2n+2}
+      E_{(n-1)\delta+\alpha_0}} .
+\]
+Using \eqref{eq:Damiani-real}, this equals
+\[
+        q^n(q-q^{-1})^{-2n}E_{n\delta+\alpha_0}.
+\]
+It is non-zero.  Therefore \(B_{n\delta+\alpha_0}\) has filtration degree
+\(2n+1\), and \eqref{eq:root-leading-real0} follows by induction.
+
+The proof of \eqref{eq:root-leading-real1} is identical, apart from the
+sign in \eqref{eq:BK-real1-first} and \eqref{eq:BK-real1}.  That sign changes
+\(\comm{E_\delta}{E_{(n-1)\delta+\alpha_1}}\) into
+\(\comm{E_{(n-1)\delta+\alpha_1}}{E_\delta}\), exactly as required by
+\eqref{eq:Damiani-real}.  Thus
+\[
+        \init(B_{n\delta+\alpha_1})
+        =
+        q^n(q-q^{-1})^{-2n}E_{n\delta+\alpha_1}
+        \qquad(n\in\N).
+\]
+
+It remains to treat the imaginary root vectors.  Let \(n\geq1\).  From the
+real-root calculation just proved, the first two terms in
+\eqref{eq:BK-imaginary} have filtration degree at most \(2n\).  More
+precisely, their degree-\(2n\) component is
+\[
+ q^{n-1}(q-q^{-1})^{-2n+2}
+ \bigl(q^{-2}E_{(n-1)\delta+\alpha_1}A
+       -AE_{(n-1)\delta+\alpha_1}\bigr).
+\]
+By \eqref{eq:Damiani-imaginary}, this is
+\[
+        q^{n-1}(q-q^{-1})^{2-2n}E_{n\delta}.
+\]
+
+Every summand in the final sum of \eqref{eq:BK-imaginary} has filtration
+degree at most
+\[
+        (2\ell+1)+\bigl(2(n-\ell-2)+1\bigr)=2n-2,
+\]
+and therefore cannot contribute to the degree-\(2n\) component.  Since
+\(E_{n\delta}\neq0\), we obtain \eqref{eq:root-leading-imaginary}, and
+\(B_{n\delta}\) has filtration degree \(2n\).  The proposition follows.
+\end{proof}
+
+\begin{remark}
+Proposition~\ref{prop:root-leading-U} is the analogue, in the present
+normalisation and at the fixed non-root parameter \(q\), of the filtered
+comparison in \cite[Proposition~4.4]{BaseilhacKolb2020}.  We have included
+the proof because the scalar factors are needed later.
+\end{remark}
+
+Combining Proposition~\ref{prop:root-leading-U} with the \(q\)-shuffle
+formulae \eqref{eq:Damiani-shuffle-0}--\eqref{eq:Damiani-shuffle-delta}
+gives the following explicit initial forms in the \(q\)-shuffle algebra.
+
+\begin{corollary}
+\label{cor:root-leading-shuffle}
+For \(n\in\N\),
+\begin{align}
+\init(B_{n\delta+\alpha_0})
+ &=q^{-n}xC_n,
+\label{eq:BK-leading-xC}\\
+\init(B_{n\delta+\alpha_1})
+ &=q^{-n}C_ny.
+\label{eq:BK-leading-Cy}
+\end{align}
+For \(n\geq1\),
+\begin{equation}
+\label{eq:BK-leading-C}
+        \init(B_{n\delta})
+        =-q^{-n-1}(q-q^{-1})C_n .
+\end{equation}
+If, only as a scalar convention, one sets
+\[
+        B_{0\delta}=q^{-2}-1=-q^{-1}(q-q^{-1}),
+\]
+then \eqref{eq:BK-leading-C} is also valid for \(n=0\), with \(C_0=1\).
+\end{corollary}
+
+\begin{proof}
+For the \(\alpha_0\)-family, equations
+\eqref{eq:root-leading-real0} and \eqref{eq:Damiani-shuffle-0} give
+\[
+ q^n(q-q^{-1})^{-2n}
+ q^{-2n}(q-q^{-1})^{2n}xC_n
+ =
+ q^{-n}xC_n.
+\]
+This proves \eqref{eq:BK-leading-xC}.  The proof of
+\eqref{eq:BK-leading-Cy} is the same, using
+\eqref{eq:root-leading-real1} and \eqref{eq:Damiani-shuffle-1}.  For the
+imaginary root vectors, equations \eqref{eq:root-leading-imaginary} and
+\eqref{eq:Damiani-shuffle-delta} give
+\[
+ q^{n-1}(q-q^{-1})^{2-2n}
+ \bigl(-q^{-2n}(q-q^{-1})^{2n-1}C_n\bigr)
+ =
+ -q^{-n-1}(q-q^{-1})C_n.
+\]
+This is \eqref{eq:BK-leading-C}.  The final assertion follows by substituting
+\(n=0\) and \(C_0=1\).
+\end{proof}
+
+For a positive root \(\beta\in\Phi_+\), write
+\[
+ B_\beta=
+ \begin{cases}
+ B_{n\delta+\alpha_0}, & \beta=n\delta+\alpha_0,\quad n\in\N,\\[1mm]
+ B_{n\delta+\alpha_1}, & \beta=n\delta+\alpha_1,\quad n\in\N,\\[1mm]
+ B_{n\delta}, & \beta=n\delta,\quad n\geq1.
+ \end{cases}
+\]
+Thus \(\{B_\beta\}_{\beta\in\Phi_+}\) is the full family of
+Baseilhac--Kolb root vectors in \(\Oq\).
+
+\begin{theorem}
+\label{thm:BK-nonroot}
+Let \(\prec\) be any total order on the set \(\Phi_+\) of positive roots of
+\(\widehat{\mathfrak{sl}}_2\).  For every finitely supported function
+\[
+        e:\Phi_+\longrightarrow\N ,
+\]
+let
+\[
+        B_\prec^e
+        =
+        B_{\beta_1}^{e(\beta_1)}
+        B_{\beta_2}^{e(\beta_2)}
+        \cdots
+        B_{\beta_r}^{e(\beta_r)},
+\]
+where
+\[
+        \beta_1\prec\beta_2\prec\cdots\prec\beta_r
+\]
+are the roots in the support of \(e\).  If \(e=0\), set
+\(B_\prec^e=1\).  Then the set
+\[
+        \{\,B_\prec^e\mid e:\Phi_+\to\N
+        \text{ finitely supported}\,\}
+\]
+is an \(\F\)-basis of \(\Oq\).
+\end{theorem}
+
+Equivalently, the Baseilhac--Kolb root vectors give a PBW basis of
+\(\Oq\) in every total order on \(\Phi_+\), under the sole assumption that
+\(q\) is not a root of unity.  In particular, this proves
+\cite[Conjecture~16.1]{Terwilliger2022OqACE}.
+
+\begin{proof}
+We apply the filtered PBW lifting lemma to the word-length filtration of
+\(\Oq\).  By Proposition~\ref{prop:root-leading-U}, every
+Baseilhac--Kolb root vector has positive filtration degree and has initial
+form equal to a non-zero scalar multiple of the corresponding Damiani root
+vector:
+\[
+        \init(B_\beta)=a_\beta E_\beta
+        \qquad(\beta\in\Phi_+),
+\]
+where \(a_\beta\in\F^\times\).  More explicitly,
+\[
+ a_{n\delta+\alpha_0}
+ =
+ a_{n\delta+\alpha_1}
+ =
+ q^n(q-q^{-1})^{-2n}
+ \qquad(n\in\N),
+\]
+and
+\[
+        a_{n\delta}
+        =
+        q^{\,n-1}(q-q^{-1})^{2-2n}
+        \qquad(n\geq1).
+\]
+These scalars are non-zero by Lemma~\ref{lem:nonvanishing-scalars}.
+
+Through the isomorphism
+\[
+        \gr\Oq\simeq\Uplus
+\]
+from Theorem~\ref{thm:gr-isomorphism}, the elements \(E_\beta\) are exactly
+Damiani's root vectors in the associated graded algebra.  By
+Theorem~\ref{thm:any-Damiani}, for the chosen total order \(\prec\), the
+ordered Damiani monomials
+\[
+        E_{\beta_1}^{e(\beta_1)}
+        E_{\beta_2}^{e(\beta_2)}
+        \cdots
+        E_{\beta_r}^{e(\beta_r)}
+        \qquad
+        (\beta_1\prec\cdots\prec\beta_r)
+\]
+form a basis of \(\Uplus\simeq\gr\Oq\).
+
+Therefore the hypotheses of Lemma~\ref{lem:filtered-lifting} are satisfied
+with the index set \(\Lambda=\Phi_+\), the lifting elements \(u_\beta=B_\beta\),
+and the graded elements \(v_\beta=E_\beta\).  The lemma lifts the ordered
+Damiani PBW basis of \(\gr\Oq\) to the ordered Baseilhac--Kolb monomials in
+\(\Oq\).  Hence the monomials \(B_\prec^e\) form an \(\F\)-basis of
+\(\Oq\), as claimed.
+\end{proof}
+
+
+
+
+
+\section{Initial forms of the alternating generators}
+\label{sec:alternating-initial}
+
+We now compute the initial forms of the alternating generators of \(\Oq\).
+Throughout this section, initial forms are identified with elements of
+\(\Uplus\), and then with their images in the \(q\)-shuffle algebra.  Thus,
+when an initial form is written as a word expression in \(x,y\), products are
+computed using the \(q\)-shuffle product \(\star\).
+
+For $u\in F_d\Oq$, write
+\[
+        [u]_d=u+F_{d-1}\Oq\in F_d\Oq/F_{d-1}\Oq.
+\]
+This class is allowed to be zero.  We use the notation $\init(u)$ only after
+showing that $[u]_d\neq0$ for the asserted value of $d$.
+
+Recall the canonical central reduction
+\[
+        \gamma:\Aq\longrightarrow\Oq .
+\]
+The alternating generators of \(\Oq\) are
+\[
+ W_{-n}=\gamma(\cW_{-n}),\qquad
+ W_{n+1}=\gamma(\cW_{n+1}),\qquad
+ G_{n+1}=\gamma(\cG_{n+1}),\qquad
+ \widetilde G_{n+1}=\gamma(\ctG_{n+1})
+ \qquad(n\in\N).
+\]
+This is Terwilliger's notation from
+\cite[Definition~11.5]{Terwilliger2022OqACE}.  We also use the scalar
+convention
+\begin{equation}
+\label{eq:G0-Oq}
+        G_0=\widetilde G_0=-(q-q^{-1})[2]_q^2 .
+\end{equation}
+The elements \(G_0\) and \(\widetilde G_0\) are scalars, not additional
+generators.
+
+We shall use two relations obtained from the defining relations of \(\Aq\)
+after applying \(\gamma\).  For \(n\geq1\),
+\begin{align}
+\qcomm{\widetilde G_n}{W_0}
+ &=\rho_0W_{-n}-\rho_0W_n,
+\label{eq:Oq-tG-W0}\\
+\qcomm{W_1}{\widetilde G_n}
+ &=\rho_0W_{n+1}-\rho_0W_{-(n-1)},
+\label{eq:Oq-W1-tG}
+\end{align}
+where \(\rho_0=-(q^2-q^{-2})^2\).  These are the specialisations of
+\eqref{eq:Aq2} and \eqref{eq:Aq3}.  We shall also use the
+antiautomorphism \(\dagger\) of \(\Oq\), which fixes \(W_0,W_1\) and
+interchanges the two imaginary alternating families:
+\begin{equation}
+\label{eq:dagger-alternating}
+        G_n^\dagger=\widetilde G_n,\qquad
+        \widetilde G_n^\dagger=G_n
+        \qquad(n\geq1).
+\end{equation}
+See \cite[Theorem~11.6 and Lemma~11.8]{Terwilliger2022OqACE}.  The same
+statements are harmless for \(n=0\), since \(G_0=\widetilde G_0\) is a
+scalar.
+
+Finally, we use the scalar convention introduced after
+Corollary~\ref{cor:root-leading-shuffle}:
+\begin{equation}
+\label{eq:B0delta-convention-alt}
+        B_{0\delta}=q^{-2}-1=-q^{-1}(q-q^{-1}).
+\end{equation}
+With this convention, the formula
+\[
+        \init(B_{m\delta})
+        =
+        -q^{-m-1}(q-q^{-1})C_m
+\]
+holds for every \(m\in\N\), including \(m=0\).
+
+\subsection{The root-vector recursion and the family \texorpdfstring{\(\widetilde G_n\)}{G-tilde n}}
+
+The main input for the computation is Terwilliger's recursion relating the
+imaginary Baseilhac--Kolb root vectors to the family
+\(\{\widetilde G_n\}_{n\geq0}\).
+
+\begin{lemma}[{{\cite[Equation~(133)]{Terwilliger2022OqACE}}; see also
+{\cite[Lemma~12.5]{Terwilliger2022OqACE}}}]
+\label{lem:root-tG-recursion}
+For \(n\geq1\),
+\begin{align}
+0={}&[n]_qB_{n\delta}\widetilde G_0+\sum_{\substack{j+k+2\ell+1=n\\j,k,\ell\geq0}}
+(-1)^\ell\binom{k+\ell}{\ell}
+[2n-j]_q[2]_q^{k+1}B_{j\delta}\widetilde G_{k+1}.
+\label{eq:root-tG-recursion}
+\end{align}
+\end{lemma}
+
+
+
+\begin{proposition}
+\label{prop:tG-leading}
+For every $n\in\N$, one has $\widetilde G_n\in F_{2n}\Oq$ and
+\begin{equation}
+\label{eq:tG-leading}
+\init(\widetilde G_n)
+ =
+ (-1)^{n+1}(q-q^{-1})q^{-n}[2]_q^{2-n}
+ \widetilde G_n^{\sh}.
+\end{equation}
+Consequently,
+\[
+        \deg_F\widetilde G_n=2n .
+\]
+\end{proposition}
+
+\begin{proof}
+We argue by induction on $n$.  For $n=0$, the assertion is the scalar
+identity \eqref{eq:G0-Oq}, since $\widetilde G_0^{\sh}=1$.
+
+Let $n\geq1$, and assume the assertion for all smaller indices.  In
+\eqref{eq:root-tG-recursion}, the only occurrence of $\widetilde G_n$ is
+the term with $(j,k,\ell)=(0,n-1,0)$, whose coefficient is
+\[
+        [2n]_q[2]_q^nB_{0\delta}.
+\]
+This scalar is non-zero.  Every other alternating generator in the recursion
+has index smaller than $n$.  By the induction hypothesis and
+Corollary~\ref{cor:root-leading-shuffle}, the term indexed by
+$j,k,\ell$ belongs to filtration degree at most
+\[
+        2j+2(k+1)=2n-4\ell.
+\]
+Solving the recursion for $\widetilde G_n$ therefore gives
+$\widetilde G_n\in F_{2n}\Oq$.
+
+We now pass to $F_{2n}\Oq/F_{2n-1}\Oq$.  Put $r=k+1$.  The terms with
+$\ell>0$ disappear, and we obtain
+\begin{equation}
+\label{eq:top-recursion-Oq}
+0=
+\sum_{r=0}^{n}
+[n+r]_q[2]_q^r\,
+[ B_{(n-r)\delta}]_{2(n-r)}\star
+[\widetilde G_r]_{2r}.
+\end{equation}
+For $r<n$, the second factor is known by induction; the first factor is
+known from Corollary~\ref{cor:root-leading-shuffle}, including the scalar
+case $n-r=0$.
+
+Set
+\[
+        X_n=
+        (-1)^{n+1}(q-q^{-1})q^{-n}[2]_q^{2-n}
+        \widetilde G_n^{\sh}.
+\]
+Substituting the known classes for $r<n$ and substituting $X_n$ for the
+unknown class $[\widetilde G_n]_{2n}$, the coefficient of
+$C_{n-r}\star\widetilde G_r^{\sh}$ becomes, for every $0\leq r\leq n$,
+\[
+        (-1)^r q^{-n-1}(q-q^{-1})^2[2]_q^2[n+r]_q.
+\]
+After removing the common non-zero factor, equation
+\eqref{eq:top-recursion-Oq} is exactly
+\[
+        \sum_{r=0}^{n}(-1)^r[n+r]_q
+        C_{n-r}\star\widetilde G_r^{\sh}=0,
+\]
+which is Theorem~\ref{thm:Catalan-alternating} after the substitution
+$i=n-r$ and multiplication by $(-1)^n$.
+
+The coefficient of the unknown class in
+\eqref{eq:top-recursion-Oq} is the non-zero scalar
+$[2n]_q[2]_q^nB_{0\delta}$.  Hence that equation has a unique solution for
+$[\widetilde G_n]_{2n}$, and the preceding calculation shows that
+\[
+        [\widetilde G_n]_{2n}=X_n.
+\]
+The right-hand side is non-zero.  Therefore
+$\widetilde G_n\notin F_{2n-1}\Oq$, so its filtration degree is $2n$ and
+its initial form is $X_n$.
+\end{proof}
+
+\begin{remark}[Low-degree check]
+For $n=1$, the recursion in Lemma~\ref{lem:root-tG-recursion} gives the
+exact identity
+\begin{equation}
+\label{eq:tG1-Bdelta}
+        \widetilde G_1=-qB_\delta=[W_0,W_1]_q.
+\end{equation}
+Applying $\dagger$ gives
+\begin{equation}
+\label{eq:G1-low-check}
+        G_1=[W_1,W_0]_q.
+\end{equation}
+\end{remark}
+
+\subsection{The remaining alternating families}
+
+\begin{proposition}
+\label{prop:W-leading}
+For every $n\in\N$,
+\begin{align}
+\init(W_{-n})
+ &=(-1)^nq^{-n}[2]_q^{-n}W_{-n}^{\sh},
+\label{eq:Wminus-leading}\\
+\init(W_{n+1})
+ &=(-1)^nq^{-n}[2]_q^{-n}W_{n+1}^{\sh}.
+\label{eq:Wplus-leading}
+\end{align}
+Consequently,
+\[
+        \deg_F W_{-n}=\deg_F W_{n+1}=2n+1 .
+\]
+\end{proposition}
+
+\begin{proof}
+We prove both assertions simultaneously by induction on $n$.  For $n=0$,
+\[
+        \init(W_0)=x=W_0^{\sh},\qquad
+        \init(W_1)=y=W_1^{\sh}.
+\]
+
+Let $n\geq1$ and assume the assertions for smaller indices.  By
+Proposition~\ref{prop:tG-leading}, $\widetilde G_n\in F_{2n}\Oq$.
+Equations \eqref{eq:Oq-tG-W0} and \eqref{eq:Oq-W1-tG}, together with the
+induction hypothesis for $W_n$ and $W_{-(n-1)}$, first show that
+\[
+        W_{-n},W_{n+1}\in F_{2n+1}\Oq.
+\]
+Passing to the degree-$(2n+1)$ quotient gives
+\begin{align}
+\qcomm{\init(\widetilde G_n)}{x}
+ &=\rho_0[W_{-n}]_{2n+1},
+\label{eq:top-Wminus}\\
+\qcomm{y}{\init(\widetilde G_n)}
+ &=\rho_0[W_{n+1}]_{2n+1}.
+\label{eq:top-Wplus}
+\end{align}
+The lower-index $W$-terms have disappeared because they have degree
+$2n-1$.
+
+Substituting Proposition~\ref{prop:tG-leading} and using
+\eqref{eq:qshuffle-Wminus}--\eqref{eq:qshuffle-Wplus}, each left-hand side
+is respectively
+\[
+ (-1)^{n+1}(q-q^{-1})^2q^{-n}[2]_q^{2-n}W_{-n}^{\sh},
+ \qquad
+ (-1)^{n+1}(q-q^{-1})^2q^{-n}[2]_q^{2-n}W_{n+1}^{\sh}.
+\]
+Since
+\[
+        \rho_0=-(q-q^{-1})^2[2]_q^2,
+\]
+division by $\rho_0$ yields
+\[
+ [W_{-n}]_{2n+1}=(-1)^nq^{-n}[2]_q^{-n}W_{-n}^{\sh},
+\]
+\[
+ [W_{n+1}]_{2n+1}=(-1)^nq^{-n}[2]_q^{-n}W_{n+1}^{\sh}.
+\]
+Both classes are non-zero.  Thus the two elements have exact filtration
+degree $2n+1$, and the displayed classes are their initial forms.
+\end{proof}
+
+\begin{proposition}
+\label{prop:G-leading}
+For every \(n\in\N\),
+\begin{equation}
+\label{eq:G-leading}
+\init(G_n)
+ =
+ (-1)^{n+1}(q-q^{-1})q^{-n}[2]_q^{2-n}G_n^{\sh}.
+\end{equation}
+Consequently,
+\[
+        \deg_F G_n=2n .
+\]
+\end{proposition}
+
+\begin{proof}
+For \(n=0\), this is the scalar identity
+\(G_0=-(q-q^{-1})[2]_q^2\), since \(G_0^{\sh}=1\).
+
+Let \(n\geq1\).  The antiautomorphism \(\dagger\) fixes \(W_0\) and
+\(W_1\), and therefore preserves the word-length filtration.  Its induced
+antiautomorphism on \(\gr\Oq\) fixes \(\overline{W_0}\) and
+\(\overline{W_1}\).  Under the \(q\)-shuffle realisation, this induced map
+is the word-reversal antiautomorphism.  By
+\eqref{eq:dagger-alternating}, \(G_n=\widetilde G_n^\dagger\), while word
+reversal sends \(\widetilde G_n^{\sh}\) to \(G_n^{\sh}\).  Applying
+\(\dagger\) to the initial-form formula in
+Proposition~\ref{prop:tG-leading} gives \eqref{eq:G-leading}.  The scalar
+is non-zero, so \(\deg_FG_n=2n\).
+\end{proof}
+
+Combining the three preceding propositions gives the main result of this
+section.
+
+\begin{theorem}
+\label{thm:all-leading}
+For every \(n\in\N\),
+\begin{align}
+\init(W_{-n})
+ &=(-1)^nq^{-n}[2]_q^{-n}W_{-n}^{\sh},
+\label{eq:all-leading-Wminus}\\
+\init(W_{n+1})
+ &=(-1)^nq^{-n}[2]_q^{-n}W_{n+1}^{\sh},
+\label{eq:all-leading-Wplus}\\
+\init(G_n)
+ &=(-1)^{n+1}(q-q^{-1})q^{-n}[2]_q^{2-n}G_n^{\sh},
+\label{eq:all-leading-G}\\
+\init(\widetilde G_n)
+ &=(-1)^{n+1}(q-q^{-1})q^{-n}[2]_q^{2-n}
+   \widetilde G_n^{\sh}.
+\label{eq:all-leading-tG}
+\end{align}
+In particular,
+\[
+        \deg_F W_{-n}=\deg_F W_{n+1}=2n+1,
+        \qquad
+        \deg_F G_n=\deg_F\widetilde G_n=2n .
+\]
+\end{theorem}
+
+\begin{proof}
+Equations \eqref{eq:all-leading-Wminus} and \eqref{eq:all-leading-Wplus}
+are Proposition~\ref{prop:W-leading}.  Equation
+\eqref{eq:all-leading-G} is Proposition~\ref{prop:G-leading}, and
+\eqref{eq:all-leading-tG} is Proposition~\ref{prop:tG-leading}.  The degree
+statements are part of the same propositions.
+\end{proof}
+
+
+
+
+
+
+
+\section{Twelve alternating PBW bases}
+\label{sec:twelve}
+
+We now lift Terwilliger's alternating PBW bases of \(\Uplus\) to the
+\(q\)-Onsager algebra \(\Oq\).  We use the following block notation:
+\[
+ W^-=\{W_{-i}\mid i\in\N\},\qquad
+ W^+=\{W_{k+1}\mid k\in\N\},
+\]
+and
+\[
+ G=\{G_{j+1}\mid j\in\N\},\qquad
+ \widetilde G=\{\widetilde G_{j+1}\mid j\in\N\}.
+\]
+Thus \(G\) and \(\widetilde G\) do not include the scalar elements
+\(G_0\) and \(\widetilde G_0\).
+
+A linear order on one of the three-family unions
+\[
+        W^-\cup \widetilde G\cup W^+,
+        \qquad
+        W^-\cup G\cup W^+
+\]
+is said to satisfy a displayed block order if every element of an earlier
+block is smaller than every element of a later block.  No restriction is
+imposed on the order inside a single block.
+
+\begin{theorem}[Alternating PBW bases of \(\Oq\)]
+\label{thm:twelve-PBW}
+For \(H=\widetilde G\) and for \(H=G\), the three families
+\[
+        W^-,\qquad H,\qquad W^+
+\]
+give PBW bases of \(\Oq\) in each of the six block orders
+\begin{equation}
+\label{eq:six-Oq-orders}
+\begin{array}{lll}
+W^-<H<W^+,&
+W^+<H<W^-,&
+W^+<W^-<H,\\[1mm]
+W^-<W^+<H,&
+H<W^+<W^-,&
+H<W^-<W^+.
+\end{array}
+\end{equation}
+Equivalently, after choosing any linear order inside each of the three
+blocks, the ordered monomials in the resulting ordered set form an
+\(\F\)-basis of \(\Oq\).
+\end{theorem}
+
+\begin{proof}
+We give the proof for \(H=\widetilde G\); the proof for \(H=G\) is
+identical.
+
+Fix one of the six block orders in \eqref{eq:six-Oq-orders}, and fix an
+arbitrary linear order inside each block.  By
+Theorem~\ref{thm:all-leading}, the initial forms of the generators in the
+three families are non-zero scalar multiples of the corresponding
+alternating words:
+\[
+ \init(W_{-i})\in\F^\times W_{-i}^{\sh},\qquad
+ \init(\widetilde G_{j+1})\in\F^\times\widetilde G_{j+1}^{\sh},\qquad
+ \init(W_{k+1})\in\F^\times W_{k+1}^{\sh}.
+\]
+The scalars are non-zero by Lemma~\ref{lem:nonvanishing-scalars}.  Through
+the isomorphism \(\gr\Oq\simeq\Uplus\) from
+Theorem~\ref{thm:gr-isomorphism}, these initial forms are elements of
+\(\Uplus\).
+
+By Theorem~\ref{thm:qshuffle-twelve}, the ordered monomials in
+\[
+ \{W_{-i}^{\sh}\}_{i\in\N},\qquad
+ \{\widetilde G_{j+1}^{\sh}\}_{j\in\N},\qquad
+ \{W_{k+1}^{\sh}\}_{k\in\N}
+\]
+form a basis of \(\Uplus\) for the chosen block order and the chosen
+internal orders.  Therefore the hypotheses of the filtered PBW lifting
+lemma, Lemma~\ref{lem:filtered-lifting}, are satisfied.  The corresponding
+ordered monomials in
+\[
+ \{W_{-i}\}_{i\in\N},\qquad
+ \{\widetilde G_{j+1}\}_{j\in\N},\qquad
+ \{W_{k+1}\}_{k\in\N}
+\]
+form a basis of \(\Oq\).
+
+Replacing \(\widetilde G_{j+1}\) by \(G_{j+1}\) and using the \(G\)-part of
+Theorem~\ref{thm:qshuffle-twelve}, together with
+Theorem~\ref{thm:all-leading}, gives the same conclusion for \(H=G\).
+\end{proof}
+
+Terwilliger's Conjecture~16.2 in
+\cite{Terwilliger2022OqACE}  is the case \(H=\widetilde G\) of
+Theorem~\ref{thm:twelve-PBW}.
+
+\begin{remark}
+Theorem~\ref{thm:twelve-PBW} gives twelve PBW bases: six block orders with
+the middle imaginary family \(\widetilde G\), and six block orders with the
+middle imaginary family \(G\).  The order inside a single block is
+irrelevant for existence of the basis.  Indeed, the corresponding
+\(q\)-shuffle theorem already allows arbitrary internal orders, and the
+members of each alternating family in \(\Oq\) commute pairwise by
+\cite[Theorem~11.6]{Terwilliger2022OqACE}.
+\end{remark}
+
+\begin{remark}
+All twelve PBW bases have the same filtered Hilbert series.  In each basis
+there are two generators of filtration degree \(2m-1\), namely
+\(W_{-(m-1)}\) and \(W_m\), and one generator of filtration degree \(2m\),
+namely either \(G_m\) or \(\widetilde G_m\).  Hence the filtered Hilbert
+series is
+\[
+        \prod_{m\geq1}\frac{1}{(1-t^{2m})}
+        \prod_{m\geq1}\frac{1}{(1-t^{2m-1})^2}.
+\]
+This agrees with the Hilbert series of \(\gr\Oq\simeq\Uplus\).
+\end{remark}
+
+
+
+\section{Central specialisations of the alternating central extension}
+\label{sec:central-specialisations}
+
+We next show that the alternating PBW bases of
+Theorem~\ref{thm:twelve-PBW} are stable under arbitrary central
+specialisation of the alternating central extension \(\Aq\).
+
+Terwilliger proved that the standard tensor product factorisation of
+\(\Aq\) may be written in the following explicit form.  Put \(z_0=1\).
+There is an algebra isomorphism
+\[
+        \Phi:\Aq\longrightarrow \Oq\otimes\F[z_1,z_2,\ldots]
+\]
+such that, for \(n\in\N\),
+\begin{align}
+\Phi(\cW_{-n})
+ &=\sum_{k=0}^{n}W_{k-n}\otimes z_k,
+\label{eq:central-convolution-Wminus}\\
+\Phi(\cW_{n+1})
+ &=\sum_{k=0}^{n}W_{n+1-k}\otimes z_k,
+\label{eq:central-convolution-Wplus}\\
+\Phi(\cG_n)
+ &=\sum_{k=0}^{n}G_{n-k}\otimes z_k,
+\label{eq:central-convolution-G}\\
+\Phi(\ctG_n)
+ &=\sum_{k=0}^{n}\widetilde G_{n-k}\otimes z_k.
+\label{eq:central-convolution-tG}
+\end{align}
+Here \(W_{k-n}=W_{-(n-k)}\).  The index-zero terms
+\[
+        G_0=\widetilde G_0=-(q-q^{-1})[2]_q^2
+\]
+are scalars.  The isomorphism \(\Phi\), and the convolution formulae above,
+are from \cite[Theorem~13.5 and Lemma~13.1]
+{Terwilliger2022OqACE}.
+
+\subsection{Central coordinates and central fibres}
+
+Several systems of central coordinates occur in the literature.  We record
+the precise conventions used below.
+
+First, let \(\XiC_n\) denote the central elements denoted $Z_n$ in
+\cite[Definition~8.6]{Terwilliger2021ACE}; we rename them here to avoid
+confusion with the convolution coordinates below.  With \(h=[2]_q\),
+the generating function in that reference is
+\[
+        Z(t)=\sum_{n\geq0}\XiC_nh^nt^n.
+\]
+Under the notation of \cite[Definition~8.1 and Note~8.2]
+{Terwilliger2022OqACE}, this same generating function is denoted
+\(\Psi(t)\).
+The normalised central elements of
+\cite[Definitions~8.3 and~8.4]{Terwilliger2022OqACE} are
+\begin{equation}
+\label{eq:Xi-Zvee}
+        \Zvee_n=h^{n-2}\XiC_n
+        \qquad(n\geq0).
+\end{equation}
+In particular, \(\Zvee_0=1\).
+
+Secondly, Baseilhac and Belliard use central elements denoted
+\(\Delta_n\).  When \(\operatorname{char}\F\neq2\), Terwilliger's comparison
+formula gives
+\begin{equation}
+\label{eq:Delta-Xi}
+ \Delta_n
+ =
+ -2\frac{q-q^{-1}}{q^n+q^{-n}}\XiC_n
+ =
+ -2\frac{(q-q^{-1})h^{2-n}}{q^n+q^{-n}}\Zvee_n
+ \qquad(n\geq1).
+\end{equation}
+See \cite[Remark~8.17]{Terwilliger2021ACE}.  Under the additional
+assumption \(\operatorname{char}\F\neq2\), every scalar factor in
+\eqref{eq:Delta-Xi} is non-zero by
+Lemma~\ref{lem:nonvanishing-scalars}.  In characteristic \(2\), the
+coordinates \(\Delta_n\) do not provide an equivalent system of central
+coordinates; in that case we use the coordinates \(\Zvee_n\) or the
+convolution coordinates below.
+
+Finally, define the convolution central elements \(\Zconv_n\) by
+\begin{equation}
+\label{eq:convolution-central-coordinate}
+        \Phi(\Zconv_n)=1\otimes z_n,
+        \qquad
+        \Zconv_0=1 .
+\end{equation}
+The elements \(\Zconv_n\) are central in \(\Aq\).  Terwilliger proved that
+the two systems
+\[
+        \{\Zvee_n\}_{n\geq1},
+        \qquad
+        \{\Zconv_n\}_{n\geq1}
+\]
+are related by a triangular polynomial change of variables with
+invertible diagonal coefficients.  More precisely, for \(n\geq1\),
+\begin{equation}
+\label{eq:Zvee-Zconv-triangular}
+ \Zvee_n
+ =
+ h^n(q^n+q^{-n})\Zconv_n
+ +P_n(\Zconv_1,\ldots,\Zconv_{n-1}),
+\end{equation}
+where \(P_n\) has zero constant term and is homogeneous of weighted degree
+\(n\) when \(\deg\Zconv_k=k\).  See
+\cite[Lemma~13.10(i)]{Terwilliger2022OqACE}.  Since
+\(h^n(q^n+q^{-n})\neq0\), this triangular system can be inverted
+recursively.  Thus \(\Zconv_n\) is a polynomial in
+\(\Zvee_1,\ldots,\Zvee_n\), with leading coefficient
+\(h^{-n}(q^n+q^{-n})^{-1}\).
+
+Consequently, prescribing the values of the \(\Zvee_n\) is equivalent to
+prescribing the values of the \(\Zconv_n\).  If
+\(\operatorname{char}\F\neq2\), prescribing the values of the
+\(\Delta_n\) is equivalent to prescribing either of these two systems.  The
+three systems generate the same centre in characteristic different from
+\(2\), but they are not termwise identical.
+
+Let
+\[
+        \boldsymbol\zeta=(\zeta_1,\zeta_2,\ldots)\in\F^{\N_{\geq1}},
+        \qquad
+        \zeta_0=1 .
+\]
+Evaluation at \(z_k=\zeta_k\) defines an algebra homomorphism
+\[
+        \operatorname{ev}_{\boldsymbol\zeta}:
+        \F[z_1,z_2,\ldots]\longrightarrow\F .
+\]
+Its kernel is the ideal generated by the elements $z_k-\zeta_k$
+($k\geq1$).  Equivalently, we specialise the central elements by
+\[
+        \Zconv_k\longmapsto \zeta_k
+        \qquad(k\geq1).
+\]
+The corresponding central fibre is
+\[
+        \Aqfib{\boldsymbol\zeta}
+        =
+        \Aq\big/
+        \left\langle
+        \Zconv_k-\zeta_k\mid k\geq1
+        \right\rangle .
+\]
+Using \(\Phi\), we identify this fibre with \(\Oq\) through the composite
+map
+\[
+        \Aq
+        \xrightarrow{\ \Phi\ }
+        \Oq\otimes\F[z_1,z_2,\ldots]
+        \xrightarrow{\ \operatorname{id}\otimes
+        \operatorname{ev}_{\boldsymbol\zeta}\ }
+        \Oq .
+\]
+Under this identification, the images of the alternating generators of
+\(\Aq\) are the following elements of \(\Oq\):
+\begin{align}
+W_{-n}^{(\boldsymbol\zeta)}
+ &=W_{-n}+\sum_{k=1}^{n}\zeta_kW_{-(n-k)},
+\label{eq:special-Wminus}\\
+W_{n+1}^{(\boldsymbol\zeta)}
+ &=W_{n+1}+\sum_{k=1}^{n}\zeta_kW_{n+1-k},
+\label{eq:special-Wplus}\\
+G_n^{(\boldsymbol\zeta)}
+ &=G_n+\sum_{k=1}^{n}\zeta_kG_{n-k},
+\label{eq:special-G}\\
+\widetilde G_n^{(\boldsymbol\zeta)}
+ &=\widetilde G_n+\sum_{k=1}^{n}\zeta_k\widetilde G_{n-k}.
+\label{eq:special-tG}
+\end{align}
+For \(G_n^{(\boldsymbol\zeta)}\) and
+\(\widetilde G_n^{(\boldsymbol\zeta)}\), the term with \(k=n\) involves the
+scalar \(G_0=\widetilde G_0=-(q-q^{-1})[2]_q^2\).
+
+\begin{proposition}
+\label{prop:special-leading}
+For every $\F$-valued central character \(\boldsymbol\zeta\), the specialised
+alternating generators have the same initial forms as the canonical
+alternating generators.  Namely, for \(n\in\N\),
+\begin{align}
+\init(W_{-n}^{(\boldsymbol\zeta)})
+ &=\init(W_{-n}),
+\label{eq:special-leading-Wminus}\\
+\init(W_{n+1}^{(\boldsymbol\zeta)})
+ &=\init(W_{n+1}),
+\label{eq:special-leading-Wplus}\\
+\init(G_n^{(\boldsymbol\zeta)})
+ &=\init(G_n),
+\label{eq:special-leading-G}\\
+\init(\widetilde G_n^{(\boldsymbol\zeta)})
+ &=\init(\widetilde G_n).
+\label{eq:special-leading-tG}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+For \(n=0\), there are no correction terms in
+\eqref{eq:special-Wminus}--\eqref{eq:special-tG}, so the assertion is
+immediate.
+
+Let \(n\geq1\).  By Theorem~\ref{thm:all-leading}, the leading terms of
+\(W_{-n}\) and \(W_{n+1}\) have filtration degree \(2n+1\).  For
+\(1\leq k\leq n\),
+\[
+        \deg_F W_{-(n-k)}=2(n-k)+1<2n+1,
+\]
+and
+\[
+        \deg_F W_{n+1-k}=2(n-k)+1<2n+1 .
+\]
+Thus every correction term in
+\eqref{eq:special-Wminus} and \eqref{eq:special-Wplus} has strictly smaller
+filtration degree than the leading summand.
+
+Similarly, the leading terms of \(G_n\) and \(\widetilde G_n\) have
+filtration degree \(2n\).  For \(1\leq k\leq n\),
+\[
+        \deg_F G_{n-k}=\deg_F\widetilde G_{n-k}=2(n-k)<2n .
+\]
+Hence every correction term in \eqref{eq:special-G} and
+\eqref{eq:special-tG} has strictly smaller filtration degree.  The initial
+forms are therefore unchanged.
+\end{proof}
+
+For the specialised fibre, put
+\[
+ W^-_{\boldsymbol\zeta}
+ =
+ \{W_{-i}^{(\boldsymbol\zeta)}\mid i\in\N\},
+ \qquad
+ W^+_{\boldsymbol\zeta}
+ =
+ \{W_{k+1}^{(\boldsymbol\zeta)}\mid k\in\N\},
+\]
+and
+\[
+ G_{\boldsymbol\zeta}
+ =
+ \{G_{j+1}^{(\boldsymbol\zeta)}\mid j\in\N\},
+ \qquad
+ \widetilde G_{\boldsymbol\zeta}
+ =
+ \{\widetilde G_{j+1}^{(\boldsymbol\zeta)}\mid j\in\N\}.
+\]
+
+\begin{theorem}[PBW bases in every $\F$-valued central fibre]
+\label{thm:central-fibre-PBW}
+For every $\F$-valued central character \(\boldsymbol\zeta\), and for
+\(H_{\boldsymbol\zeta}=\widetilde G_{\boldsymbol\zeta}\) or
+\(H_{\boldsymbol\zeta}=G_{\boldsymbol\zeta}\), the three specialised
+families
+\[
+        W^-_{\boldsymbol\zeta},
+        \qquad
+        H_{\boldsymbol\zeta},
+        \qquad
+        W^+_{\boldsymbol\zeta}
+\]
+give PBW bases of the central fibre \(\Aqfib{\boldsymbol\zeta}\simeq\Oq\) in
+each of the six block orders
+\[
+\begin{array}{lll}
+W^-_{\boldsymbol\zeta}<H_{\boldsymbol\zeta}<W^+_{\boldsymbol\zeta},&
+W^+_{\boldsymbol\zeta}<H_{\boldsymbol\zeta}<W^-_{\boldsymbol\zeta},&
+W^+_{\boldsymbol\zeta}<W^-_{\boldsymbol\zeta}<H_{\boldsymbol\zeta},\\[1mm]
+W^-_{\boldsymbol\zeta}<W^+_{\boldsymbol\zeta}<H_{\boldsymbol\zeta},&
+H_{\boldsymbol\zeta}<W^+_{\boldsymbol\zeta}<W^-_{\boldsymbol\zeta},&
+H_{\boldsymbol\zeta}<W^-_{\boldsymbol\zeta}<W^+_{\boldsymbol\zeta}.
+\end{array}
+\]
+As before, no condition is imposed on the order inside a single block.
+\end{theorem}
+
+\begin{proof}
+We prove the statement for
+\(H_{\boldsymbol\zeta}=\widetilde G_{\boldsymbol\zeta}\); the proof for
+\(G_{\boldsymbol\zeta}\) is identical.
+
+By Proposition~\ref{prop:special-leading}, the specialised generators have
+exactly the same initial forms as the canonical alternating generators.
+By Theorem~\ref{thm:all-leading}, these initial forms are non-zero scalar
+multiples of the corresponding alternating words in \(\Uplus\).  The
+ordered monomials in those alternating words form a basis of \(\Uplus\) by
+Theorem~\ref{thm:qshuffle-twelve}.  Since
+\(\gr\Oq\simeq\Uplus\), Lemma~\ref{lem:filtered-lifting} applies and lifts
+the graded PBW basis to the specialised generators.  Therefore the ordered
+monomials in
+\[
+        W^-_{\boldsymbol\zeta},\qquad
+        \widetilde G_{\boldsymbol\zeta},\qquad
+        W^+_{\boldsymbol\zeta}
+\]
+form a basis of the fibre \(\Aqfib{\boldsymbol\zeta}\simeq\Oq\) in each of
+the six block orders.  Replacing \(\widetilde G_{\boldsymbol\zeta}\) by
+\(G_{\boldsymbol\zeta}\) gives the remaining six bases.
+\end{proof}
+
+
+\section{The conjecture of Baseilhac and Belliard}
+\label{sec:BB}
+
+We now apply the central-fibre PBW theorem to the quotients introduced by
+Baseilhac and Belliard.  Throughout this section we assume
+\[
+        \operatorname{char}\F\neq2 .
+\]
+This assumption is needed in order to use the central coordinates
+\(\Delta_n\), since their comparison with Terwilliger's central coordinates
+contains the scalar factor \(2\).
+
+\subsection{The normalised parameter}
+
+Let \(\Aq(\rho_0)\) be the current algebra with
+\[
+        \rho_0=-(q^2-q^{-2})^2 .
+\]
+This is the normalisation compatible with the \(q\)-Onsager algebra
+\(\Oq\) used in the present paper.  Baseilhac and Belliard constructed
+central elements
+\[
+        \Delta_1,\Delta_2,\ldots
+\]
+in their current algebra.  For a scalar sequence
+\[
+        \boldsymbol\delta=(\delta_1,\delta_2,\ldots),
+\]
+they define the quotient
+\begin{equation}
+\label{eq:BB-quotient-normalised}
+\BBqquot{\rho_0}{\boldsymbol\delta}
+ =
+ \Aq(\rho_0)/
+ \left\langle
+        \Delta_n-2\delta_n\mid n\geq1
+ \right\rangle .
+\end{equation}
+See \cite[Definition~3.1]{BaseilhacBelliard2017}.
+
+We first identify this quotient with a central fibre of \(\Aq\).  By
+\eqref{eq:Delta-Xi}, the relation \(\Delta_n=2\delta_n\) is equivalent to
+\begin{equation}
+\label{eq:BB-Zvee-values}
+ \Zvee_n
+ =
+ -\frac{(q^n+q^{-n})[2]_q^{\,n-2}}{q-q^{-1}}\,
+ \delta_n
+ \qquad(n\geq1).
+\end{equation}
+The coefficient in \eqref{eq:BB-Zvee-values} is non-zero by
+Lemma~\ref{lem:nonvanishing-scalars}.  Since the coordinates
+\(\{\Zvee_n\}_{n\geq1}\) and \(\{\Zconv_n\}_{n\geq1}\) are related by the
+triangular system with invertible diagonal coefficients \eqref{eq:Zvee-Zconv-triangular}, the prescribed values
+\eqref{eq:BB-Zvee-values} determine a unique sequence
+\[
+        \boldsymbol\zeta=(\zeta_1,\zeta_2,\ldots)
+\]
+such that
+\[
+        \Zconv_n\longmapsto \zeta_n
+        \qquad(n\geq1).
+\]
+Consequently, \(\BBqquot{\rho_0}{\boldsymbol\delta}\) is the central fibre
+\(\Aqfib{\boldsymbol\zeta}\) from
+Section~\ref{sec:central-specialisations}.  Under this identification, the
+images of the Baseilhac--Belliard generators are exactly the specialised
+alternating generators
+\[
+ W_{-n}^{(\boldsymbol\zeta)},\qquad
+ W_{n+1}^{(\boldsymbol\zeta)},\qquad
+ G_{n+1}^{(\boldsymbol\zeta)},\qquad
+ \widetilde G_{n+1}^{(\boldsymbol\zeta)} .
+\]
+
+Let us check the first generator explicitly, since this fixes the
+normalisation.  For \(n=1\), equations \eqref{eq:BB-Zvee-values} and
+\eqref{eq:Zvee-Zconv-triangular} give
+\[
+        \Zvee_1=-\frac{\delta_1}{q-q^{-1}},
+        \qquad
+        \zeta_1=-\frac{\delta_1}{(q-q^{-1})[2]_q^2}.
+\]
+Using \(G_0=-(q-q^{-1})[2]_q^2\), we obtain
+\begin{equation}
+\label{eq:BB-low-check}
+        G_1^{(\boldsymbol\zeta)}
+        =
+        G_1+\zeta_1G_0
+        =
+        G_1+\delta_1 .
+\end{equation}
+By the low-degree identity \eqref{eq:G1-low-check},
+\(G_1=[W_1,W_0]_q\).  Therefore
+\[
+        G_1^{(\boldsymbol\zeta)}
+        =
+        [W_1,W_0]_q+\delta_1,
+\]
+which agrees with \cite[Equation~(3.5)]{BaseilhacBelliard2017}.  Similarly,
+\[
+        \widetilde G_1^{(\boldsymbol\zeta)}
+        =
+        [W_0,W_1]_q+\delta_1.
+\]
+
+We now state the PBW result in the notation of Baseilhac and Belliard.  The
+generators appearing below are the images of the corresponding current
+generators in the quotient
+\(\BBqquot{\rho_0}{\boldsymbol\delta}\).
+
+\begin{theorem}[Baseilhac--Belliard basis, normalised parameter]
+\label{thm:BB-normalised}
+Assume that \(\operatorname{char}\F\neq2\).  The monomials
+\begin{equation}
+\label{eq:BB-monomials}
+ W_{-k_1}^{a_1}\cdots W_{-k_N}^{a_N}
+ G_{p_1+1}^{b_1}\cdots G_{p_P+1}^{b_P}
+ W_{\ell_M+1}^{c_M}\cdots W_{\ell_1+1}^{c_1},
+\end{equation}
+where
+\[
+        N,P,M\in\N,
+\]
+\[
+        0\leq k_1<\cdots<k_N,\qquad
+        0\leq p_1<\cdots<p_P,\qquad
+        0\leq \ell_1<\cdots<\ell_M,
+\]
+and
+\[
+        a_i,b_j,c_t\in\Z_{>0},
+\]
+form an \(\F\)-basis of
+\(\BBqquot{\rho_0}{\boldsymbol\delta}\).  Empty products are interpreted
+as \(1\).  Equivalently, one may allow non-negative exponents in
+\eqref{eq:BB-monomials} after deleting the factors with exponent zero.
+\end{theorem}
+
+\begin{proof}
+As shown above,
+\(\BBqquot{\rho_0}{\boldsymbol\delta}\) is the central fibre
+\(\Aqfib{\boldsymbol\zeta}\) associated with the convolution central character
+\(\Zconv_n\mapsto\zeta_n\).  Theorem~\ref{thm:central-fibre-PBW}, applied
+to the block order
+\[
+        W^-_{\boldsymbol\zeta}
+        <
+        G_{\boldsymbol\zeta}
+        <
+        W^+_{\boldsymbol\zeta},
+\]
+says that the ordered monomials in the specialised families
+\[
+        \{W_{-i}^{(\boldsymbol\zeta)}\}_{i\in\N},
+        \qquad
+        \{G_{j+1}^{(\boldsymbol\zeta)}\}_{j\in\N},
+        \qquad
+        \{W_{k+1}^{(\boldsymbol\zeta)}\}_{k\in\N}
+\]
+form a basis.
+
+Choose increasing index order in the \(W^-\)-block and in the \(G\)-block,
+and choose decreasing index order in the \(W^+\)-block.  Written in the
+notation of the quotient, the resulting ordered monomials are precisely
+those in \eqref{eq:BB-monomials}.  Hence the displayed monomials form an
+\(\F\)-basis of
+\(\BBqquot{\rho_0}{\boldsymbol\delta}\).
+\end{proof}
+
+\subsection{Reduction of a general non-zero parameter}
+
+Baseilhac and Belliard formulate their current algebra with an arbitrary
+non-zero parameter \(\rho\).  We now reduce this case to the normalised
+parameter \(\rho_0\).
+
+Let \(\Aq(\rho)\) denote the Baseilhac--Belliard current algebra with
+parameter \(\rho\), and define
+\begin{equation}
+\label{eq:BB-quotient-rho}
+\BBqquot{\rho}{\boldsymbol\delta}
+ =
+ \Aq(\rho)/
+ \left\langle
+        \Delta_n^{(\rho)}-2\delta_n\mid n\geq1
+ \right\rangle .
+\end{equation}
+Here \(\Delta_n^{(\rho)}\) denotes the central element \(\Delta_n\) in the
+current algebra with parameter \(\rho\).
+
+\begin{lemma}[Scaling of the parameter]
+\label{lem:rho-scaling}
+Let \(\rho\in\F^\times\), and let \(\F'/\F\) be a field extension containing
+an element \(s\) such that
+\[
+        s^2\rho_0=\rho .
+\]
+There is an algebra isomorphism
+\[
+\Theta_s:
+\Aq(\rho)\otimes_\F\F'
+\longrightarrow
+\Aq(\rho_0)\otimes_\F\F'
+\]
+determined by
+\begin{align*}
+\cW_{-n}^{(\rho)}&\longmapsto s\,\cW_{-n}^{(\rho_0)},
+&
+\cW_{n+1}^{(\rho)}&\longmapsto s\,\cW_{n+1}^{(\rho_0)},\\
+\cG_{n+1}^{(\rho)}&\longmapsto s^2\cG_{n+1}^{(\rho_0)},
+&
+\ctG_{n+1}^{(\rho)}&\longmapsto s^2\ctG_{n+1}^{(\rho_0)}.
+\end{align*}
+Moreover, for every \(n\geq1\),
+\begin{equation}
+\label{eq:Delta-scaling}
+        \Theta_s(\Delta_n^{(\rho)})
+        =
+        s^2\Delta_n^{(\rho_0)} .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The defining relations of the current algebra are homogeneous with respect
+to the following weights:
+\[
+        \deg_s\cW_{\pm}=1,
+        \qquad
+        \deg_s\cG=\deg_s\ctG=2,
+        \qquad
+        \deg_s\rho=2.
+\]
+Relations involving two \(W\)-generators have total \(s\)-degree \(2\);
+relations involving one \(W\)-generator and one \(G\)-type generator have
+total \(s\)-degree \(3\); and relations involving two \(G\)-type generators
+have total \(s\)-degree \(4\).  The only parameter-dependent terms have the
+form \(\rho\,\cW\).  Under the proposed assignment, such a term is sent to
+\[
+        \rho\,s\,\cW^{(\rho_0)}
+        =
+        s^3\rho_0\,\cW^{(\rho_0)},
+\]
+which is exactly the scaling of the corresponding relation in
+\(\Aq(\rho_0)\).  Hence all defining relations are preserved.  Applying the
+same construction with \(s^{-1}\) gives the inverse isomorphism.
+
+It remains to check the central elements.  By the quantum-determinant
+formula of \cite[Proposition~2.1]{BaseilhacBelliard2017}, and equivalently
+by its coefficient form in \cite[Lemma~2.1]{BaseilhacBelliard2017}, each
+coefficient \(\Delta_n^{(\rho)}\) is a sum of terms of the following
+homogeneous types:
+\[
+        \cG+\ctG,\qquad
+        \cW\cW,\qquad
+        \rho^{-1}\cG\ctG .
+\]
+Under \(\Theta_s\), the first two types are multiplied by \(s^2\).  The last
+type is also multiplied by \(s^2\), because
+\[
+        \rho^{-1}s^4
+        =
+        (s^2\rho_0)^{-1}s^4
+        =
+        s^2\rho_0^{-1}.
+\]
+Therefore every term in \(\Delta_n^{(\rho)}\) is sent to \(s^2\) times the
+corresponding term in \(\Delta_n^{(\rho_0)}\), proving
+\eqref{eq:Delta-scaling}.
+\end{proof}
+
+\begin{theorem}[Baseilhac--Belliard basis, arbitrary parameter]
+\label{thm:BB-general}
+Assume that \(\operatorname{char}\F\neq2\).  Let
+\(\rho\in\F^\times\), and let
+\(\boldsymbol\delta=(\delta_1,\delta_2,\ldots)\) be any scalar sequence.
+Then the monomials of the form \eqref{eq:BB-monomials}, interpreted in the
+quotient \(\BBqquot{\rho}{\boldsymbol\delta}\), form an \(\F\)-basis of
+\(\BBqquot{\rho}{\boldsymbol\delta}\).  Consequently,
+\cite[Conjecture~1]{BaseilhacBelliard2017} holds.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:nonvanishing-scalars}, $\rho_0\neq0$.  Hence there is
+an algebraic field extension $\F'/\F$ containing an element $s$ with
+$s^2\rho_0=\rho$.  By Lemma~\ref{lem:rho-scaling}, after extending
+scalars to \(\F'\), the quotient
+\(\BBqquot{\rho}{\boldsymbol\delta}\) is isomorphic to the normalised
+quotient
+\[
+        \BBqquot{\rho_0}{\boldsymbol\delta/s^2},
+        \qquad
+        \boldsymbol\delta/s^2
+        =
+        (\delta_1/s^2,\delta_2/s^2,\ldots).
+\]
+Indeed, the relation
+\(\Delta_n^{(\rho)}=2\delta_n\) is sent to
+\[
+        s^2\Delta_n^{(\rho_0)}=2\delta_n,
+\]
+or equivalently
+\[
+        \Delta_n^{(\rho_0)}=2\delta_n/s^2.
+\]
+
+By Theorem~\ref{thm:BB-normalised}, the monomials
+\eqref{eq:BB-monomials} form a basis of the normalised quotient with central
+values \(\boldsymbol\delta/s^2\).  Under \(\Theta_s\), a monomial
+\eqref{eq:BB-monomials} is multiplied by a non-zero power of \(s\), namely
+\[
+        s^{a_1+\cdots+a_N+c_1+\cdots+c_M
+          +2(b_1+\cdots+b_P)}.
+\]
+Therefore the corresponding monomials form a basis of
+\[
+        \BBqquot{\rho}{\boldsymbol\delta}\otimes_\F\F' .
+\]
+
+It remains to descend the basis property from \(\F'\) to \(\F\).  Linear
+independence descends immediately: any non-trivial finite relation over
+\(\F\) would remain a non-trivial relation after tensoring with \(\F'\).
+For spanning, let \(V\) be the \(\F\)-span of the monomials
+\eqref{eq:BB-monomials} inside \(\BBqquot{\rho}{\boldsymbol\delta}\).  We
+have shown that
+\[
+        ( \BBqquot{\rho}{\boldsymbol\delta}/V )
+        \otimes_\F \F' =0 .
+\]
+Since \(\F'/\F\) is a faithfully flat field extension, this implies
+\(\BBqquot{\rho}{\boldsymbol\delta}/V=0\).  Hence the monomials span over
+\(\F\), and therefore form an \(\F\)-basis.
+\end{proof}
+
+\begin{remark}
+The argument proves more than the single order stated in
+\cite[Conjecture~1]{BaseilhacBelliard2017}.  Every quotient
+\(\BBqquot{\rho}{\boldsymbol\delta}\), with
+\(\rho\neq0\) and \(\operatorname{char}\F\neq2\), inherits all twelve PBW
+bases obtained from the two triples
+\[
+        (W^-,G,W^+),
+        \qquad
+        (W^-,\widetilde G,W^+)
+\]
+and the six block orders of Theorem~\ref{thm:central-fibre-PBW}.
+\end{remark}
+
+
+
+
+
+\section{A large-index triangular crossing theorem}
+\label{sec:large-crossing}
+
+Let $U$ denote the image of $\Uplus$ in the $q$-shuffle algebra.  In this
+section only, we omit the superscript $\sh$ from the alternating words and
+write
+\[
+ W_{-n}=(xy)^nx,\qquad
+ W_{n+1}=(yx)^ny,\qquad
+ G_n=(yx)^n,\qquad
+ \widetilde G_n=(xy)^n.
+\]
+All products in this section are $q$-shuffle products, denoted by $\star$.
+
+We use the alternating PBW order
+\[
+        W^+<W^-<\widetilde G,
+\]
+with increasing index order inside each block.  For finite non-decreasing
+sequences
+\[
+ \lambda=(\lambda_1,\ldots,\lambda_r),\quad \lambda_i\geq1,
+ \qquad
+ \mu=(\mu_1,\ldots,\mu_s),\quad \mu_i\geq0,
+\]
+\[
+ \nu=(\nu_1,\ldots,\nu_t),\quad \nu_i\geq1,
+\]
+put
+\[
+ P_\lambda=W_{\lambda_1}\star\cdots\star W_{\lambda_r},\qquad
+ Q_\mu=W_{-\mu_1}\star\cdots\star W_{-\mu_s},
+\]
+\[
+ H_\nu=\widetilde G_{\nu_1}\star\cdots\star
+       \widetilde G_{\nu_t}.
+\]
+The products $P_\lambda\star Q_\mu\star H_\nu$ form a basis of $U$ by
+Theorem~\ref{thm:qshuffle-twelve}.
+
+For a finite multiset $A$ of positive integers, define
+\[
+ \operatorname{prof}(A)
+ =\bigl(|A|;a_{|A|},a_{|A|-1},\ldots,a_1\bigr),
+\]
+where $a_1\leq\cdots\leq a_{|A|}$ are its entries, and order profiles
+lexicographically.  We use this order for both positive and middle blocks.
+
+\begin{lemma}[Profile maps]
+\label{lem:profile-maps}
+Let $A,B,C$ be finite multisets of positive integers.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item If $\operatorname{prof}(A)<\operatorname{prof}(B)$, then
+\[
+ \operatorname{prof}(A\sqcup C)<\operatorname{prof}(B\sqcup C).
+\]
+\item Suppose $A$ and $B$ are non-empty and $N$ is larger than every entry
+of $A$ and $B$.  Define
+\[
+ T_N(A)=(A\setminus\{\max A\})\sqcup\{N+\max A\}.
+\]
+Then $T_N$ is injective and strictly order-preserving for the profile order.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+For (i), compare multiplicities from the largest integer downwards; adding
+the same multiset changes both multiplicity functions by the same amount.
+For (ii), $N+\max A$ is the unique largest entry of $T_N(A)$, so $\max A$
+and then $A$ are recovered from the image.  If $\max A<\max B$, the unique
+largest entries of the two images preserve this inequality.  If the maxima
+are equal, remove one copy of the common maximum from both multisets; after
+the common new largest entry is ignored, the original comparison of the
+remaining entries is unchanged.
+\end{proof}
+
+\begin{lemma}[Large-index leading crossings]
+\label{lem:large-crossings}
+The following statements hold.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item For $m\geq1$,
+\begin{equation}
+\label{eq:G-leading-positive}
+ G_m=W_m\star W_0+
+ \{\text{terms of lower positive profile}\}.
+\end{equation}
+\item For $m\geq1$,
+\begin{equation}
+\label{eq:W0-Wplus-leading}
+ W_0\star W_m=q^{-2}W_m\star W_0+
+ \{\text{terms of lower positive profile}\}.
+\end{equation}
+\item If $a\geq1$ and $N\geq a-1$, then
+\begin{equation}
+\label{eq:large-W-crossing}
+ [W_a,W_{-N}]
+ =(1-q^{-2})W_{N+a}\star W_0+
+ \{\text{terms of lower positive profile}\}.
+\end{equation}
+\item If $i\geq1$ and $N\geq i$, then
+\begin{equation}
+\label{eq:large-tG-crossing}
+ [\widetilde G_i,W_{-N}]
+ =(q^{-2}-1)W_0\star\widetilde G_{N+i}+
+ \{\text{terms of lower middle profile}\}.
+\end{equation}
+\item For $i\geq1$,
+\begin{equation}
+\label{eq:tG-W0-exact}
+ \widetilde G_i\star W_0
+ =q^{-2}W_0\star\widetilde G_i+(1-q^{-2})W_{-i}.
+\end{equation}
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let
+\[
+ \widetilde G(t)=\sum_{n\geq0}\widetilde G_nt^n,
+ \qquad D(t)=\sum_{n\geq0}D_nt^n,
+\]
+where $D_0=1$ and
+$D(t)\star\widetilde G(t)=1=\widetilde G(t)\star D(t)$; see
+\cite[Definition~9.5, Definition~9.11, and Lemma~9.12]
+{Terwilliger2019Alternating}.  Each $D_j$ is a polynomial in
+$\widetilde G_1,\ldots,\widetilde G_j$.  By
+\cite[Theorem~9.15, equation~(70)]{Terwilliger2019Alternating},
+\begin{equation}
+\label{eq:G-D-expansion}
+ G_m=q^{-2m}D_m+
+ \sum_{a+b+c+1=m}W_{c+1}\star D_b\star W_{-a}.
+\end{equation}
+The unique summand with largest positive index is obtained from
+$(a,b,c)=(0,0,m-1)$ and equals $W_m\star W_0$.  Reordering $D_b$ past a
+negative word creates no positive $W$-factor, by the crossing formulas in
+\cite[Lemma~15.1]{Terwilliger2019Alternating}.  This proves (i).
+
+Proposition~5.7 of the same reference gives
+\[
+ [W_0,W_m]=(1-q^{-2})(\widetilde G_m-G_m).
+\]
+Together with (i), this gives (ii).
+
+Write $a=i+1$.  For $i\leq N$, Lemma~16.1 of the same reference gives
+\begin{equation}
+\label{eq:exact-W-large-crossing}
+ \begin{split}
+ [W_{i+1},W_{-N}]
+ ={}&(1-q^{-2})\sum_{\ell=0}^{i}
+       G_{N+1+\ell}\star\widetilde G_{i-\ell}\\
+ &-(1-q^{-2})\sum_{\ell=0}^{i}
+       G_{i-\ell}\star\widetilde G_{N+1+\ell}.
+ \end{split}
+\end{equation}
+By (i), the unique largest positive index is $N+i+1=N+a$; it occurs in
+the first sum at $\ell=i$.  This proves (iii).
+
+For $i\leq N$, Lemma~15.1 gives
+\begin{equation}
+\label{eq:exact-tG-large-crossing}
+ \begin{split}
+ \widetilde G_i\star W_{-N}
+ ={}&W_{-N}\star\widetilde G_i
+ +(1-q^{-2})\sum_{\ell=1}^{i}
+   W_{-N-\ell}\star\widetilde G_{i-\ell}\\
+ &+(q^{-2}-1)\sum_{\ell=1}^{i}
+   W_{\ell-i}\star\widetilde G_{N+\ell}.
+ \end{split}
+\end{equation}
+The unique term with middle index $N+i$ is the term $\ell=i$ in the final
+sum, proving (iv).  Taking the case $N=0<i$ in the complementary part of
+Lemma~15.1 gives (v).
+\end{proof}
+
+\begin{lemma}[Leading crossings of blocks]
+\label{lem:block-leading-crossings}
+Let $N$ be larger than every index in the relevant block.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item Let $\lambda$ be non-empty, let $p=\max\lambda$, and let $e$ be the
+multiplicity of $p$.  Then
+\begin{equation}
+\label{eq:positive-block-crossing}
+ [P_\lambda,W_{-N}]
+ =(1-q^{-2e})P_{T_N(\lambda)}\star W_0
+ +\{\text{terms of lower positive profile}\}.
+\end{equation}
+\item Let $\nu$ be non-empty, let $i=\max\nu$, let $e$ be its multiplicity,
+and put $t=|\nu|$.  Then
+\begin{equation}
+\label{eq:middle-block-crossing}
+ [H_\nu,W_{-N}]
+ =q^{-2(t-e)}(q^{-2e}-1)
+ W_0\star H_{T_N(\nu)}
+ +\{\text{terms of lower middle profile}\}.
+\end{equation}
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Expand each commutator by the Leibniz rule.  For (i), crossing a factor
+$W_a$ with $W_{-N}$ can create a positive index $N+a$ by
+\eqref{eq:large-W-crossing}.  The largest target is therefore obtained only
+from the $e$ occurrences of $W_p$.  If the selected occurrence has $s$
+further copies of $W_p$ to its right, the newly created $W_0$ must cross
+these copies.  Equation~\eqref{eq:W0-Wplus-leading} contributes
+$q^{-2s}$ to the leading profile; the positive words commute among
+themselves.  Hence the leading coefficient is
+\[
+ (1-q^{-2})\sum_{s=0}^{e-1}q^{-2s}=1-q^{-2e}.
+\]
+All other choices and all correction terms have lower positive profile.
+
+For (ii), only the $e$ occurrences of the maximal middle index $i$ can
+create $N+i$.  The numbers of middle factors to the left of these
+occurrences are $t-e,t-e+1,\ldots,t-1$.  Moving the new $W_0$ to the left
+by \eqref{eq:tG-W0-exact} contributes the leading factors
+$q^{-2s}$; every correction in that move decreases the middle length.  The
+leading coefficient is therefore
+\[
+ (q^{-2}-1)\sum_{s=t-e}^{t-1}q^{-2s}
+ =q^{-2(t-e)}(q^{-2e}-1).
+\]
+This proves both assertions.
+\end{proof}
+
+\begin{theorem}[Negative-tail centraliser]
+\label{thm:tail-centraliser}
+For every $N_0\in\N$,
+\begin{equation}
+\label{eq:tail-centraliser}
+ \Cent_U\{W_{-N}\mid N\geq N_0\}
+ =\F[W_0,W_{-1},W_{-2},\ldots].
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The inclusion from right to left follows from the pairwise commutativity of
+the negative alternating words.  Put
+\[
+        \mathcal N=\F[W_0,W_{-1},W_{-2},\ldots].
+\]
+Theorem~\ref{thm:qshuffle-twelve} and the commutativity of the negative
+family show that $\mathcal N$ is a polynomial algebra, hence a domain.
+
+Let $z$ centralise $W_{-N}$ for every $N\geq N_0$.  Its PBW expansion can
+be grouped uniquely as
+\begin{equation}
+\label{eq:grouped-tail-expansion}
+        z=\sum_{\lambda,\nu}P_\lambda\star
+        f_{\lambda,\nu}\star H_\nu,
+        \qquad f_{\lambda,\nu}\in\mathcal N,
+\end{equation}
+with only finitely many non-zero coefficients.
+
+Suppose that a non-empty positive block occurs.  Choose a maximal positive
+profile among the non-zero terms, represented by $\lambda$, and choose
+$N\geq N_0$ larger than every positive and middle index occurring in
+\eqref{eq:grouped-tail-expansion}.  Let $p=\max\lambda$ and let $e$ be its
+multiplicity.  By Lemma~\ref{lem:block-leading-crossings}, the component of
+$[z,W_{-N}]$ with target positive profile $T_N(\lambda)$ is
+\[
+ (1-q^{-2e})P_{T_N(\lambda)}\star
+ W_0f_{\lambda,\nu}\star H_\nu
+\]
+for each middle block $\nu$.  A commutator originating in a middle block
+keeps the old positive profile.  A smaller source positive profile cannot
+produce $T_N(\lambda)$, by the strict order preservation in
+Lemma~\ref{lem:profile-maps}; injectivity also excludes a different source
+with the same target.  Thus this component cannot cancel.  Its coefficient
+is non-zero because $1-q^{-2e}\neq0$ and multiplication by $W_0$ is
+injective in the domain $\mathcal N$.  This contradicts
+$[z,W_{-N}]=0$.  Hence no positive block occurs.
+
+We may now write $z=\sum_\nu f_\nu\star H_\nu$.  If a non-empty middle
+block occurs, choose one with maximal middle profile, and choose $N\geq N_0$
+larger than every middle index occurring in $z$.  If its maximal index has
+multiplicity $e$ and its length is $t$, equation
+\eqref{eq:middle-block-crossing} produces the unique maximal target profile
+with coefficient
+\[
+        q^{-2(t-e)}(q^{-2e}-1)W_0f_\nu,
+\]
+which is non-zero.  Lemma~\ref{lem:profile-maps} again excludes
+cancellation from another source.  This contradicts centrality.  Therefore
+no middle block occurs, and $z\in\mathcal N$.
+\end{proof}
+
+\begin{corollary}
+\label{cor:conj167}
+One has
+\[
+ \Cent_{\Oq}\bigl(\F[W_0,W_{-1},W_{-2},\ldots]\bigr)
+ =\F[W_0,W_{-1},W_{-2},\ldots].
+\]
+In particular, Terwilliger's Conjecture~16.7 holds.
+\end{corollary}
+
+\begin{proof}
+Let $H=\F[W_0,W_{-1},W_{-2},\ldots]\subseteq\Oq$.  By
+Theorem~\ref{thm:twelve-PBW}, $H$ is a polynomial algebra.  Moreover,
+the negative-family monomials have distinct, non-zero initial forms by
+Theorem~\ref{thm:all-leading}; hence the induced filtration on $H$ has
+\[
+ \gr H=\F[W_0^{\sh},W_{-1}^{\sh},W_{-2}^{\sh},\ldots]\subseteq U.
+\]
+Theorem~\ref{thm:tail-centraliser}, with $N_0=0$, shows that this graded
+subalgebra is self-centralising in $U$.  Lemma~\ref{lem:filtered-centraliser}
+then yields the displayed equality in $\Oq$.
+\end{proof}
+
+
+\section{Centralisers of alternating subalgebras}
+\label{sec:centralisers}
+
+\subsection{The imaginary-root centraliser}
+
+For $r\in\Z$, define a two-sided real-root chain by
+\[
+ R_r=
+ \begin{cases}
+ B_{r\delta+\alpha_1}, & r\geq0,\\[1mm]
+ B_{(-r-1)\delta+\alpha_0}, & r\leq-1,
+ \end{cases}
+ \qquad
+ I_n=B_{n\delta}\quad(n\geq1).
+\]
+Thus $R_0=W_1$ and $R_{-1}=W_0$.  Order the root vectors by
+\begin{equation}
+\label{eq:BK-centraliser-order}
+ R_r<R_s\quad\Longleftrightarrow\quad r>s,
+ \qquad R_r<I_m,
+ \qquad I_m<I_n\quad\Longleftrightarrow\quad m<n.
+\end{equation}
+By Theorem~\ref{thm:BK-nonroot}, this total order gives a PBW basis of
+$\Oq$.  Consequently every element has a unique expansion
+\begin{equation}
+\label{eq:BK-centraliser-expansion}
+ \sum_{\boldsymbol r}
+ R_{r_1}\cdots R_{r_d}
+ f_{\boldsymbol r}(I_1,I_2,\ldots),
+ \qquad r_1\geq r_2\geq\cdots\geq r_d.
+\end{equation}
+
+Put
+\[
+        \kappa=q^{-1}(q-q^{-1})^2[2]_q.
+\]
+In the normalisation of this paper, equations (3.9)--(3.10), (5.8) with $m=1$,
+and Corollary~5.11 of \cite{BaseilhacKolb2020} give the following
+relations.  Their proofs are formal consequences of the defining relations;
+after substituting the present value of $c$, the displayed identities have
+Laurent-polynomial coefficients in $q$, so the same calculations apply over
+our field at the fixed non-root parameter:
+\begin{align}
+[I_1,R_r]&=\kappa(R_{r-1}-R_{r+1}),
+\label{eq:I1-real-shift}\\
+R_rR_{r+1}&=q^{-2}R_{r+1}R_r-I_1,
+\label{eq:adjacent-real-straightening}\\
+[I_m,I_n]&=0.
+\label{eq:imaginary-commute}
+\end{align}
+Indeed, the parameter $c$ in that reference is
+$c=q^{-1}(q-q^{-1})^2$ for the Dolan--Grady normalisation
+\eqref{eq:qDG0}--\eqref{eq:qDG1}.
+
+For a non-empty non-increasing integer sequence
+$\boldsymbol r=(r_1,\ldots,r_d)$, define
+\[
+        T(\boldsymbol r)
+        =\operatorname{sort}_{\geq}(r_1+1,r_2,\ldots,r_d).
+\]
+Lexicographic order is taken after the length $d$.  The map $T$ is injective
+and strictly order-preserving: its largest entry is one more than the
+largest entry of the source, and after deleting these entries the remaining
+comparison is unchanged.
+
+\begin{lemma}[Leading real profile]
+\label{lem:leading-real-profile}
+Let $r_1\geq\cdots\geq r_d$, let $r=r_1$, and suppose that $r$ has
+multiplicity $e$.  Then
+\begin{equation}
+\label{eq:leading-real-commutator}
+ \begin{split}
+ [I_1,R_{r_1}\cdots R_{r_d}]
+ ={}&-\kappa\left(\sum_{j=0}^{e-1}q^{-2j}\right)
+ R_{r+1}R_r^{e-1}R_{r_{e+1}}\cdots R_{r_d}\\
+ &+\{\text{terms of lower real profile or with fewer real factors}\}.
+ \end{split}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Use the Leibniz rule and \eqref{eq:I1-real-shift}.  Only the raising terms
+$-\kappa R_{r+1}$ coming from the first $e$ factors can produce the profile
+$T(\boldsymbol r)$.  If the selected occurrence has $j$ copies of $R_r$ to
+its left, relation \eqref{eq:adjacent-real-straightening} contributes
+$q^{-2j}$ while moving $R_{r+1}$ to the left.  Every correction $-I_1$ in
+that move removes two real factors.  Raising a smaller entry or using a
+lowering term gives a lower profile.  Summing over $j=0,\ldots,e-1$ proves
+the formula.
+\end{proof}
+
+\begin{lemma}[Imaginary-root centraliser]
+\label{lem:imaginary-centraliser}
+One has
+\begin{equation}
+\label{eq:I1-centraliser}
+        \Cent_{\Oq}(I_1)=\F[I_1,I_2,I_3,\ldots].
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The inclusion from right to left follows from
+\eqref{eq:imaginary-commute}.  Let $x\in\Cent_{\Oq}(I_1)$ and use the PBW
+expansion \eqref{eq:BK-centraliser-expansion}.  Suppose that a real factor
+occurs.  Among all terms with non-zero coefficient, choose one with maximal
+real profile $(d;r_1,\ldots,r_d)$, and let the maximal entry $r=r_1$ have
+multiplicity $e$.
+
+By Lemma~\ref{lem:leading-real-profile}, its contribution to the profile
+$T(r_1,\ldots,r_d)$ in $[I_1,x]$ has coefficient
+\[
+ -\kappa\sum_{j=0}^{e-1}q^{-2j}
+ =-\kappa\frac{1-q^{-2e}}{1-q^{-2}},
+\]
+which is non-zero.  A smaller source profile cannot give the same target,
+because $T$ is strictly order-preserving and injective.  A lowering term
+cannot create the new largest entry $r+1$, and terms with fewer real factors
+remain lower in the length-first order.  The non-zero polynomial
+$f_{\boldsymbol r}(I_1,I_2,\ldots)$ is unchanged in this leading component.
+Thus the component cannot cancel, contradicting $[I_1,x]=0$.  Hence no real
+factor occurs, and $x$ belongs to the displayed polynomial algebra.
+\end{proof}
+
+\begin{corollary}
+\label{cor:conj168}
+One has
+\begin{equation}
+\label{eq:tG1-centraliser}
+ \Cent_{\Oq}(\widetilde G_1)
+ =\F[\widetilde G_1,\widetilde G_2,\widetilde G_3,\ldots].
+\end{equation}
+In particular, Terwilliger's Conjecture~16.8 holds.
+\end{corollary}
+
+\begin{proof}
+In the recursion \eqref{eq:root-tG-recursion}, the coefficient of
+$\widetilde G_n$ is $[2n]_q[2]_q^nB_{0\delta}$, while the term containing
+$I_n=B_{n\delta}$ linearly is $[n]_qI_n\widetilde G_0$.  Both coefficients
+are non-zero.  Induction on $n$, using the commutativity of the $I_m$, shows
+that the two families are related by a triangular polynomial change of
+variables with non-zero diagonal coefficients.  Therefore
+\[
+ \F[I_1,I_2,\ldots]
+ =\F[\widetilde G_1,\widetilde G_2,\ldots].
+\]
+Equation~\eqref{eq:tG1-Bdelta} gives $\widetilde G_1=-qI_1$, so the two
+first elements have the same centraliser.  The result follows from
+Lemma~\ref{lem:imaginary-centraliser}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:four-maximal}
+The following four polynomial subalgebras of $\Oq$ are self-centralising,
+and hence maximal commutative:
+\[
+ \F[W_0,W_{-1},W_{-2},\ldots],
+ \qquad
+ \F[W_1,W_2,W_3,\ldots],
+\]
+\[
+ \F[G_1,G_2,G_3,\ldots],
+ \qquad
+ \F[\widetilde G_1,\widetilde G_2,\widetilde G_3,\ldots].
+\]
+Moreover,
+\[
+ \Cent_{\Oq}(\widetilde G_1)
+ =\F[\widetilde G_1,\widetilde G_2,\ldots],
+ \qquad
+ \Cent_{\Oq}(G_1)=\F[G_1,G_2,\ldots].
+\]
+\end{corollary}
+
+\begin{proof}
+The negative algebra is self-centralising by
+Corollary~\ref{cor:conj167}; applying $\sigma$ gives the positive algebra.
+Let
+$\widetilde{\mathcal H}=\F[\widetilde G_1,\widetilde G_2,\ldots]$.
+Since this algebra is commutative and contains $\widetilde G_1$,
+Corollary~\ref{cor:conj168} gives
+\[
+ \widetilde{\mathcal H}
+ \subseteq\Cent_{\Oq}(\widetilde{\mathcal H})
+ \subseteq\Cent_{\Oq}(\widetilde G_1)
+ =\widetilde{\mathcal H}.
+\]
+Thus it is self-centralising.  Applying $\dagger$ gives the corresponding
+claims for the $G$-family, including the formula for $\Cent_{\Oq}(G_1)$.
+A self-centralising commutative subalgebra is maximal commutative.
+\end{proof}
+
+
+\begin{thebibliography}{99}
+
+\bibitem{AppelVlaar2022}
+A.~Appel and B.~Vlaar,
+\emph{Universal $K$-matrices for quantum Kac--Moody algebras},
+Represent. Theory \textbf{26} (2022), 764--824.
+
+\bibitem{Baseilhac2005}
+P.~Baseilhac,
+\emph{Deformed Dolan--Grady relations in quantum integrable models},
+Nuclear Phys. B \textbf{709} (2005), 491--521.
+
+\bibitem{BaseilhacBelliard2010}
+P.~Baseilhac and S.~Belliard,
+\emph{Generalized $q$-Onsager algebras and boundary affine Toda field theories},
+Lett. Math. Phys. \textbf{93} (2010), 213--228.
+
+\bibitem{BaseilhacBelliard2013}
+P.~Baseilhac and S.~Belliard,
+\emph{The half-infinite $XXZ$ chain in Onsager's approach},
+Nuclear Phys. B \textbf{873} (2013), 550--584.
+
+\bibitem{BaseilhacBelliard2017}
+P.~Baseilhac and S.~Belliard,
+\emph{An attractive basis for the $q$-Onsager algebra},
+arXiv:1704.02950.
+
+\bibitem{BaseilhacGainutdinovLemarthe2026}
+P.~Baseilhac, A.~M.~Gainutdinov and G.~Lemarthe,
+\emph{Universal TT- and TQ-relations via centrally extended $q$-Onsager algebra},
+Nuclear Phys. B \textbf{1026} (2026), 117427.
+
+\bibitem{BaseilhacKoizumi2005}
+P.~Baseilhac and K.~Koizumi,
+\emph{A new (in)finite-dimensional algebra for quantum integrable models},
+Nuclear Phys. B \textbf{720} (2005), 325--347.
+
+\bibitem{BaseilhacKolb2020}
+P.~Baseilhac and S.~Kolb,
+\emph{Braid group action and root vectors for the $q$-Onsager algebra},
+Transform. Groups \textbf{25} (2020), 363--389.
+
+\bibitem{BaseilhacShigechi2010}
+P.~Baseilhac and K.~Shigechi,
+\emph{A new current algebra and the reflection equation},
+Lett. Math. Phys. \textbf{92} (2010), 47--65.
+
+\bibitem{Beck1994}
+J.~Beck,
+\emph{Convex bases of PBW type for quantum affine algebras},
+Comm. Math. Phys. \textbf{165} (1994), 193--199.
+
+\bibitem{Damiani1993}
+I.~Damiani,
+\emph{A basis of type Poincar\'e--Birkhoff--Witt for the quantum algebra of
+$\widehat{\mathfrak{sl}}_2$},
+J. Algebra \textbf{161} (1993), 291--310.
+
+\bibitem{Damiani1998}
+I.~Damiani,
+\emph{La $R$-matrice pour les alg\`ebres quantiques de type affine non tordu},
+Ann. Sci. \`Ecole Norm. Sup. (4) \textbf{31} (1998), 493--523.
+
+\bibitem{DingFrenkel1993}
+J.~Ding and I.~B.~Frenkel,
+\emph{Isomorphism of two realizations of quantum affine algebra
+$U_q(\widehat{\mathfrak{gl}}(n))$},
+Comm. Math. Phys. \textbf{156} (1993), 277--300.
+
+\bibitem{DolanGrady1982}
+L.~Dolan and M.~Grady,
+\emph{Conserved charges from self-duality},
+Phys. Rev. D \textbf{25} (1982), 1587--1604.
+
+\bibitem{KhoroshkinTolstoy1991}
+S.~M.~Khoroshkin and V.~N.~Tolstoy,
+\emph{Universal $R$-matrix for quantized (super)algebras},
+Comm. Math. Phys. \textbf{141} (1991), 599--617.
+
+\bibitem{Kolb2014}
+S.~Kolb,
+\emph{Quantum symmetric Kac--Moody pairs},
+Adv. Math. \textbf{267} (2014), 395--469.
+
+\bibitem{LemartheBaseilhacGainutdinov2026}
+G.~Lemarthe, P.~Baseilhac and A.~M.~Gainutdinov,
+\emph{Fused $K$-operators and the $q$-Onsager algebra},
+SIGMA Symmetry Integrability Geom. Methods Appl. \textbf{22} (2026), 026,
+74 pp.
+
+\bibitem{Letzter2002}
+G.~Letzter,
+\emph{Coideal subalgebras and quantum symmetric pairs},
+in \emph{New Directions in Hopf Algebras}, Math. Sci. Res. Inst. Publ.
+\textbf{43}, Cambridge Univ. Press, Cambridge, 2002, 117--165.
+
+\bibitem{LuRuanWang2023}
+M.~Lu, S.~Ruan and W.~Wang,
+\emph{$\imath$Hall algebra of the projective line and $q$-Onsager algebra},
+Trans. Amer. Math. Soc. \textbf{376} (2023), 1475--1505.
+
+\bibitem{LuWang2021}
+M.~Lu and W.~Wang,
+\emph{A Drinfeld type presentation of affine $\imath$quantum groups I:
+split ADE type},
+Adv. Math. \textbf{393} (2021), 108111, 46 pp.
+
+\bibitem{Onsager1944}
+L.~Onsager,
+\emph{Crystal statistics. I. A two-dimensional model with an order-disorder transition},
+Phys. Rev. \textbf{65} (1944), 117--149.
+
+\bibitem{Rosso1998}
+M.~Rosso,
+\emph{Quantum groups and quantum shuffles},
+Invent. Math. \textbf{133} (1998), 399--416.
+
+\bibitem{Sklyanin1988}
+E.~K.~Sklyanin,
+\emph{Boundary conditions for integrable quantum systems},
+J. Phys. A \textbf{21} (1988), 2375--2389.
+
+\bibitem{Terwilliger2001}
+P.~Terwilliger,
+\emph{Two relations that generalize the $q$-Serre relations and the Dolan--Grady relations},
+in \emph{Physics and Combinatorics 1999}, World Scientific, River Edge, NJ,
+2001, 377--398.
+
+\bibitem{Terwilliger2017PositivePart}
+P.~Terwilliger,
+\emph{The $q$-Onsager algebra and the positive part of
+$U_q(\widehat{\mathfrak{sl}}_2)$},
+Linear Algebra Appl. \textbf{521} (2017), 19--56.
+
+\bibitem{Terwilliger2019Catalan}
+P.~Terwilliger,
+\emph{Using Catalan words and a $q$-shuffle algebra to describe a PBW basis
+for the positive part of $U_q(\widehat{\mathfrak{sl}}_2)$},
+J. Algebra \textbf{525} (2019), 359--373.
+
+\bibitem{Terwilliger2019Alternating}
+P.~Terwilliger,
+\emph{The alternating PBW basis for the positive part of
+$U_q(\widehat{\mathfrak{sl}}_2)$},
+J. Math. Phys. \textbf{60} (2019), 071704, 27 pp.
+
+\bibitem{Terwilliger2021ACE}
+P.~Terwilliger,
+\emph{The alternating central extension of the $q$-Onsager algebra},
+Comm. Math. Phys. \textbf{387} (2021), 1771--1819.
+
+\bibitem{Terwilliger2022OqACE}
+P.~Terwilliger,
+\emph{The $q$-Onsager algebra and its alternating central extension},
+Nuclear Phys. B \textbf{975} (2022), 115662, 37 pp.
+
+
+\end{thebibliography}
+
+\end{document}
