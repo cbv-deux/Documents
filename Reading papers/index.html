@@ -39,11 +39,76 @@
       color: var(--muted);
       max-width: 900px;
     }
+    .qwiki-controls {
+      display: grid;
+      grid-template-columns: minmax(260px, 1.7fr) minmax(140px, 0.8fr) minmax(140px, 0.8fr) minmax(140px, 0.8fr) auto;
+      gap: 10px;
+      align-items: end;
+      margin-top: 20px;
+      max-width: 1180px;
+    }
+    .control-field {
+      display: grid;
+      gap: 5px;
+    }
+    .control-field span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 650;
+    }
+    .control-field input,
+    .control-field select,
+    .paper-note textarea,
+    .author-note textarea,
+    .reading-status {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+    }
+    .control-field input,
+    .control-field select,
+    .reading-status {
+      min-height: 38px;
+      padding: 7px 10px;
+    }
+    .filter-reset {
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--accent);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 650;
+      padding: 7px 12px;
+    }
+    .reading-summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .summary-pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      padding: 3px 9px;
+    }
     main {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 320px;
       gap: 24px;
       padding: 28px 40px 44px;
+    }
+    .paper-column {
+      display: grid;
+      gap: 24px;
+      align-content: start;
     }
     section, aside {
       background: var(--panel);
@@ -52,6 +117,33 @@
     }
     section {
       padding: 24px;
+    }
+    .paper-section {
+      overflow: hidden;
+    }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 18px;
+    }
+    .section-head h2 {
+      margin-bottom: 6px;
+    }
+    .category-toggle {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--accent);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 650;
+      padding: 7px 12px;
+      white-space: nowrap;
+    }
+    .paper-list.is-collapsed {
+      display: none;
     }
     aside {
       padding: 20px;
@@ -71,6 +163,9 @@
     .article {
       padding: 16px 0;
       border-top: 1px solid var(--line);
+    }
+    .article[hidden] {
+      display: none;
     }
     .article:first-of-type {
       border-top: 0;
@@ -105,6 +200,56 @@
       padding: 2px 9px;
       font-size: 12px;
     }
+    .paper-tools {
+      display: grid;
+      grid-template-columns: minmax(140px, 190px) minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      margin-top: 12px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfb;
+    }
+    .status-control,
+    .paper-note,
+    .author-note {
+      display: grid;
+      gap: 6px;
+    }
+    .status-control label,
+    .paper-note label,
+    .author-note label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 650;
+    }
+    .paper-note textarea,
+    .author-note textarea {
+      min-height: 72px;
+      resize: vertical;
+      padding: 8px 10px;
+    }
+    .note-state {
+      color: var(--muted);
+      font-size: 12px;
+      min-height: 18px;
+    }
+    .empty-state {
+      display: none;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      padding: 18px 0 0;
+    }
+    .paper-column > .empty-state {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 18px 24px;
+    }
+    .empty-state.is-visible {
+      display: block;
+    }
     .discussion-action {
       margin-top: 10px;
     }
@@ -135,18 +280,97 @@
       border-radius: 6px;
       background: var(--accent-soft);
     }
+    .author-workbench {
+      margin: 0 40px 44px;
+      padding: 24px;
+    }
+    .author-workbench-header {
+      margin-bottom: 6px;
+    }
+    .author-picker {
+      display: grid;
+      grid-template-columns: minmax(140px, 180px) minmax(240px, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .author-detail {
+      margin-top: 16px;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+    .author-detail[hidden] {
+      display: none;
+    }
+    .author-detail-title {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: baseline;
+      justify-content: space-between;
+      font-weight: 650;
+    }
+    .author-path {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 400;
+    }
+    .author-tools {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(190px, auto);
+      gap: 12px;
+      align-items: end;
+      margin-top: 10px;
+    }
+    .author-action {
+      display: grid;
+      gap: 6px;
+      align-content: end;
+    }
+    .author-action button {
+      border: 0;
+      border-radius: 6px;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 650;
+      padding: 8px 12px;
+    }
+    .author-action span {
+      color: var(--muted);
+      font-size: 12px;
+      min-height: 18px;
+    }
     .folder-note {
       color: var(--muted);
       font-size: 14px;
-      margin-bottom: 18px;
+      margin-bottom: 0;
     }
     @media (max-width: 900px) {
       header { padding: 26px 20px 18px; }
+      .qwiki-controls {
+        grid-template-columns: 1fr;
+      }
       main {
         grid-template-columns: 1fr;
         padding: 20px;
       }
       aside { position: static; }
+      .paper-tools {
+        grid-template-columns: 1fr;
+      }
+      .section-head,
+      .author-detail-title,
+      .author-tools,
+      .author-picker {
+        grid-template-columns: 1fr;
+      }
+      .section-head {
+        display: grid;
+      }
+      .author-workbench {
+        margin: 0 20px 32px;
+      }
     }
   </style>
 </head>
@@ -154,64 +378,124 @@
   <header>
     <h1>QWiki</h1>
     <div class="subtitle">论文阅读与作者档案索引。文章按文件夹分类列出，作者导航指向 `Files/Authors` 中的身份核验与学术风格档案。每篇文章的“优化讨论”按钮会复制提示词，并尝试打开 Codex 的 Documents 项目新聊天。</div>
+    <div class="qwiki-controls" aria-label="论文检索和筛选">
+      <label class="control-field">
+        <span>搜索</span>
+        <input id="searchInput" type="search" placeholder="标题、作者、arXiv、标签、学习印象">
+      </label>
+      <label class="control-field">
+        <span>论文分类</span>
+        <select id="categoryFilter">
+          <option value="all">全部分类</option>
+        </select>
+      </label>
+      <label class="control-field">
+        <span>阅读状态</span>
+        <select id="statusFilter">
+          <option value="all">全部状态</option>
+          <option value="unread">未读</option>
+          <option value="reading">正在读</option>
+          <option value="read">已读</option>
+        </select>
+      </label>
+      <label class="control-field">
+        <span>标签</span>
+        <select id="tagFilter">
+          <option value="all">全部标签</option>
+        </select>
+      </label>
+      <button class="filter-reset" id="resetFilters" type="button">清空</button>
+    </div>
+    <div class="reading-summary" id="readingSummary" aria-live="polite"></div>
   </header>
   <main>
-    <section>
-      <h2>ArxivDaily</h2>
-      <div class="folder-note">分类目录：`Reading papers/ArxivDaily`</div>
+    <div class="paper-column">
+      <section class="paper-section" data-category="ArxivDaily">
+      <div class="section-head">
+        <div>
+          <h2>ArxivDaily</h2>
+          <div class="folder-note">分类目录：`Reading papers/ArxivDaily`</div>
+        </div>
+      </div>
+      <div class="paper-list">
+        <article class="article">
+          <div class="title"><a href="ArxivDaily/Braiding structures on categorical multi-Interval Jones-Wassermann subfactor - Liu Ruan - 2026-07-10/解读.md">Braiding structures on categorical multi-Interval Jones-Wassermann subfactor</a></div>
+          <div class="meta">Zhengwei Liu, Yuze Ruan · 2026-07-10 · arXiv:2607.08296</div>
+          <div class="tags"><span class="tag">UMFC</span><span class="tag">subfactor</span><span class="tag">planar algebra</span><span class="tag">Verlinde</span></div>
+        </article>
 
-      <article class="article">
-        <div class="title"><a href="ArxivDaily/Braiding structures on categorical multi-Interval Jones-Wassermann subfactor - Liu Ruan - 2026-07-10/解读.md">Braiding structures on categorical multi-Interval Jones-Wassermann subfactor</a></div>
-        <div class="meta">Zhengwei Liu, Yuze Ruan · 2026-07-10 · arXiv:2607.08296</div>
-        <div class="tags"><span class="tag">UMFC</span><span class="tag">subfactor</span><span class="tag">planar algebra</span><span class="tag">Verlinde</span></div>
-      </article>
+        <article class="article">
+          <div class="title"><a href="ArxivDaily/Factorization Algebras and Quantum Groups from Generalized Poisson Sigma Models - Zeng - 2026-07-13/解读.md">Factorization Algebras and Quantum Groups from Generalized Poisson Sigma Models</a></div>
+          <div class="meta">Keyou Zeng · 2026-07-13 · arXiv:2607.09486</div>
+          <div class="tags"><span class="tag">factorization algebra</span><span class="tag">Poisson sigma model</span><span class="tag">quantum groups</span></div>
+        </article>
 
-      <article class="article">
-        <div class="title"><a href="ArxivDaily/Factorization Algebras and Quantum Groups from Generalized Poisson Sigma Models - Zeng - 2026-07-13/解读.md">Factorization Algebras and Quantum Groups from Generalized Poisson Sigma Models</a></div>
-        <div class="meta">Keyou Zeng · 2026-07-13 · arXiv:2607.09486</div>
-        <div class="tags"><span class="tag">factorization algebra</span><span class="tag">Poisson sigma model</span><span class="tag">quantum groups</span></div>
-      </article>
+        <article class="article">
+          <div class="title"><a href="ArxivDaily/FFLV bases for covariant representations of glmn - Ahmad Enugandla - 2026-07-14/解读.md">FFLV bases for covariant representations of gl(m|n)</a></div>
+          <div class="meta">Ibrahim Ahmad, Pranav Enugandla · 2026-07-14 · arXiv:2607.11133</div>
+          <div class="tags"><span class="tag">Lie superalgebra</span><span class="tag">PBW</span><span class="tag">FFLV</span><span class="tag">toric supervariety</span></div>
+        </article>
 
-      <article class="article">
-        <div class="title"><a href="ArxivDaily/FFLV bases for covariant representations of glmn - Ahmad Enugandla - 2026-07-14/解读.md">FFLV bases for covariant representations of gl(m|n)</a></div>
-        <div class="meta">Ibrahim Ahmad, Pranav Enugandla · 2026-07-14 · arXiv:2607.11133</div>
-        <div class="tags"><span class="tag">Lie superalgebra</span><span class="tag">PBW</span><span class="tag">FFLV</span><span class="tag">toric supervariety</span></div>
-      </article>
+        <article class="article">
+          <div class="title"><a href="ArxivDaily/Fiber Functors of Equivariantizations of Finite Tensor Categories - Galindo Gallego Morales - 2026-07-14/解读.md">Fiber Functors of Equivariantizations of Finite Tensor Categories</a></div>
+          <div class="meta">César Galindo, Claudia Gallego, Yiby Morales · 2026-07-14 · arXiv:2607.10525</div>
+          <div class="tags"><span class="tag">finite tensor category</span><span class="tag">fiber functor</span><span class="tag">Tannaka-Krein</span></div>
+        </article>
 
-      <article class="article">
-        <div class="title"><a href="ArxivDaily/Fiber Functors of Equivariantizations of Finite Tensor Categories - Galindo Gallego Morales - 2026-07-14/解读.md">Fiber Functors of Equivariantizations of Finite Tensor Categories</a></div>
-        <div class="meta">César Galindo, Claudia Gallego, Yiby Morales · 2026-07-14 · arXiv:2607.10525</div>
-        <div class="tags"><span class="tag">finite tensor category</span><span class="tag">fiber functor</span><span class="tag">Tannaka-Krein</span></div>
-      </article>
+        <article class="article">
+          <div class="title"><a href="ArxivDaily/Harish-Chandra images of orthosymplectic Sugawara operators and Casimir elements - Molev Nurcombe Ragoucy - 2026-07-09/解读.md">Harish-Chandra images of orthosymplectic Sugawara operators and Casimir elements</a></div>
+          <div class="meta">Alexander Molev, Madeline Nurcombe, Eric Ragoucy · 2026-07-09 · arXiv:2607.06926</div>
+          <div class="tags"><span class="tag">Lie superalgebra</span><span class="tag">Sugawara</span><span class="tag">Gaudin</span></div>
+        </article>
 
-      <article class="article">
-        <div class="title"><a href="ArxivDaily/Harish-Chandra images of orthosymplectic Sugawara operators and Casimir elements - Molev Nurcombe Ragoucy - 2026-07-09/解读.md">Harish-Chandra images of orthosymplectic Sugawara operators and Casimir elements</a></div>
-        <div class="meta">Alexander Molev, Madeline Nurcombe, Eric Ragoucy · 2026-07-09 · arXiv:2607.06926</div>
-        <div class="tags"><span class="tag">Lie superalgebra</span><span class="tag">Sugawara</span><span class="tag">Gaudin</span></div>
-      </article>
+        <article class="article">
+          <div class="title"><a href="ArxivDaily/Noncommutative vector field calculi - Fioresi Latini Weber - 2026-07-09/解读.md">Noncommutative vector field calculi</a></div>
+          <div class="meta">Rita Fioresi, Emanuele Latini, Thomas Weber · 2026-07-09 · arXiv:2607.07243</div>
+          <div class="tags"><span class="tag">noncommutative geometry</span><span class="tag">Hopf-Galois</span><span class="tag">quantum tangent space</span></div>
+        </article>
 
-      <article class="article">
-        <div class="title"><a href="ArxivDaily/Noncommutative vector field calculi - Fioresi Latini Weber - 2026-07-09/解读.md">Noncommutative vector field calculi</a></div>
-        <div class="meta">Rita Fioresi, Emanuele Latini, Thomas Weber · 2026-07-09 · arXiv:2607.07243</div>
-        <div class="tags"><span class="tag">noncommutative geometry</span><span class="tag">Hopf-Galois</span><span class="tag">quantum tangent space</span></div>
-      </article>
+        <article class="article">
+          <div class="title"><a href="ArxivDaily/PBW bases and centralisers for the q-Onsager algebra - Zhu - 2026-07-14/解读.md">PBW bases and centralisers for the q-Onsager algebra</a></div>
+          <div class="meta">Haoran Zhu · 2026-07-14 · arXiv:2607.10097</div>
+          <div class="tags"><span class="tag">q-Onsager</span><span class="tag">PBW</span><span class="tag">centralisers</span></div>
+        </article>
 
-      <article class="article">
-        <div class="title"><a href="ArxivDaily/PBW bases and centralisers for the q-Onsager algebra - Zhu - 2026-07-14/解读.md">PBW bases and centralisers for the q-Onsager algebra</a></div>
-        <div class="meta">Haoran Zhu · 2026-07-14 · arXiv:2607.10097</div>
-        <div class="tags"><span class="tag">q-Onsager</span><span class="tag">PBW</span><span class="tag">centralisers</span></div>
-      </article>
+        <article class="article">
+          <div class="title"><a href="ArxivDaily/Renormalization flows for 1D mixed states and a quantum Goursat lemma - Le-Nestour Perez-Garcia Ruiz-de-Alarcon - 2026-07-10/解读.md">Renormalization flows for 1D mixed states and a quantum Goursat lemma</a></div>
+          <div class="meta">Léo Le-Nestour, David Pérez-García, Alberto Ruiz-de-Alarcón · 2026-07-10 · arXiv:2607.08568</div>
+          <div class="tags"><span class="tag">C*-Hopf algebra</span><span class="tag">RG</span><span class="tag">quantum hypergroup</span></div>
+        </article>
+      </div>
+      </section>
 
-      <article class="article">
-        <div class="title"><a href="ArxivDaily/Renormalization flows for 1D mixed states and a quantum Goursat lemma - Le-Nestour Perez-Garcia Ruiz-de-Alarcon - 2026-07-10/解读.md">Renormalization flows for 1D mixed states and a quantum Goursat lemma</a></div>
-        <div class="meta">Léo Le-Nestour, David Pérez-García, Alberto Ruiz-de-Alarcón · 2026-07-10 · arXiv:2607.08568</div>
-        <div class="tags"><span class="tag">C*-Hopf algebra</span><span class="tag">RG</span><span class="tag">quantum hypergroup</span></div>
-      </article>
-    </section>
+      <section class="paper-section" data-category="Reshetikhin">
+        <div class="section-head">
+          <div>
+            <h2>Reshetikhin</h2>
+            <div class="folder-note">分类目录：`Reading papers/Reshetikhin`</div>
+          </div>
+        </div>
+        <div class="paper-list">
+          <article class="article">
+            <div class="title"><a href="Reshetikhin/Rational Ruijsenaars-Schneider hierarchy and bispectral difference operators - Iliev - 2006-09-05/paper.pdf">Rational Ruijsenaars-Schneider hierarchy and bispectral difference operators</a></div>
+            <div class="meta">Iliev · 2006-09-05 · paper.pdf</div>
+            <div class="tags"><span class="tag">Ruijsenaars-Schneider</span><span class="tag">bispectral</span><span class="tag">integrable systems</span></div>
+          </article>
+
+          <article class="article">
+            <div class="title"><a href="Reshetikhin/Spherical singularities in compactified Ruijsenaars-Schneider systems - Feher Dullin - 2026-04-20/paper.pdf">Spherical singularities in compactified Ruijsenaars-Schneider systems</a></div>
+            <div class="meta">Feher, Dullin · 2026-04-20 · paper.pdf</div>
+            <div class="tags"><span class="tag">Ruijsenaars-Schneider</span><span class="tag">singularities</span><span class="tag">Hamiltonian systems</span></div>
+          </article>
+        </div>
+      </section>
+
+      <div class="empty-state" id="emptyState">没有找到匹配的论文。</div>
+    </div>
 
     <aside>
       <h2>人名导航</h2>
-      <div class="author-grid">
+      <div class="author-grid author-nav">
         <a href="Files/Authors/Alberto-Ruiz-de-Alarcon.md">Alberto Ruiz-de-Alarcón</a>
         <a href="Files/Authors/Alexander-Molev.md">Alexander Molev</a>
         <a href="Files/Authors/Alexandre-Kirillov.md">Alexandre Kirillov</a>
@@ -233,38 +517,422 @@
         <a href="Files/Authors/Zhengwei-Liu.md">Zhengwei Liu</a>
       </div>
       <h3>维护入口</h3>
-      <div class="author-grid">
+      <div class="author-grid maintenance-nav">
         <a href="README.md">Reading papers README</a>
         <a href="Files/README.md">Files README</a>
         <a href="Files/Authors/_index.md">Author Index</a>
       </div>
     </aside>
   </main>
+  <section class="author-workbench" id="authorWorkbench">
+    <div class="author-workbench-header">
+      <h2>作者讨论</h2>
+      <div class="folder-note">按姓氏首字母选择作者；默认不显示作者详情。选中作者后再记录评价、打开主页或复制提示词讨论。</div>
+    </div>
+    <div class="author-picker" aria-label="作者筛选">
+      <label class="control-field">
+        <span>姓氏首字母</span>
+        <select id="authorInitial">
+          <option value="">选择首字母</option>
+        </select>
+      </label>
+      <label class="control-field">
+        <span>作者</span>
+        <select id="authorSelect" disabled>
+          <option value="">先选择首字母</option>
+        </select>
+      </label>
+    </div>
+    <div class="author-detail" id="authorDetail" hidden></div>
+  </section>
   <script>
+    const STORAGE_KEY = 'qwiki.paperState.v1';
+    const AUTHOR_STORAGE_KEY = 'qwiki.authorState.v1';
+    const CATEGORY_STORAGE_KEY = 'qwiki.categoryCollapse.v1';
+    const STATUS_OPTIONS = [
+      { value: 'unread', label: '未读' },
+      { value: 'reading', label: '正在读' },
+      { value: 'read', label: '已读' }
+    ];
+    const STATUS_LABELS = Object.fromEntries(STATUS_OPTIONS.map((item) => [item.value, item.label]));
+    const sections = Array.from(document.querySelectorAll('.paper-section'));
+    const articles = Array.from(document.querySelectorAll('.article'));
+    const authorLinks = Array.from(document.querySelectorAll('.author-nav a'));
+    const authorCatalog = authorLinks.map((link, index) => {
+      const name = link.textContent.trim();
+      const href = link.getAttribute('href') || '';
+      const key = decodeURIComponent(href || name);
+      const surname = getAuthorSurname(name);
+      return {
+        index,
+        name,
+        href,
+        key,
+        surname,
+        initial: surname.charAt(0).toUpperCase()
+      };
+    }).sort((a, b) => a.surname.localeCompare(b.surname) || a.name.localeCompare(b.name));
+    const controls = {
+      search: document.getElementById('searchInput'),
+      category: document.getElementById('categoryFilter'),
+      status: document.getElementById('statusFilter'),
+      tag: document.getElementById('tagFilter'),
+      reset: document.getElementById('resetFilters'),
+      summary: document.getElementById('readingSummary'),
+      empty: document.getElementById('emptyState')
+    };
+    let paperState = loadPaperState();
+    let authorState = loadAuthorState();
+    let categoryState = loadCategoryState();
+
+    function loadStoredObject(key) {
+      try {
+        const parsed = JSON.parse(localStorage.getItem(key) || '{}');
+        return parsed && typeof parsed === 'object' ? parsed : {};
+      } catch {
+        return {};
+      }
+    }
+
+    function saveStoredObject(key, value) {
+      try {
+        localStorage.setItem(key, JSON.stringify(value));
+        return true;
+      } catch {
+        return false;
+      }
+    }
+
+    function loadPaperState() {
+      return loadStoredObject(STORAGE_KEY);
+    }
+
+    function savePaperState() {
+      return saveStoredObject(STORAGE_KEY, paperState);
+    }
+
+    function loadAuthorState() {
+      return loadStoredObject(AUTHOR_STORAGE_KEY);
+    }
+
+    function saveAuthorState() {
+      return saveStoredObject(AUTHOR_STORAGE_KEY, authorState);
+    }
+
+    function loadCategoryState() {
+      return loadStoredObject(CATEGORY_STORAGE_KEY);
+    }
+
+    function saveCategoryState() {
+      return saveStoredObject(CATEGORY_STORAGE_KEY, categoryState);
+    }
+
+    function normalize(text) {
+      return String(text || '').toLocaleLowerCase('zh-CN').trim();
+    }
+
+    function getAuthorSurname(name) {
+      const asciiName = String(name || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      const parts = asciiName.split(/\s+/).filter(Boolean);
+      return parts[parts.length - 1] || asciiName || 'Unknown';
+    }
+
+    function getArticleKey(article) {
+      const href = article.querySelector('.title a')?.getAttribute('href') || '';
+      return decodeURIComponent(href || article.querySelector('.title')?.textContent.trim() || '');
+    }
+
+    function getArticleTags(article) {
+      return Array.from(article.querySelectorAll('.tag')).map((tag) => tag.textContent.trim());
+    }
+
+    function getArticleCategory(article) {
+      return article.closest('[data-category]')?.dataset.category || 'Uncategorized';
+    }
+
+    function ensurePaperEntry(key) {
+      if (!paperState[key] || typeof paperState[key] !== 'object') {
+        paperState[key] = {};
+      }
+      if (!STATUS_LABELS[paperState[key].status]) {
+        paperState[key].status = 'unread';
+      }
+      if (typeof paperState[key].note !== 'string') {
+        paperState[key].note = '';
+      }
+      return paperState[key];
+    }
+
+    function ensureAuthorEntry(key) {
+      if (!authorState[key] || typeof authorState[key] !== 'object') {
+        authorState[key] = {};
+      }
+      if (typeof authorState[key].note !== 'string') {
+        authorState[key].note = '';
+      }
+      return authorState[key];
+    }
+
+    function addOptions(select, values) {
+      values.forEach((value) => {
+        const option = document.createElement('option');
+        option.value = value;
+        option.textContent = value;
+        select.append(option);
+      });
+    }
+
+    function setupArticle(article, index) {
+      const key = getArticleKey(article);
+      const entry = ensurePaperEntry(key);
+      article.dataset.key = key;
+      article.dataset.category = getArticleCategory(article);
+      article.dataset.status = entry.status;
+
+      const tools = document.createElement('div');
+      tools.className = 'paper-tools';
+
+      const statusControl = document.createElement('div');
+      statusControl.className = 'status-control';
+      const statusLabel = document.createElement('label');
+      const statusId = `paper-status-${index}`;
+      statusLabel.textContent = '阅读状态';
+      statusLabel.htmlFor = statusId;
+      const statusSelect = document.createElement('select');
+      statusSelect.id = statusId;
+      statusSelect.className = 'reading-status';
+      STATUS_OPTIONS.forEach((item) => {
+        const option = document.createElement('option');
+        option.value = item.value;
+        option.textContent = item.label;
+        statusSelect.append(option);
+      });
+      statusSelect.value = entry.status;
+      statusSelect.addEventListener('change', () => {
+        entry.status = statusSelect.value;
+        article.dataset.status = entry.status;
+        savePaperState();
+        applyFilters();
+      });
+      statusControl.append(statusLabel, statusSelect);
+
+      const noteControl = document.createElement('div');
+      noteControl.className = 'paper-note';
+      const noteLabel = document.createElement('label');
+      const noteId = `paper-note-${index}`;
+      noteLabel.textContent = '学习情况 / 印象';
+      noteLabel.htmlFor = noteId;
+      const noteArea = document.createElement('textarea');
+      noteArea.id = noteId;
+      noteArea.value = entry.note;
+      noteArea.placeholder = '记录你对这篇文章的理解、卡点、兴趣点或后续想问的问题';
+      const noteState = document.createElement('div');
+      noteState.className = 'note-state';
+      noteState.textContent = entry.note ? '已保存' : '';
+      noteArea.addEventListener('input', () => {
+        entry.note = noteArea.value;
+        noteState.textContent = savePaperState() ? '已保存' : '暂未写入本地存储';
+        applyFilters();
+      });
+      noteControl.append(noteLabel, noteArea, noteState);
+      tools.append(statusControl, noteControl);
+
+      const action = document.createElement('div');
+      action.className = 'discussion-action';
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = '优化讨论';
+      const status = document.createElement('span');
+      status.textContent = '复制提示词并打开 Documents 项目新聊天';
+      button.addEventListener('click', () => copyPromptAndOpenCodex(article, button, status));
+      action.append(button, status);
+
+      article.append(tools, action);
+    }
+
+    function setupCategorySection(section) {
+      const category = section.dataset.category || section.querySelector('h2')?.textContent.trim() || 'Uncategorized';
+      const head = section.querySelector('.section-head');
+      const list = section.querySelector('.paper-list');
+      if (!head || !list) return;
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'category-toggle';
+
+      const sync = () => {
+        const collapsed = Boolean(categoryState[category]);
+        list.classList.toggle('is-collapsed', collapsed);
+        button.textContent = collapsed ? '展开' : '折叠';
+        button.setAttribute('aria-expanded', String(!collapsed));
+      };
+
+      button.addEventListener('click', () => {
+        categoryState[category] = !categoryState[category];
+        saveCategoryState();
+        sync();
+      });
+
+      head.append(button);
+      sync();
+    }
+
+    function buildAuthorDiscussionPrompt(name, href, entry) {
+      const profilePath = 'D:/WSLlib/Documents/Reading papers/' + decodeURIComponent(href);
+      const impression = entry.note.trim() || '暂无';
+      return [
+        '请在 D:/WSLlib/Documents 项目的新聊天中，先读取 D:/WSLlib/Documents/Memory.md，然后围绕这个作者档案和我讨论后续阅读与研究理解。',
+        '',
+        '作者：' + name,
+        '作者档案：' + profilePath,
+        '我的作者印象/问题：' + impression,
+        '',
+        '请先阅读作者档案，并帮助我整理这个作者的学术历史、导师或学术谱系、学术品位、代表作、研究风格、核心技巧，以及我接下来应该怎样读 TA 的论文。请结合我当前的印象，提出 3-5 个可以继续互动创作的方向，例如作者谱系图、代表作路线图、术语卡片、论文关系网络、阅读计划或 QWiki 页面增强。'
+      ].join('\n');
+    }
+
+    function setupAuthorWorkbench() {
+      const initialSelect = document.getElementById('authorInitial');
+      const authorSelect = document.getElementById('authorSelect');
+      const detail = document.getElementById('authorDetail');
+      if (!initialSelect || !authorSelect || !detail) return;
+
+      const initials = [...new Set(authorCatalog.map((author) => author.initial))].sort();
+      initials.forEach((initial) => {
+        const option = document.createElement('option');
+        option.value = initial;
+        option.textContent = initial;
+        initialSelect.append(option);
+      });
+
+      const resetAuthorSelect = (message) => {
+        authorSelect.textContent = '';
+        const option = document.createElement('option');
+        option.value = '';
+        option.textContent = message;
+        authorSelect.append(option);
+        authorSelect.value = '';
+        detail.hidden = true;
+        detail.textContent = '';
+      };
+
+      const renderAuthorDetail = (author) => {
+        const entry = ensureAuthorEntry(author.key);
+        detail.textContent = '';
+        detail.hidden = false;
+
+        const title = document.createElement('div');
+        title.className = 'author-detail-title';
+        const nameLink = document.createElement('a');
+        nameLink.href = author.href;
+        nameLink.textContent = author.name;
+        const path = document.createElement('span');
+        path.className = 'author-path';
+        path.textContent = decodeURIComponent(author.href);
+        title.append(nameLink, path);
+
+        const tools = document.createElement('div');
+        tools.className = 'author-tools';
+
+        const note = document.createElement('div');
+        note.className = 'author-note';
+        const noteLabel = document.createElement('label');
+        noteLabel.htmlFor = 'selected-author-note';
+        noteLabel.textContent = '评价';
+        const noteArea = document.createElement('textarea');
+        noteArea.id = 'selected-author-note';
+        noteArea.value = entry.note;
+        noteArea.placeholder = '记录你对这个作者的学术风格、代表作、谱系或想追问的问题';
+        const noteState = document.createElement('div');
+        noteState.className = 'note-state';
+        noteState.textContent = entry.note ? '已保存' : '';
+        noteArea.addEventListener('input', () => {
+          entry.note = noteArea.value;
+          noteState.textContent = saveAuthorState() ? '已保存' : '暂未写入本地存储';
+        });
+        note.append(noteLabel, noteArea, noteState);
+
+        const action = document.createElement('div');
+        action.className = 'author-action';
+        const homeLink = document.createElement('a');
+        homeLink.href = author.href;
+        homeLink.textContent = '主页';
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = '讨论作者';
+        const status = document.createElement('span');
+        status.textContent = '复制提示词并打开 Documents 项目新聊天';
+        button.addEventListener('click', () => {
+          const prompt = buildAuthorDiscussionPrompt(author.name, author.href, entry);
+          copyPromptToCodex(prompt, status, '已复制，正在打开 Documents 项目新聊天', '已生成提示词；若复制失败，请手动复制作者评价');
+        });
+        action.append(homeLink, button, status);
+
+        tools.append(note, action);
+        detail.append(title, tools);
+      };
+
+      resetAuthorSelect('先选择首字母');
+
+      initialSelect.addEventListener('change', () => {
+        const initial = initialSelect.value;
+        if (!initial) {
+          authorSelect.disabled = true;
+          resetAuthorSelect('先选择首字母');
+          return;
+        }
+
+        const authors = authorCatalog.filter((author) => author.initial === initial);
+        authorSelect.disabled = false;
+        authorSelect.textContent = '';
+        const placeholder = document.createElement('option');
+        placeholder.value = '';
+        placeholder.textContent = '选择作者';
+        authorSelect.append(placeholder);
+        authors.forEach((author) => {
+          const option = document.createElement('option');
+          option.value = author.key;
+          option.textContent = author.name;
+          authorSelect.append(option);
+        });
+        authorSelect.value = '';
+        detail.hidden = true;
+        detail.textContent = '';
+      });
+
+      authorSelect.addEventListener('change', () => {
+        const author = authorCatalog.find((item) => item.key === authorSelect.value);
+        if (!author) {
+          detail.hidden = true;
+          detail.textContent = '';
+          return;
+        }
+        renderAuthorDetail(author);
+      });
+    }
+
     function buildDiscussionPrompt(article) {
       const title = article.querySelector('.title a')?.textContent.trim() || 'Untitled paper';
       const href = article.querySelector('.title a')?.getAttribute('href') || '';
       const meta = article.querySelector('.meta')?.textContent.trim() || '';
-      const notePath = 'D:/WSLlib/Documents/Reading papers/' + decodeURIComponent(href);
+      const entry = ensurePaperEntry(article.dataset.key || getArticleKey(article));
+      const resourcePath = 'D:/WSLlib/Documents/Reading papers/' + decodeURIComponent(href);
+      const resourceLabel = href.endsWith('/解读.md') ? '解读文件' : '论文文件';
+      const impression = entry.note.trim() || '暂无';
       return [
-        '请在 D:/WSLlib/Documents 项目的新聊天中，先读取 D:/WSLlib/Documents/Memory.md，然后围绕这篇论文解读和我讨论可以创作哪些交互式内容。',
+        '请在 D:/WSLlib/Documents 项目的新聊天中，先读取 D:/WSLlib/Documents/Memory.md，然后围绕这篇论文资料和我讨论可以创作哪些交互式内容。',
         '',
         '论文标题：' + title,
         '论文信息：' + meta,
-        '解读文件：' + notePath,
+        '阅读状态：' + STATUS_LABELS[entry.status],
+        '我的学习情况/印象：' + impression,
+        resourceLabel + '：' + resourcePath,
         '',
-        '请先阅读该解读文件，再提出 3-5 个可做的互动方向，例如：概念图、证明路线交互图、对象关系网络、术语卡片、可调参数的 toy model、时间线、学习路线、可视化模拟或 QWiki 页面增强。每个方向请说明目标、交互方式、最小可行版本、需要补充的数学背景，以及最适合落地成 HTML/JS、Markdown、Mermaid、Canvas 或其他形式。然后和我讨论优先做哪一个。'
+        '请先阅读该资料文件，并结合我的阅读状态和学习印象，再提出 3-5 个可做的互动方向，例如：概念图、证明路线交互图、对象关系网络、术语卡片、可调参数的 toy model、时间线、学习路线、可视化模拟或 QWiki 页面增强。每个方向请说明目标、交互方式、最小可行版本、需要补充的数学背景，以及最适合落地成 HTML/JS、Markdown、Mermaid、Canvas 或其他形式。然后和我讨论优先做哪一个。'
       ].join('\n');
     }
 
-    async function copyPromptAndOpenCodex(article, button, status) {
-      const prompt = buildDiscussionPrompt(article);
-      try {
-        await navigator.clipboard.writeText(prompt);
-        status.textContent = '已复制，正在打开 Documents 项目新聊天';
-      } catch {
-        status.textContent = '已生成提示词；若复制失败，请从对应解读.md末尾手动复制';
-      }
+    function openCodexWithPrompt(prompt) {
       const projectPath = 'D:/WSLlib/Documents';
       const params = new URLSearchParams({
         project: projectPath,
@@ -275,18 +943,103 @@
       window.location.href = 'codex://new?' + params.toString();
     }
 
-    document.querySelectorAll('.article').forEach((article) => {
-      const action = document.createElement('div');
-      action.className = 'discussion-action';
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.textContent = '优化讨论';
-      const status = document.createElement('span');
-      status.textContent = '复制提示词并打开 Documents 项目新聊天';
-      button.addEventListener('click', () => copyPromptAndOpenCodex(article, button, status));
-      action.append(button, status);
-      article.append(action);
-    });
+    async function copyPromptToCodex(prompt, status, successText, failureText) {
+      try {
+        await navigator.clipboard.writeText(prompt);
+        status.textContent = successText;
+      } catch {
+        status.textContent = failureText;
+      }
+      openCodexWithPrompt(prompt);
+    }
+
+    async function copyPromptAndOpenCodex(article, button, status) {
+      const prompt = buildDiscussionPrompt(article);
+      await copyPromptToCodex(prompt, status, '已复制，正在打开 Documents 项目新聊天', '已生成提示词；若复制失败，请从对应解读.md末尾手动复制');
+    }
+
+    function getArticleCorpus(article) {
+      const entry = ensurePaperEntry(article.dataset.key || getArticleKey(article));
+      return normalize([
+        article.querySelector('.title')?.textContent,
+        article.querySelector('.meta')?.textContent,
+        getArticleTags(article).join(' '),
+        article.dataset.category,
+        STATUS_LABELS[entry.status],
+        entry.note
+      ].join(' '));
+    }
+
+    function updateSummary(visibleCount) {
+      const totals = { unread: 0, reading: 0, read: 0 };
+      articles.forEach((article) => {
+        const entry = ensurePaperEntry(article.dataset.key || getArticleKey(article));
+        totals[entry.status] += 1;
+      });
+      controls.summary.textContent = '';
+      [
+        ['显示', `${visibleCount}/${articles.length}`],
+        ['未读', totals.unread],
+        ['正在读', totals.reading],
+        ['已读', totals.read]
+      ].forEach(([label, value]) => {
+        const item = document.createElement('span');
+        item.className = 'summary-pill';
+        item.textContent = `${label} ${value}`;
+        controls.summary.append(item);
+      });
+    }
+
+    function applyFilters() {
+      const query = normalize(controls.search.value);
+      const category = controls.category.value;
+      const status = controls.status.value;
+      const tag = controls.tag.value;
+      let visibleCount = 0;
+
+      articles.forEach((article) => {
+        const entry = ensurePaperEntry(article.dataset.key || getArticleKey(article));
+        const tags = getArticleTags(article);
+        const matchesQuery = !query || getArticleCorpus(article).includes(query);
+        const matchesCategory = category === 'all' || article.dataset.category === category;
+        const matchesStatus = status === 'all' || entry.status === status;
+        const matchesTag = tag === 'all' || tags.includes(tag);
+        const visible = matchesQuery && matchesCategory && matchesStatus && matchesTag;
+        article.hidden = !visible;
+        if (visible) visibleCount += 1;
+      });
+
+      controls.empty.classList.toggle('is-visible', visibleCount === 0);
+      updateSummary(visibleCount);
+    }
+
+    function setupFilters() {
+      const categories = [...new Set(articles.map(getArticleCategory))].sort((a, b) => a.localeCompare(b));
+      const tags = [...new Set(articles.flatMap(getArticleTags))].sort((a, b) => a.localeCompare(b));
+      addOptions(controls.category, categories);
+      addOptions(controls.tag, tags);
+      [controls.search, controls.category, controls.status, controls.tag].forEach((control) => {
+        control.addEventListener('input', applyFilters);
+        control.addEventListener('change', applyFilters);
+      });
+      controls.reset.addEventListener('click', () => {
+        controls.search.value = '';
+        controls.category.value = 'all';
+        controls.status.value = 'all';
+        controls.tag.value = 'all';
+        applyFilters();
+        controls.search.focus();
+      });
+    }
+
+    sections.forEach(setupCategorySection);
+    articles.forEach(setupArticle);
+    setupAuthorWorkbench();
+    setupFilters();
+    savePaperState();
+    saveAuthorState();
+    saveCategoryState();
+    applyFilters();
   </script>
 </body>
 </html>

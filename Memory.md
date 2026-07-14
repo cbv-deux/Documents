@@ -20,3 +20,7 @@
 - 论文解读文档和作者档案之间使用相对 Markdown 链接互相引用。
 - 每个 `解读.md` 末尾加入“互动创作讨论”区块：包含一个复制提示词并尝试打开 Codex Documents 项目新聊天的按钮，同时保留可手动复制的提示词文本。
 - “互动创作讨论”按钮使用 `codex://new` 深链，URL 参数同时传入 `project`、`projectPath`、`cwd`，值均为 `D:/WSLlib/Documents`，并把同一个讨论提示词作为 `prompt` 参数传入。
+- QWiki 首页为每篇论文提供阅读状态（未读/正在读/已读）和“学习情况 / 印象”文本框；这些页面交互状态保存在浏览器本地 `localStorage`，键名为 `qwiki.paperState.v1`。
+- QWiki 首页顶部保留搜索框和筛选菜单，至少支持按论文分类、阅读状态、标签和文本搜索检索。
+- QWiki 首页底部为每位作者提供“作者印象 / 后续问题”文本框和“讨论作者”按钮；作者交互状态保存在浏览器本地 `localStorage`，键名为 `qwiki.authorState.v1`。
+- QWiki 首页每个论文大类（对应 `Reading papers` 下的子文件夹）应支持折叠/展开；折叠状态保存在浏览器本地 `localStorage`，键名为 `qwiki.categoryCollapse.v1`。

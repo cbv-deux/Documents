@@ -29,6 +29,10 @@ Reading papers/
 - 正文内容中文为主，必要术语中英文并列。
 - LaTeX 公式行内使用 `$...$`，行间使用 `$$...$$`；不要使用反斜杠圆括号或反斜杠方括号作为公式分隔符。
 - 每个 `解读.md` 末尾保留“互动创作讨论”区块，用于复制提示词并通过 `codex://new` 尝试打开 Codex 的 Documents 项目新聊天，继续讨论可视化、交互工具或 QWiki 页面增强。
+- `index.html` 顶部保留搜索框和筛选菜单，支持按论文分类、阅读状态、标签和文本搜索检索。
+- `index.html` 中每篇论文的阅读状态和“学习情况 / 印象”保存在浏览器本地 `localStorage`，键名为 `qwiki.paperState.v1`。
+- `index.html` 底部为每位作者保留“作者印象 / 后续问题”文本框和“讨论作者”按钮；作者交互状态保存在浏览器本地 `localStorage`，键名为 `qwiki.authorState.v1`。
+- `index.html` 中每个论文大类支持折叠/展开；折叠状态保存在浏览器本地 `localStorage`，键名为 `qwiki.categoryCollapse.v1`。
 
 ## 默认解读模板
 
