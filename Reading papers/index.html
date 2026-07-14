@@ -261,13 +261,18 @@
       const prompt = buildDiscussionPrompt(article);
       try {
         await navigator.clipboard.writeText(prompt);
-        status.textContent = '已复制，正在尝试打开 Codex';
+        status.textContent = '已复制，正在打开 Documents 项目新聊天';
       } catch {
         status.textContent = '已生成提示词；若复制失败，请从对应解读.md末尾手动复制';
       }
-      const project = encodeURIComponent('D:/WSLlib/Documents');
-      window.location.href = 'codex://new?project=' + project;
-      setTimeout(() => { window.location.href = 'openai-codex://new?project=' + project; }, 600);
+      const projectPath = 'D:/WSLlib/Documents';
+      const params = new URLSearchParams({
+        project: projectPath,
+        projectPath,
+        cwd: projectPath,
+        prompt
+      });
+      window.location.href = 'codex://new?' + params.toString();
     }
 
     document.querySelectorAll('.article').forEach((article) => {
@@ -277,7 +282,7 @@
       button.type = 'button';
       button.textContent = '优化讨论';
       const status = document.createElement('span');
-      status.textContent = '复制提示词并尝试打开 Codex';
+      status.textContent = '复制提示词并打开 Documents 项目新聊天';
       button.addEventListener('click', () => copyPromptAndOpenCodex(article, button, status));
       action.append(button, status);
       article.append(action);

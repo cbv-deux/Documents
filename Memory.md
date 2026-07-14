@@ -19,3 +19,4 @@
 - 作者档案放在 `Reading papers/Files/Authors/`。
 - 论文解读文档和作者档案之间使用相对 Markdown 链接互相引用。
 - 每个 `解读.md` 末尾加入“互动创作讨论”区块：包含一个复制提示词并尝试打开 Codex Documents 项目新聊天的按钮，同时保留可手动复制的提示词文本。
+- “互动创作讨论”按钮使用 `codex://new` 深链，URL 参数同时传入 `project`、`projectPath`、`cwd`，值均为 `D:/WSLlib/Documents`，并把同一个讨论提示词作为 `prompt` 参数传入。
